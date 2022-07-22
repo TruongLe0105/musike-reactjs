@@ -1,9 +1,17 @@
-html {
+*,
+::after,
+::before {
 
-    font-size: 10px;
+    box-sizing: border-box;
 }
+
+html {
+    font-size: 10px;
+    user-select: none;
+}
+
 body {
     margin: 0;
-        background-color: rgba(23, 23, 23, 1);
-        height: '100%'
+    background-color: rgba(23, 23, 23, 1);
+    height: '100%';
 }

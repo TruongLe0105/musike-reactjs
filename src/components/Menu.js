@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/Images/logo.png";
 import group from "../assets/Images/group.png";
 import styled from "styled-components";
 import { Box } from "@mui/material";
 
-const BUTTON = [
+const ButtonList = [
   {
     title: "Explore NFT Music",
     icon: <i className="fa-solid fa-music"></i>,
-    action: false,
   },
   {
     title: "My NFT collection",
@@ -16,49 +15,51 @@ const BUTTON = [
   },
   {
     title: "HOT collection",
-    icon: <i className="fa-solid fa-fire"></i>,
+    icon: <i className="fa-solid fa-compact-disc"></i>,
+  },
+  {
+    title: "Artists",
+    icon: <i class="fa-solid fa-microphone"></i>,
+  },
+  {
+    title: "Upload",
+    icon: <i class="fa-solid fa-arrow-up-from-bracket"></i>,
   },
   {
     title: "Albums",
     icon: <i className="fa-solid fa-compact-disc"></i>,
   },
   {
-    title: "Artists",
-    icon: <i className="fa-solid fa-microphone"></i>,
-  },
-  {
-    title: "Upload",
-    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
-  },
-  {
     title: "Create NFT Music",
-    icon: <i className="fa-regular fa-square-plus"></i>,
+    icon: <i class="fa-regular fa-square-plus"></i>,
   },
 ];
 
-function Menu() {
+function Menu({ disabled, setDisabled, setActive }) {
   const [clicked, setClicked] = useState(0);
 
-  const Button = styled.button`
+  const ItemMenu = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 4rem;
-    font-size: 2rem;
-    width: 100%;
-    color: white;
+    padding-left: 2rem;
     cursor: pointer;
-    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    :hover {
+      opacity: 0.7;
+    }
   `;
 
-  const ItemFooter = styled(Box)`
+  const ItemFooter = styled.div`
     display: flex;
     margin-left: 3rem;
-    font-size: 1.6rem;
   `;
 
   const Title = styled.p`
     margin-left: 2rem;
+    font-size: 1.6rem;
   `;
 
   const TitleFooter = styled.p`
@@ -74,46 +75,68 @@ function Menu() {
     fontSize: "1.6rem",
   };
 
-  const titleFooter = {
+  const footer = {
     textTransform: "uppercase",
     opacity: 0.5,
-    marginTop: "2rem",
+    fontSize: "1.6rem",
+    margin: "1rem",
     marginLeft: "4rem",
   };
 
-  const ImageLogo = {
-    marginLeft: "5rem",
+  const imageLogo = {
+    marginLeft: "3rem",
     marginTop: "2rem",
   };
 
-  const ImageGroup = {
-    marginLeft: "3rem",
+  const imageGroup = {
+    marginLeft: "2rem",
+    width: "10rem",
+    height: "10rem",
+    alignItems: "center",
   };
+
+  const line = {
+    position: "absolute",
+    height: "100%",
+    width: "0.3rem",
+    right: 0,
+    backgroundColor: "red",
+  };
+
   const handleClick = (index) => {
+    setDisabled(false);
+    setActive(false);
     setClicked(index);
   };
 
   return (
-    <Box sx={wrapperMenu}>
-      <Box sx={ImageLogo}>
-        <img src={logo} />
-      </Box>
-      {BUTTON.map((item, index) => (
-        <Box key={index}>
-          <Button
-            onClick={(index) => handleClick(index)}
-            // sx={{ backgroundColor: index === indexBtn ? "gray" : "white" }}
+    <div style={wrapperMenu}>
+      <div style={imageLogo}>
+        <img src={logo} alt="Musike" />
+      </div>
+
+      {ButtonList.map((item, index) => (
+        <>
+          <ItemMenu
+            style={{
+              backgroundColor:
+                index === clicked && disabled === false
+                  ? "rgba(255, 255, 255, 0.2)"
+                  : "transparent",
+              opacity: index === clicked && 1,
+            }}
+            onClick={() => handleClick(index)}
           >
             {item.icon}
             <Title>{item.title}</Title>
-          </Button>
-          {index === 4 && <Box sx={titleFooter}>upload music</Box>}
-        </Box>
+            {index === clicked && disabled === false && <div style={line} />}
+          </ItemMenu>
+          {index === 4 && <div style={footer}>upload music</div>}
+        </>
       ))}
-
-      <Box sx={ImageGroup}>
-        <img src={group} />
-      </Box>
+      <div style={imageGroup}>
+        <img src={group} alt="group" width="100%" height="100%" />
+      </div>
       <ItemFooter>
         <TitleFooter>Mining time</TitleFooter>
         <p>24:00:00</p>
@@ -126,7 +149,7 @@ function Menu() {
         <TitleFooter>Today earned</TitleFooter>
         <p>07.2975 Musike</p>
       </ItemFooter>
-    </Box>
+    </div>
   );
 }
 

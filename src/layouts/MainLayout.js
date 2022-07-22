@@ -8,7 +8,6 @@ import Menu from "../components/Menu";
 function MainLayout() {
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Menu />
       <MainHeader />
       <Outlet />
       <Box style={{ flexGrow: 1 }} />
