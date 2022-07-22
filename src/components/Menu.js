@@ -1,93 +1,119 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/Images/logo.png";
 import group from "../assets/Images/group.png";
 import styled from "styled-components";
+import { Box } from "@mui/material";
 
-const ItemMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin-left: 40px;
-`;
-
-const ItemFooter = styled.div`
-  display: flex;
-  margin-left: 30px;
-  font-size: 16px;
-`;
-
-const Title = styled.p`
-  margin-left: 20px;
-  font-size: 20px;
-`;
-
-const TitleFooter = styled.p`
-  margin-right: 30px;
-`;
+const BUTTON = [
+  {
+    title: "Explore NFT Music",
+    icon: <i className="fa-solid fa-music"></i>,
+    action: false,
+  },
+  {
+    title: "My NFT collection",
+    icon: <i className="fa-solid fa-list"></i>,
+  },
+  {
+    title: "HOT collection",
+    icon: <i className="fa-solid fa-fire"></i>,
+  },
+  {
+    title: "Albums",
+    icon: <i className="fa-solid fa-compact-disc"></i>,
+  },
+  {
+    title: "Artists",
+    icon: <i className="fa-solid fa-microphone"></i>,
+  },
+  {
+    title: "Upload",
+    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
+  },
+  {
+    title: "Create NFT Music",
+    icon: <i className="fa-regular fa-square-plus"></i>,
+  },
+];
 
 function Menu() {
+  const [clicked, setClicked] = useState(0);
+
+  const Button = styled.button`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 4rem;
+    font-size: 2rem;
+    width: 100%;
+    color: white;
+    cursor: pointer;
+    background-color: transparent;
+  `;
+
+  const ItemFooter = styled(Box)`
+    display: flex;
+    margin-left: 3rem;
+    font-size: 1.6rem;
+  `;
+
+  const Title = styled.p`
+    margin-left: 2rem;
+  `;
+
+  const TitleFooter = styled.p`
+    margin-right: 3rem;
+  `;
+
   const wrapperMenu = {
     position: "fixed",
-    width: "18%",
+    width: "20%",
     height: "100%",
     backgroundColor: "black",
     color: "white",
+    fontSize: "1.6rem",
   };
 
   const titleFooter = {
     textTransform: "uppercase",
     opacity: 0.5,
-    marginTop: 20,
-    marginLeft: 40,
+    marginTop: "2rem",
+    marginLeft: "4rem",
   };
 
   const ImageLogo = {
-    marginLeft: 50,
-    marginTop: 20,
+    marginLeft: "5rem",
+    marginTop: "2rem",
   };
 
   const ImageGroup = {
-    marginLeft: 30,
+    marginLeft: "3rem",
+  };
+  const handleClick = (index) => {
+    setClicked(index);
   };
 
   return (
-    <div style={wrapperMenu}>
-      <div style={ImageLogo}>
+    <Box sx={wrapperMenu}>
+      <Box sx={ImageLogo}>
         <img src={logo} />
-      </div>
-      <ItemMenu>
-        <i class="fa-solid fa-music"></i>
-        <Title>Explore NFT Music</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-list"></i>
-        <Title>My NFT collection</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-fire"></i>
-        <Title>HOT collection</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-compact-disc"></i>
-        <Title>Albums</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-microphone"></i>
-        <Title>Artists</Title>
-      </ItemMenu>
-      <div style={titleFooter}>upload music</div>
-      <ItemMenu>
-        <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        <Title>Upload</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-regular fa-square-plus"></i>
-        <Title>Create NFT Music</Title>
-      </ItemMenu>
-      <div style={ImageGroup}>
+      </Box>
+      {BUTTON.map((item, index) => (
+        <Box key={index}>
+          <Button
+            onClick={(index) => handleClick(index)}
+            // sx={{ backgroundColor: index === indexBtn ? "gray" : "white" }}
+          >
+            {item.icon}
+            <Title>{item.title}</Title>
+          </Button>
+          {index === 4 && <Box sx={titleFooter}>upload music</Box>}
+        </Box>
+      ))}
+
+      <Box sx={ImageGroup}>
         <img src={group} />
-      </div>
+      </Box>
       <ItemFooter>
         <TitleFooter>Mining time</TitleFooter>
         <p>24:00:00</p>
@@ -100,7 +126,7 @@ function Menu() {
         <TitleFooter>Today earned</TitleFooter>
         <p>07.2975 Musike</p>
       </ItemFooter>
-    </div>
+    </Box>
   );
 }
 

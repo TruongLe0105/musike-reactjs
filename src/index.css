@@ -1,4 +1,9 @@
+html {
+
+    font-size: 10px;
+}
 body {
     margin: 0;
         background-color: rgba(23, 23, 23, 1);
+        height: '100%'
 }
