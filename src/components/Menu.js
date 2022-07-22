@@ -1,93 +1,120 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/Images/logo.png";
 import group from "../assets/Images/group.png";
 import styled from "styled-components";
 
-const ItemMenu = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-  margin-left: 40px;
-`;
 
-const ItemFooter = styled.div`
-  display: flex;
-  margin-left: 30px;
-  font-size: 16px;
-`;
 
-const Title = styled.p`
-  margin-left: 20px;
-  font-size: 20px;
-`;
-
-const TitleFooter = styled.p`
-  margin-right: 30px;
-`;
+const ButtonList = [
+  {
+    title: "Explore NFT Music",
+    icon: <i className="fa-solid fa-music"></i>
+  },
+  {
+    title: "My NFT collection",
+    icon: <i className="fa-solid fa-list"></i>
+  },
+  {
+    title: "HOT collection",
+    icon: <i className="fa-solid fa-compact-disc"></i>
+  },
+  {
+    title: "Artists",
+    icon: <i class="fa-solid fa-microphone"></i>
+  },
+  {
+    title: "Upload",
+    icon: <i class="fa-solid fa-arrow-up-from-bracket"></i>
+  },
+  {
+    title: "Albums",
+    icon: <i className="fa-solid fa-compact-disc"></i>
+  },
+  {
+    title: "Create NFT Music",
+    icon: <i class="fa-regular fa-square-plus"></i>
+  },
+]
 
 function Menu() {
+  // const [clicked, setClicked] = useState(0);
+  const [active, setActive] = useState(0);
+
+  const ItemMenu = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+padding-left: 2rem;
+cursor:pointer;
+color:white;
+font-size:2rem
+`;
+
+  const ItemFooter = styled.div`
+display: flex;
+margin-left: 3rem;
+`;
+
+  const Title = styled.p`
+margin-left: 2rem;
+font-size:1.6rem
+`;
+
+  const TitleFooter = styled.p`
+margin-right: 3rem;
+`;
+
   const wrapperMenu = {
     position: "fixed",
-    width: "18%",
+    width: "20%",
     height: "100%",
     backgroundColor: "black",
     color: "white",
   };
 
-  const titleFooter = {
+  const footer = {
     textTransform: "uppercase",
     opacity: 0.5,
-    marginTop: 20,
-    marginLeft: 40,
+    fontSize: "1.6rem",
+    margin: "1rem",
+    marginLeft: "4rem",
   };
 
-  const ImageLogo = {
-    marginLeft: 50,
-    marginTop: 20,
+  const imageLogo = {
+    marginLeft: "3rem",
+    marginTop: "2rem",
   };
 
-  const ImageGroup = {
-    marginLeft: 30,
+  const imageGroup = {
+    marginLeft: "2rem",
+    width: '10rem',
+    height: '10rem',
+    alignItems: 'center'
   };
 
   return (
     <div style={wrapperMenu}>
-      <div style={ImageLogo}>
-        <img src={logo} />
+      <div style={imageLogo}>
+        <img src={logo} alt="Musike" />
       </div>
-      <ItemMenu>
-        <i class="fa-solid fa-music"></i>
-        <Title>Explore NFT Music</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-list"></i>
-        <Title>My NFT collection</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-fire"></i>
-        <Title>HOT collection</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-compact-disc"></i>
-        <Title>Albums</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-solid fa-microphone"></i>
-        <Title>Artists</Title>
-      </ItemMenu>
-      <div style={titleFooter}>upload music</div>
-      <ItemMenu>
-        <i class="fa-solid fa-arrow-up-from-bracket"></i>
-        <Title>Upload</Title>
-      </ItemMenu>
-      <ItemMenu>
-        <i class="fa-regular fa-square-plus"></i>
-        <Title>Create NFT Music</Title>
-      </ItemMenu>
-      <div style={ImageGroup}>
-        <img src={group} />
-      </div>
+
+      {ButtonList.slice(0, 4).map((item, index) => (
+        <>
+          <ItemMenu style={{ backgroundColor: index === active ? "red" : "transparent" }} onClick={() => setActive(index)}>
+            {item.icon}
+            <Title>{item.title}</Title>
+          </ItemMenu>
+        </>
+      ))}
+      <div style={footer}>upload music</div>
+      {ButtonList.slice(4,).map((item, index) => (
+        <>
+          <ItemMenu style={{ backgroundColor: index === active ? "red" : "transparent" }} onClick={() => setActive(index)}>
+            {item.icon}
+            <Title>{item.title}</Title>
+          </ItemMenu>
+        </>
+      ))}
       <ItemFooter>
         <TitleFooter>Mining time</TitleFooter>
         <p>24:00:00</p>
@@ -100,6 +127,9 @@ function Menu() {
         <TitleFooter>Today earned</TitleFooter>
         <p>07.2975 Musike</p>
       </ItemFooter>
+      <div style={imageGroup}>
+        <img src={group} alt="group" width="100%" height="100%" />
+      </div>
     </div>
   );
 }
