@@ -3,6 +3,8 @@ import logo from "../assets/Images/logo.png";
 import group from "../assets/Images/group.png";
 import styled from "styled-components";
 import { Box } from "@mui/material";
+import { ItemFooter, ItemMenu, Title, TitleFooter } from "./styled/MenuStyled";
+import '../components/css/menu.css';
 
 const ButtonList = [
   {
@@ -19,11 +21,11 @@ const ButtonList = [
   },
   {
     title: "Artists",
-    icon: <i class="fa-solid fa-microphone"></i>,
+    icon: <i className="fa-solid fa-microphone"></i>,
   },
   {
     title: "Upload",
-    icon: <i class="fa-solid fa-arrow-up-from-bracket"></i>,
+    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
   },
   {
     title: "Albums",
@@ -31,77 +33,13 @@ const ButtonList = [
   },
   {
     title: "Create NFT Music",
-    icon: <i class="fa-regular fa-square-plus"></i>,
+    icon: <i className="fa-regular fa-square-plus"></i>,
   },
 ];
 
-function Menu({ disabled, setDisabled, setActive }) {
+const Menu = ({ disabled, setDisabled, setActive }) => {
   const [clicked, setClicked] = useState(0);
 
-  const ItemMenu = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 2rem;
-    cursor: pointer;
-    color: white;
-    font-size: 2rem;
-    position: relative;
-    :hover {
-      opacity: 0.7;
-    }
-  `;
-
-  const ItemFooter = styled.div`
-    display: flex;
-    margin-left: 3rem;
-  `;
-
-  const Title = styled.p`
-    margin-left: 2rem;
-    font-size: 1.6rem;
-  `;
-
-  const TitleFooter = styled.p`
-    margin-right: 3rem;
-  `;
-
-  const wrapperMenu = {
-    position: "fixed",
-    width: "20%",
-    height: "100%",
-    backgroundColor: "black",
-    color: "white",
-    fontSize: "1.6rem",
-  };
-
-  const footer = {
-    textTransform: "uppercase",
-    opacity: 0.5,
-    fontSize: "1.6rem",
-    margin: "1rem",
-    marginLeft: "4rem",
-  };
-
-  const imageLogo = {
-    marginLeft: "3rem",
-    marginTop: "2rem",
-  };
-
-  const imageGroup = {
-    marginLeft: "2rem",
-    width: "10rem",
-    height: "10rem",
-    alignItems: "center",
-  };
-
-  const line = {
-    position: "absolute",
-    height: "100%",
-    width: "0.3rem",
-    right: 0,
-    backgroundColor: "red",
-  };
 
   const handleClick = (index) => {
     setDisabled(false);
@@ -110,14 +48,15 @@ function Menu({ disabled, setDisabled, setActive }) {
   };
 
   return (
-    <div style={wrapperMenu}>
-      <div style={imageLogo}>
+    <div className="wrapperMenu">
+      <div className="imageLogo">
         <img src={logo} alt="Musike" />
       </div>
 
       {ButtonList.map((item, index) => (
-        <>
+        <div key={index}>
           <ItemMenu
+            key={index}
             style={{
               backgroundColor:
                 index === clicked && disabled === false
@@ -129,13 +68,13 @@ function Menu({ disabled, setDisabled, setActive }) {
           >
             {item.icon}
             <Title>{item.title}</Title>
-            {index === clicked && disabled === false && <div style={line} />}
+            {index === clicked && disabled === false && <div className="line" />}
           </ItemMenu>
-          {index === 4 && <div style={footer}>upload music</div>}
-        </>
+          {index === 4 && <div className="footer">upload music</div>}
+        </div>
       ))}
-      <div style={imageGroup}>
-        <img src={group} alt="group" width="100%" height="100%" />
+      <div className="wrapperImg">
+        <img src={group} alt="group" className="imageGroup" />
       </div>
       <ItemFooter>
         <TitleFooter>Mining time</TitleFooter>

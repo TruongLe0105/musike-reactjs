@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import MainFooter from "./MainFooter";
 import MainHeader from "./MainHeader";
 import { Box } from "@mui/material";
-import Menu from "../components/Menu";
 
 function MainLayout() {
   return (

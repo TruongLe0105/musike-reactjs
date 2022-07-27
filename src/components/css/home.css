@@ -1,0 +1,22 @@
+.wrapperHome {
+    margin-left: 18%;
+    width: 58%;
+    padding-left: 1rem;
+}
+
+.wrapperItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item {
+    width: 31%;
+    margin: 0.5rem;
+
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
