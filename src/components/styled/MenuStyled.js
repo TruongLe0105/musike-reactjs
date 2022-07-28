@@ -16,8 +16,8 @@ position: relative;
 `;
 
 export const ItemFooter = styled.div`
-display: flex;
-margin-left: 3rem;
+  display: flex;
+  margin-left: 3rem;
 `;
 
 export const Title = styled.p`

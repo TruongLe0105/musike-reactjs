@@ -21,11 +21,10 @@
 }
 
 .wrapperImg {
-    position: absolute;
     width: 20rem;
     height: 20rem;
     align-items: center;
-    left: 50%;
+    margin-left: 50%;
     transform: translateX(-50%);
 }
 

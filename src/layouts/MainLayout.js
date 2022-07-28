@@ -10,7 +10,7 @@ function MainLayout() {
       <MainHeader />
       <Outlet />
       <Box style={{ flexGrow: 1 }} />
-      <MainFooter />
+      {/* <MainFooter /> */}
     </div>
   );
 }

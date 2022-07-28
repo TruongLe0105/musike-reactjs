@@ -24,61 +24,61 @@ const {
 const LIST = [
   {
     title: "Pop",
-    img: pop
+    img: pop,
   },
   {
     title: "Music of Asiaop",
-    img: asiaop
+    img: asiaop,
   },
   {
     title: "Blues",
-    img: blues
+    img: blues,
   },
   {
     title: "Country",
-    img: country
-  },
-  {
-    title: "Middle Eastern",
-    img: eastern
+    img: country,
   },
   {
     title: "Soul music",
-    img: soul
+    img: soul,
   },
   {
     title: "Folk music",
-    img: folk
+    img: folk,
   },
   {
     title: "Hiphop",
-    img: hiphop
+    img: hiphop,
   },
   {
     title: "Jazz",
-    img: jazz
+    img: jazz,
   },
   {
     title: "Latin American",
-    img: latin
+    img: latin,
   },
   {
     title: "Popular music",
-    img: popular
+    img: popular,
   },
   {
     title: "R&B",
-    img: rb
+    img: rb,
   },
   {
     title: "Rock music",
-    img: rock
+    img: rock,
   },
   {
     title: "Traditional",
-    img: traditional
+    img: traditional,
   },
-]
+  {
+    title: "Middle Eastern",
+    img: eastern,
+  },
+];
 
 function Home() {
   return (

@@ -44,30 +44,36 @@ function MainHeader() {
             ))}
           </div>
           <div className="wrapperInput">
-            <input className="input" placeholder="Search" onChange={handleChangeInput} />
+            <input
+              className="input"
+              placeholder="Search"
+              onChange={handleChangeInput}
+            />
             <div className="iconSearch">
               <i className="fa-solid fa-magnifying-glass"></i>
             </div>
           </div>
         </div>
-        <div className="wrapperInfo">
-          <div className="wraperAvatar">
-            <img src={avatar} alt="Avatar" className="avatarImg" />
+        <div className="wrapperHeaderRight">
+          <div className="wrapperInfo">
+            <div className="wraperAvatar">
+              <img src={avatar} alt="Avatar" className="avatarImg" />
+            </div>
+            <div className="info">
+              <p style={{ marginBottom: 0 }}>Name</p>
+              <p>Info</p>
+            </div>
           </div>
-          <div className="info">
-            <p style={{ marginBottom: 0 }}>Name</p>
-            <p  >Info</p>
+          <div className="iconArrow">
+            <i className="fa-solid fa-angle-down"></i>
           </div>
+          <Icon>
+            <i className="fa-solid fa-comment-dots"></i>
+          </Icon>
+          <Icon>
+            <i className="fa-solid fa-gear"></i>
+          </Icon>
         </div>
-        <div className="iconArrow">
-          <i className="fa-solid fa-angle-down"></i>
-        </div>
-        <Icon>
-          <i className="fa-solid fa-comment-dots"></i>
-        </Icon>
-        <Icon>
-          <i className="fa-solid fa-gear"></i>
-        </Icon>
       </div>
       <NextSong />
     </>
