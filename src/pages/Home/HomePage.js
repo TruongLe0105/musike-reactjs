@@ -83,11 +83,12 @@ const LIST = [
 function Home() {
   return (
     <div className="wrapperHome">
-      <h2>Genres</h2>
+      <div className="header">Genres</div>
       <div className="wrapperItem">
         {LIST.map((item, index) => (
           <div className="item" key={index}>
             <img className="image" src={item.img} alt={item.title} />
+            <div className="title">{item.title}</div>
           </div>
         ))}
       </div>

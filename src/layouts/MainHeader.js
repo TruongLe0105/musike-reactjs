@@ -33,6 +33,7 @@ function MainHeader() {
           <div className="wrapperTitle">
             {TitleList.map((title, index) => (
               <Title
+                key={index}
                 style={{
                   opacity: index === active && 1,
                 }}

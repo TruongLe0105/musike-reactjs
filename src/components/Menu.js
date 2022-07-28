@@ -56,7 +56,6 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
       {ButtonList.map((item, index) => (
         <div key={index}>
           <ItemMenu
-            key={index}
             style={{
               backgroundColor:
                 index === clicked && disabled === false
@@ -68,7 +67,9 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
           >
             {item.icon}
             <Title>{item.title}</Title>
-            {index === clicked && disabled === false && <div className="line" />}
+            {index === clicked && disabled === false && (
+              <div className="line" />
+            )}
           </ItemMenu>
           {index === 4 && <div className="footer">upload music</div>}
         </div>
