@@ -1,0 +1,128 @@
+.wrapper_genres {
+    margin-left: 18%;
+    width: 58%;
+    margin-top: 5rem;
+}
+
+.wrapperItem {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-left: 2%;
+    font-weight: 600;
+    text-align: center;
+}
+
+.item {
+    width: 32%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    z-index: 200;
+}
+
+.item:hover .image {
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 1px 2px 0px, rgba(255, 255, 255, 0.15) 0px 1px 3px 1px;
+    animation: scaleImage 0.3s linear;
+    transform: scale(1.1);
+}
+
+
+.image {
+    width: 100%;
+}
+
+.title {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 100;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+@keyframes scaleImage {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .wrapper_genres {
+        margin-top: 6rem;
+    }
+
+    .item {
+        width: 47%;
+        margin-left: 2%;
+        margin-bottom: 2%;
+    }
+
+    .header {
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .wrapper_genres {
+        width: calc(100% - var(--width_menu_bar));
+        margin-left: var(--width_menu_bar);
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media screen and (min-width: 768px) and (max-width: 830px) {
+    .wrapper_genres {
+        width: 56%;
+        margin-left: 20%;
+    }
+
+    .item {
+        width: 47%;
+        margin-left: 2%;
+        margin-bottom: 2%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
+
+/* @media screen and (min-width: 768px) and (max-width:1024px) {
+
+
+    .wrapper_genres {
+        width: 82%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .wrapper_genres {
+        width: 86%;
+        margin-left: 14%;
+        margin-top: 8%;
+    }
+} */

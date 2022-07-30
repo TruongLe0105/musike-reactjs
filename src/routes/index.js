@@ -4,14 +4,16 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/Home/HomePage";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
+import GenresPage from "../pages/GenresPage";
 
 function Router() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<HomePage />} />
+        {/* <Route index element={<HomePage />} /> */}
+        <Route path="/genres" element={<GenresPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Route>
     </Routes>
   );

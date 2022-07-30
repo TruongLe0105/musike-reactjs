@@ -58,22 +58,24 @@ function MainHeader() {
         <div className="wrapperHeaderRight">
           <div className="wrapperInfo">
             <div className="wraperAvatar">
-              <img src={avatar} alt="Avatar" className="avatarImg" />
+              {/* <img src={avatar} alt="Avatar" className="avatarImg" /> */}
             </div>
             <div className="info">
-              <p style={{ marginBottom: 0 }}>Name</p>
-              <p>Info</p>
+              <div className="info_user">Le Minh Truong</div>
+              <div>Info</div>
+            </div>
+            <div className="iconArrow">
+              <i className="fa-solid fa-angle-down"></i>
             </div>
           </div>
-          <div className="iconArrow">
-            <i className="fa-solid fa-angle-down"></i>
+          <div className="wrapper_icon_right_menu">
+            <Icon>
+              <i className="fa-solid fa-comment-dots"></i>
+            </Icon>
+            <Icon>
+              <i className="fa-solid fa-gear"></i>
+            </Icon>
           </div>
-          <Icon>
-            <i className="fa-solid fa-comment-dots"></i>
-          </Icon>
-          <Icon>
-            <i className="fa-solid fa-gear"></i>
-          </Icon>
         </div>
       </div>
       <NextSong />

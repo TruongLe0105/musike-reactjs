@@ -8,21 +8,28 @@ align-items: center;
 padding-left: 2rem;
 cursor: pointer;
 color: white;
-font-size: 2rem;
+font-size: 1.8rem;
 position: relative;
+opacity:0.8;
 :hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 `;
 
 export const ItemFooter = styled.div`
   display: flex;
-  margin-left: 3rem;
+  flex-direction: row;
+  align-items:center;
+  justify-content:space-between;
+  padding: 0 1rem;
+  @media screen and (max-width:768px) {
+    display:none;
+  }
 `;
 
 export const Title = styled.p`
-margin-left: 2rem;
-font-size: 1.6rem;
+margin-left: 1rem;
+font-size: 1.5rem;
 `;
 
 export const TitleFooter = styled.p`
