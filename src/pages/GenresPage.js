@@ -1,8 +1,11 @@
 import { List } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import '../components/css/genres.css';
 
+
 import listGenres from '../middleware/GenresListImage';
+
 
 const {
     pop,
@@ -81,9 +84,21 @@ const LIST = [
 ];
 
 function Genres() {
+    const { openModalNextSong } = useSelector(state => state.modal);
+
+    useEffect(() => {
+        const item = document.getElementById("wrapper_genres");
+        if (openModalNextSong) {
+            item.classList.add("new_wrapper_genres")
+        } else {
+            item.classList.add("wrapper_genres")
+            item.classList.remove("new_wrapper_genres")
+        }
+    }, [openModalNextSong])
+
+
     return (
-        <div className="wrapper_genres">
-            <div className="header">Genres</div>
+        <div id="wrapper_genres">
             <div className="wrapperItem">
                 {LIST.map((item, index) => (
                     <div className="item" key={index}>

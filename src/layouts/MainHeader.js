@@ -5,10 +5,11 @@ import { Icon, Title } from "../components/styled/MainHeaderStyled.js";
 import '../components/css/mainHeader.css';
 import avatar from '../assets/Images/logo.png';
 import NextSong from "../components/NextSong.js";
+import NextPrevPage from "../components/NextPrevPage.js";
 
 function MainHeader() {
   const [disabled, setDisabled] = useState(false);
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(1);
 
   const handleClick = (index) => {
     setDisabled(true);
@@ -36,6 +37,7 @@ function MainHeader() {
                 key={index}
                 style={{
                   opacity: index === active && 1,
+                  transform: index === active && `scale(${1.05})`,
                 }}
                 onClick={() => handleClick(index)}
               >
@@ -44,6 +46,7 @@ function MainHeader() {
               </Title>
             ))}
           </div>
+          <NextPrevPage />
           <div className="wrapperInput">
             <input
               className="input"

@@ -8,6 +8,7 @@
     --primary: rgba(255, 52, 74, 1);
     --secondary: #FF344A;
     --width_menu_bar: 70px;
+    --width_nextsong: 28%;
 }
 
 html {
@@ -21,19 +22,8 @@ body {
     height: '100%';
 }
 
-@media only screen and (max-width: 600px) {
-    html {
-        font-size: 7px;
-    }
-}
 
-@media only screen and (min-width: 600px) {
-    html {
-        font-size: 7px;
-    }
-}
-
-@media only screen and (min-width: 830px) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
     html {
         font-size: 8px;
     }

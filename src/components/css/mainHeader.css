@@ -11,6 +11,39 @@
     z-index: 400;
 }
 
+.container_under_header {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    background-color: rgba(23, 23, 23, 1);
+    padding-left: 5%;
+    z-index: 700;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container_under_header .title_under_header {
+    position: absolute;
+    left: calc((99% - var(--width_menu_bar) - var(--width_nextsong))/2);
+    font-size: 2rem;
+    color: var(--secondary)
+}
+
+.wrapper_button_next_prev {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 2.5rem;
+}
+
+.wrapper_button_next_prev .button_prev {
+    margin-right: 1rem;
+}
+
 .wrapperHeaderLeft {
     display: flex;
     align-items: center;
@@ -128,78 +161,25 @@
 }
 
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 700px) {
-    .containerStyle {
-        margin-left: var(--width_menu_bar);
-        width: calc(100% - var(--width_menu_bar));
-    }
-
-    /* TEST */
-    .input {
-        background-color: white;
-    }
-}
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 700px) and (max-width: 768px) {
-    .containerStyle {
-        margin-left: 20%;
-        width: 80%;
-    }
-
-    .wrapperHeaderLeft {
-        width: 70%
-    }
-
-    .wrapperHeaderRight {
-        width: 30%
-    }
-
-    .wrapperInput {
-        width: 45%;
-    }
-
-    .wrapperTitle {
-        width: 55%;
-    }
-
-    .wrapperInfo {
-        width: 40%;
-    }
-
-    .wrapper_icon_right_menu {
-        width: 60%;
-    }
-
-    .wrapperInfo {
-        margin-left: 2rem;
-        margin-right: 0;
-        cursor: pointer;
-    }
-
-    .info {
-        display: none;
-    }
-
-    .iconArrow {
-        display: none;
-    }
-
-    /* TEST */
-    .input {
-        background-color: red;
-    }
-}
-
-@media only screen and (max-width: 768px) {}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media screen and (min-width: 768px) and (max-width: 830px) {
 
     .containerStyle {
-        width: 80%;
-        margin-left: 20%;
+        width: calc(100% - var(--width_menu_bar));
+        margin-left: var(--width_menu_bar);
+    }
+
+    .containerStyle .wrapperInfo .info {
+        display: none;
+    }
+
+    .containerStyle .wrapperInfo .iconArrow {
+        display: none;
+    }
+
+    .container_under_header {
+        height: 5rem
     }
 
     /* TEST */
