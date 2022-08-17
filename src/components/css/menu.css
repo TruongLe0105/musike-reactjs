@@ -1,33 +1,99 @@
-/* .container_all_item {
-    position:re
-} */
-
 .wrapperMenu {
     position: fixed;
     top: 0;
     width: 18%;
-    height: 100%;
+    height: 85%;
     background-color: black;
     color: white;
     font-size: 1.5rem;
+}
+
+
+.wrapper_menu_button {
+    height: 45rem;
+}
+
+.menu_scroll_view::-webkit-scrollbar {
+    width: 4px;
+}
+
+@keyframes hideScroll {
+    from {
+        width: 4px;
+    }
+
+    to {
+        width: 0px;
+    }
+}
+
+
+.menu_scroll_view::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.menu_scroll_view {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#scroll_view_menu {
+    height: 15rem;
+    margin-top: 1rem;
+}
+
+.scroll_bar_y {
+    overflow-y: scroll;
+}
+
+.scroll_bar_y::-webkit-scrollbar {
+    width: 0px;
 }
 
 .wrapper_menu_clicked {
     display: none;
 }
 
+.button_footer_menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2.5rem;
+    z-index: 600;
+    width: 100%;
+    height: 5rem;
+    opacity: 1;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    border-top: var(--line_primary);
+}
+
 .footer {
-    text-transform: uppercase;
-    opacity: 0.5;
-    font-size: 1.6rem;
-    margin: 1rem;
+    position: absolute;
+    width: 100%;
+    height: 1.1rem;
+    right: 4px;
+    background-color: black;
+    z-index: 600;
+}
+
+.footer .line_center {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 0.1rem;
+    z-index: 600;
+    width: 80%;
     text-align: center;
+    margin: auto;
 }
 
 .image_logo {
     margin-left: 2rem;
-    margin-top: 2rem;
-    width: 70%;
+    margin-top: 1rem;
+    width: 60%;
+    height: 6rem;
 }
 
 .image_logo img {
@@ -35,10 +101,8 @@
 }
 
 .wrapperImg {
-    width: 70%;
-    align-items: center;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    width: 12rem;
+    margin-left: 5rem;
 }
 
 .imageGroup {
@@ -49,15 +113,11 @@
     position: absolute;
     height: 100%;
     width: 0.3rem;
-    right: 0;
+    left: 0;
     background-color: var(--secondary);
 }
 
 .line_menu_small {
-    display: none;
-}
-
-.footer_menu {
     display: none;
 }
 
@@ -75,7 +135,7 @@
         color: white;
         position: fixed;
         top: 0;
-        height: 100%;
+        height: 50%;
         animation: right_to_left 0.5s ease;
         z-index: 500;
     }
@@ -127,7 +187,7 @@
         top: 0;
         z-index: 500;
         width: 30%;
-        height: 100%;
+        height: 50%;
         color: white;
         background: black;
         animation: left_to_right 0.3s ease;

@@ -8,45 +8,26 @@ import NextSong from "../components/NextSong.js";
 import NextPrevPage from "../components/NextPrevPage.js";
 
 function MainHeader() {
-  const [disabled, setDisabled] = useState(false);
-  const [active, setActive] = useState(1);
-
-  const handleClick = (index) => {
-    setDisabled(true);
-    setActive(index);
-  };
 
   const handleChangeInput = (e) => {
     console.log("Input", e.target.value);
   }
 
-  const TitleList = ["Free Music", "Genres", "Play list"];
-
   return (
     <>
       <Menu
-        disabled={disabled}
-        setDisabled={setDisabled}
-        setActive={setActive}
       />
       <div className="containerStyle">
         <div className="wrapperHeaderLeft">
           <div className="wrapperTitle">
-            {TitleList.map((title, index) => (
-              <Title
-                key={index}
-                style={{
-                  opacity: index === active && 1,
-                  transform: index === active && `scale(${1.05})`,
-                }}
-                onClick={() => handleClick(index)}
-              >
-                {title}
-                {index === active && <div className="underline" />}
-              </Title>
-            ))}
+            <div style={{ marginRight: "2rem", cursor: "pointer" }}>
+              <i className="fa-solid fa-arrow-left"></i>
+            </div>
+            <div style={{ cursor: "pointer" }}>
+              <i className="fa-solid fa-arrow-right"></i>
+            </div>
           </div>
-          <NextPrevPage />
+          {/* <NextPrevPage /> */}
           <div className="wrapperInput">
             <input
               className="input"

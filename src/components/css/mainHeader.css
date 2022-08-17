@@ -7,6 +7,7 @@
     align-items: center;
     position: fixed;
     width: 82%;
+    height: 5.5rem;
     top: 0;
     z-index: 400;
 }
@@ -50,6 +51,8 @@
     justify-content: space-between;
     width: 60%;
     height: 100%;
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .wrapperHeaderRight {
@@ -65,11 +68,12 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 30%;
+    font-size: 2.2rem;
 }
 
 .wrapperInput {
-    width: 50%;
+    width: 70%;
     text-align: center;
     font-size: 1.5rem;
     position: relative;
@@ -202,6 +206,6 @@
 
     /* TEST */
     .input {
-        background-color: green;
+        /* background-color: green; */
     }
 }

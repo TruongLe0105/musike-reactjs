@@ -9,6 +9,11 @@
     --secondary: #FF344A;
     --width_menu_bar: 70px;
     --width_nextsong: 28%;
+    --line_primary: 0.1rem solid rgba(255, 255, 255, 0.2);
+    --fontSize_primary: 1.2rem;
+    --fontSize_secondary: 1.1rem;
+    --blur_color: rgba(255, 255, 255, 0.6);
+    --blur_bg: rgba(255, 255, 255, 0.2);
 }
 
 html {
@@ -18,8 +23,14 @@ html {
 
 body {
     margin: 0;
+    height: 100%;
     background-color: rgba(23, 23, 23, 1);
-    height: '100%';
+    font-family: 'Inter', sans-serif;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+    width: 0
 }
 
 

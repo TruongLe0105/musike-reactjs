@@ -4,7 +4,11 @@ import '../components/css/nextsong.css';
 
 import SingerList from '../middleware/NextSongListImage';
 import { getInfoModalNextSong } from '../modals/ModalSlice';
+import { getListMusic, playMusic } from '../modals/MusicSlice';
+import { formatTime, sliceText } from '../utils/Format';
+import FooterMusic from './FooterMusic';
 import HeaderNextSong from './HeaderNextSong';
+import { clickOutSideMenu } from './help/ClickOutside';
 
 const {
     bieber,
@@ -71,113 +75,236 @@ const LIST = [
         time: "3.54",
         img: madness,
     },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
+    {
+        song: "Midsummer Madness",
+        singer: "Justin Bieber",
+        time: "3.54",
+        img: madness,
+    },
 ]
 
 function NextSong() {
+    const { listMusic } = useSelector(state => state.listMusic);
     const [isAutoPlay, setIsAutoPlay] = useState(true);
-    const [isExpand, setIsExpand] = useState(true);
-    const [isOpenModal, setIsOpenModal] = useState(true);
+    const [active, setActive] = useState(0);
+    const [hover, setHover] = useState();
+    const [render, setRender] = useState(true);
+    const [isPlay, setIsPlay] = useState(false);
+    const [audioPlaying, setAudioPlaying] = useState();
+    const [duration, setDuration] = useState();
+    const [mouseOver, setMouseOver] = useState(false);
+
     const dispatch = useDispatch();
 
-    let devideWidth = window.screen.width;
+    const { openModalNextSong } = useSelector(state => state.modal);
+
+    const eventBlurHideScroll = () => {
+        const item = document.getElementById("flatList");
+        item.addEventListener("mouseover", () => {
+            item.classList.add("flatList");
+            item.classList.remove("scroll_bar_y_nextsong");
+        })
+        item.addEventListener("mouseleave", () => {
+            setTimeout(() => {
+                item.classList.remove("flatList");
+                item.classList.add("scroll_bar_y_nextsong");
+            }, 1000)
+        })
+    }
+
+    const toggleModalNextSong = () => {
+        const item = document.getElementById("container");
+        if (!openModalNextSong) {
+            item.classList.add("new_container");
+            item.classList.remove("container");
+            !render && item.classList.add("animation_container");
+        }
+        else {
+            setRender(false);
+            item.classList.add("container")
+            item.classList.remove("new_container")
+            !render && item.classList.remove("animation_container")
+        }
+    };
+
+    const clickOutsideModalNextSong = () => {
+        const item = document.getElementById("container");
+        return document.addEventListener("click", (e) => {
+            const clickOutside = !item.contains(e.target);
+            if (clickOutside) {
+                dispatch(getInfoModalNextSong(false));
+            }
+        })
+    };
 
     useEffect(() => {
-        dispatch(getInfoModalNextSong(isOpenModal));
-    }, [isOpenModal])
+        toggleModalNextSong();
+        eventBlurHideScroll();
+        clickOutsideModalNextSong();
+    }, [openModalNextSong]);
 
+    useEffect(() => {
+        dispatch(getListMusic());
+        console.log("audio", audioPlaying)
+    }, []);
 
-    const handleClickExpand = () => {
-        setIsExpand(true);
-        setIsOpenModal(true);
-    }
+    const handleDoubleClickActive = (e, index, item) => {
+        e.stopPropagation();
+        setActive(index);
+        setAudioPlaying(item.audio);
+        isPlay && active === index ? setIsPlay(false) : setIsPlay(true);
+    };
 
-    const handleZoomOut = () => {
-        setIsExpand(false);
-        setIsOpenModal(false);
-    }
+    const handleToggleMusic = (e, index, item) => {
+        e.stopPropagation();
+        setActive(index);
+        setAudioPlaying(item.audio);
+        isPlay && active === index ? setIsPlay(false) : setIsPlay(true);
+    };
+
+    const onMouseOverItem = (index) => {
+        setHover(index);
+    };
+
+    const onMouseDownItem = (index) => {
+        setHover(null);
+    };
 
     return (
         <>
-            {isExpand ? (
-                <div id="container" className='container'>
-                    <div className='wrapperHeader'>
-                        <div className='titleHeader'>Next Song</div>
-                        {/* <div className="wrapperHeaderTitleRight">
-                            <div className='content_autoplay'>Autoplay</div>
-                            <div onCLick={(e) => handleToggleAutoPlay(e)} className="wrapperToggleBtn">
-                                {isAutoPlay ? (
-                                    <>
-                                        <div className='turnOn'>On</div>
-                                        <div className='circleRed' />
-                                    </>
-                                ) : (
-                                    <>
-                                        <div className='circleBlack' />
-                                        <div className='turnOff'>Off</div>
-                                    </>
-                                )}
-                            </div>
-                        </div> */}
-                        <HeaderNextSong
-                            isAutoPlay={isAutoPlay}
-                            setIsAutoPlay={setIsAutoPlay}
-                        />
-                    </div>
-                    <div className='flatList'>
-                        {LIST.map((item, index) => (
-                            <div className='wrapperItemNextSong' key={index}>
-                                <div className='itemLeft'>
-                                    <div className='wrapperImageSinger'>
-                                        <img className='imageSinger' src={item.img} alt={item.song} />
-                                    </div>
-                                    <div className='contentItem'>
-                                        <div className='nameOfSong'>{item.song}</div>
-                                        <div className='nameOfSinger'>{item.singer}</div>
-                                    </div>
+            <div id="container">
+                <div className='wrapperHeader'>
+                    <div className='titleHeader'>Next Song</div>
+                    <HeaderNextSong
+                        isAutoPlay={isAutoPlay}
+                        setIsAutoPlay={setIsAutoPlay}
+                    />
+                </div>
+                <div id='flatList' className='flatList'>
+                    {listMusic.length > 0 && listMusic.map((item, index) => (
+                        <div
+                            onDoubleClick={(e) => handleDoubleClickActive(e, index, item)}
+                            onMouseOver={() => onMouseOverItem(index)}
+                            onMouseDown={() => onMouseDownItem(index)}
+                            className='wrapperItemNextSong' key={index}
+                            style={{
+                                backgroundColor: active === index && "red",
+                            }}
+
+                        >
+                            <div className='itemLeft'>
+                                <div className='wrapperImageSinger'>
+                                    <i onClick={(e) => handleToggleMusic(e, index, item)} className="play-icon fa-solid fa-play"
+                                        style={{
+                                            display: active === index && "none",
+                                            opacity: active === index && 1,
+                                        }}></i>
+                                    <img style={{
+                                        opacity: active === index && 1,
+                                    }} className='imageSinger' src={item.image} alt={item.song} />
                                 </div>
-                                <div className='itemRight'>
-                                    <div className='timeSong'>{item.time}</div>
-                                    <i className="fa-solid fa-ellipsis"></i>                        </div>
+                                <div className='contentItem'>
+                                    <div className='nameOfSong'>{sliceText(item?.song, index, hover)}</div>
+                                    <div className='nameOfSinger'>{sliceText(item?.singer, index, hover)}</div>
+                                </div>
                             </div>
-                        ))}
-                    </div>
-                    <div onClick={handleZoomOut} className='wrapper_footer_nextsong'>
-                        <div className='title_footer'>Zoom out</div>
-                        <div className='icon_footer'>
-                            <i className="fa-solid fa-angle-up"></i>
+                            <div className='itemRight'>
+                                <div className='timeSong'>{formatTime(item.time)}</div>
+                                <i className="fa-solid fa-ellipsis"></i>
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
-            ) : (
-                <div className='newContainer'>
-                    <div className='arrow_expand' />
-                    <div onClick={handleClickExpand} className='wrapperHeader'>
-                        <div className='arrow_expand' />
-                        <div className='titleHeader'>Next Song</div>
-                        <HeaderNextSong
-                            isAutoPlay={isAutoPlay}
-                            setIsAutoPlay={setIsAutoPlay}
-                        />
-                        {/* <div className="wrapperHeaderTitleRight">
-                            <div className='content_autoplay'>Autoplay</div>
-                            <div className="wrapperToggleBtn">
-                                {isAutoPlay ? (
-                                    <>
-                                        <div className='turnOn'>On</div>
-                                        <div className='circleRed' />
-                                    </>
-                                ) : (
-                                    <>
-                                        <div className='circleBlack' />
-                                        <div className='turnOff'>Off</div>
-                                    </>
-                                )}
-                            </div>
-                        </div> */}
-                    </div>
-                </div>
-            )
-            }
+                <FooterMusic
+                    setActive={setActive}
+                    active={active}
+                    listMusic={listMusic}
+                    setIsPlay={setIsPlay}
+                    isPlay={isPlay}
+                    setAudioPlaying={setAudioPlaying}
+                    audioPlaying={audioPlaying}
+                    setDuration={setDuration}
+                    duration={duration}
+                />
+            </div>
         </>
     )
 }

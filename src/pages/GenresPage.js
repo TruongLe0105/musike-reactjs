@@ -1,11 +1,9 @@
-import { List } from "@mui/material";
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { CircularProgress, List } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import '../components/css/genres.css';
-
-
 import listGenres from '../middleware/GenresListImage';
-
+import { getListCategories } from "../modals/GenresSlice";
 
 const {
     pop,
@@ -21,7 +19,7 @@ const {
     popular,
     rb,
     rock,
-    traditional
+    traditional,
 } = listGenres;
 
 const LIST = [
@@ -84,25 +82,20 @@ const LIST = [
 ];
 
 function Genres() {
-    const { openModalNextSong } = useSelector(state => state.modal);
-
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const { categories } = useSelector(state => state.categories);
     useEffect(() => {
-        const item = document.getElementById("wrapper_genres");
-        if (openModalNextSong) {
-            item.classList.add("new_wrapper_genres")
-        } else {
-            item.classList.add("wrapper_genres")
-            item.classList.remove("new_wrapper_genres")
-        }
-    }, [openModalNextSong])
-
+        dispatch(getListCategories());
+    }, [])
 
     return (
-        <div id="wrapper_genres">
+        <div className="wrapper_genres">
+            {/* {loading && <CircularProgress />} */}
             <div className="wrapperItem">
-                {LIST.map((item, index) => (
+                {categories.length > 0 && categories.map((item, index) => (
                     <div className="item" key={index}>
-                        <img className="image" src={item.img} alt={item.title} />
+                        <img className="image" src={item.image} alt={item.title} />
                         <div className="title">{item.title}</div>
                     </div>
                 ))}

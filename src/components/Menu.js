@@ -23,8 +23,12 @@ const ButtonList = [
     icon: <i className="fa-solid fa-compact-disc"></i>
   },
   {
-    title: "Artists",
-    icon: <i className="fa-solid fa-microphone"></i>
+    title: "Genres",
+    icon: <i className="fa-solid fa-bars-progress"></i>
+  },
+  {
+    title: "Play list",
+    icon: <i className="fa-solid fa-list-ol"></i>
   },
   {
     title: "Favourite",
@@ -35,24 +39,45 @@ const ButtonList = [
     icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>
   },
   {
-    title: "Create NFT Music",
-    icon: <i className="fa-regular fa-square-plus"></i>
+    title: "Artists",
+    icon: <i className="fa-solid fa-microphone"></i>
   },
 ];
 
-const Menu = ({ disabled, setDisabled, setActive }) => {
+
+const Menu = () => {
   const [zoomInScreen, setZoomInScreen] = useState(false);
   const [clicked, setClicked] = useState(0);
+  const [clickFooter, setclickFooter] = useState(false);
 
-  useEffect(() => {
+  const clickOutSideMenu = () => {
     const idMenuContainerNew = document.getElementById("menu");
-    document.addEventListener("click", (event) => {
+    return document.addEventListener("click", (event) => {
       const isClickInside = idMenuContainerNew.contains(event.target);
       if (!isClickInside) {
         idMenuContainerNew.classList.remove("wrapper_menu_clicked_zoom_in");
         setZoomInScreen(false);
       }
+    });
+  }
+
+  const eventBlurHideScroll = () => {
+    const item = document.getElementById("scroll_view_menu");
+    item.addEventListener("mouseover", () => {
+      item.classList.add("menu_scroll_view");
+      item.classList.remove("scroll_bar_y");
     })
+    item.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        item.classList.remove("menu_scroll_view");
+        item.classList.add("scroll_bar_y");
+      }, 1000)
+    })
+  }
+
+  useEffect(() => {
+    clickOutSideMenu();
+    eventBlurHideScroll();
   }, [])
 
   const handleZoomIn = () => {
@@ -70,10 +95,99 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
   }
 
   const handleClick = (index) => {
-    setDisabled(false);
-    setActive(false);
     setClicked(index);
+    setclickFooter(false);
   };
+
+  const handleClickFooterBtn = () => {
+    setClicked(null);
+    setclickFooter(true);
+  }
+
+  const RenderListItem = () => {
+    const ListMenuTop = () => {
+      return (
+        ButtonList.map((item, index) => (
+          index < 5 && <ItemMenu
+            key={index}
+            style={{
+              backgroundColor:
+                index === clicked
+                  ? "rgba(255, 255, 255, 0.2)"
+                  : "transparent",
+              height: "4.3rem",
+              opacity: index === clicked && 1,
+            }}
+            onClick={() => handleClick(index)}
+          >
+            <div className="wrapper_icon_menu">
+              {item.icon}
+            </div>
+            <Title>{item.title}</Title>
+            {index === clicked && (
+              <div className="line" />
+            )}
+          </ItemMenu>
+        ))
+      )
+    };
+
+    const ListCanScroll = () => {
+      return (
+        ButtonList.map((item, index) => (
+          index >= 5 &&
+          <div key={index}>
+            <ItemMenu
+              style={{
+                backgroundColor:
+                  index === clicked
+                    ? "rgba(255, 255, 255, 0.2)"
+                    : "transparent",
+                height: "4.3rem",
+                opacity: index === clicked && 1,
+              }}
+              onClick={() => handleClick(index)}
+            >
+              <div className="wrapper_icon_menu">
+                {item.icon}
+              </div>
+              <Title>{item.title}</Title>
+              {index === clicked && (
+                <div className="line" />
+              )}
+            </ItemMenu>
+          </div>
+        ))
+      )
+    };
+
+    return (
+      <>
+        <div>
+          {ListMenuTop()}
+        </div>
+        <div id="scroll_view_menu" className="scroll_bar_y">
+          <div className="footer">
+            <div className="line_center" />
+          </div>
+          <div style={{ minHeight: "36rem", marginTop: "1rem" }}>
+            {ListCanScroll()}
+            <div className="wrapperImg">
+              <img src={group} alt="group" className="imageGroup" />
+            </div>
+            <ItemFooter>
+              <TitleFooter>Mining time</TitleFooter>
+              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>24:00:00</div>
+            </ItemFooter>
+            <ItemFooter>
+              <TitleFooter>Earn today</TitleFooter>
+              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>0.000</div>
+            </ItemFooter>
+          </div>
+        </div>
+      </>
+    )
+  }
 
   return (
     <>
@@ -95,7 +209,7 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
             className="item_clicked"
             style={{
               backgroundColor:
-                index === clicked && disabled === false
+                index === clicked
                   ? "rgba(255, 255, 255, 0.2)"
                   : "transparent",
               opacity: index === clicked && 1,
@@ -105,7 +219,7 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
             {item.icon}
             <div id="title_menu_zoom_in">{item.title}
 
-              {index === clicked && disabled === false && (
+              {index === clicked && (
                 <div className="line_menu_small" />
               )}
             </div>
@@ -130,43 +244,23 @@ const Menu = ({ disabled, setDisabled, setActive }) => {
         <div className="image_logo">
           <img src={logo} alt="Musike" />
         </div>
-        {ButtonList.map((item, index) => (
-          <div key={index}>
-            <ItemMenu
-              style={{
-                backgroundColor:
-                  index === clicked && disabled === false
-                    ? "rgba(255, 255, 255, 0.2)"
-                    : "transparent",
-                opacity: index === clicked && 1,
-              }}
-              onClick={() => handleClick(index)}
-            >
-              <div className="wrapper_icon_menu">
-                {item.icon}
-              </div>
-              <Title>{item.title}</Title>
-              {index === clicked && disabled === false && (
-                <div className="line" />
-              )}
-            </ItemMenu>
-            {index === 4 && <div className="footer">upload music</div>}
+        <div className="wrapper_menu_button">
+          {RenderListItem()}
+          <div
+            onClick={handleClickFooterBtn}
+            className="button_footer_menu"
+            style={{
+              backgroundColor: clickFooter ? "rgba(255, 255, 255, 0.2)"
+                : "black",
+            }}
+          >
+            <i style={{ fontSize: "2rem" }} className="fa-regular fa-square-plus"></i>
+            <Title>Create NFT Music</Title>
+            <div
+              style={{ backgroundColor: clickFooter ? "red" : "transparent" }}
+              className="line" />
           </div>
-        ))}
-        <div className="wrapperImg">
-          <img src={group} alt="group" className="imageGroup" />
         </div>
-        <ItemFooter>
-          <TitleFooter>Mining time</TitleFooter>
-          <div>24:00:00</div>
-        </ItemFooter>
-        <ItemFooter>
-          <TitleFooter>Earn today</TitleFooter>
-          <div>0.000</div>
-        </ItemFooter>
-      </div>
-      <div className="footer_menu">
-        here
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    openModalNextSong: false,
+    openModalNextSong: true,
 };
 
 
@@ -11,7 +11,7 @@ const slice = createSlice({
     reducers: {
         getInfoModal(state, action) {
             state.openModalNextSong = action.payload;
-        }
+        },
     }
 });
 
