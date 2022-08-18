@@ -223,7 +223,6 @@ function NextSong() {
 
     useEffect(() => {
         dispatch(getListMusic());
-        console.log("audio", audioPlaying)
     }, []);
 
     const handleDoubleClickActive = (e, index, item) => {

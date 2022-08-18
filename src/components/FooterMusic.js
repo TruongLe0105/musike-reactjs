@@ -8,26 +8,51 @@ import { formatTime } from "../utils/Format";
 function FooterMusic({
   setActive,
   setIsPlay,
-  setAudioPlaying,
-  setDuration,
-  duration,
   audioPlaying,
+  setAudioPlaying,
   active,
   listMusic,
-  isPlay
+  isPlay,
 }) {
-
+  const [repeat, setRepeat] = useState(false);
+  const [currentTime, setCurrentTime] = useState("0");
   const dispatch = useDispatch();
-  const { openModalNextSong } = useSelector(state => state.modal);
+  const { openModalNextSong } = useSelector((state) => state.modal);
 
   const handleClickShowList = (e) => {
     e.stopPropagation();
-    console.log(!openModalNextSong)
     dispatch(getInfoModalNextSong(!openModalNextSong));
-  }
+  };
 
   const audio = document.getElementById("audio");
-  console.log("audio", audio);
+
+  const autoNextSong = () => {
+    if (repeat) {
+      audio &&
+        audio.addEventListener("ended", () => {
+          audio.loop = true;
+        });
+    } else {
+      audio &&
+        audio.addEventListener("ended", () => {
+          nextMusic();
+        });
+    }
+  };
+
+  const timeProgress = () => {
+    const runningTime = setInterval(() => {
+      let curTime = audio?.currentTime || 0;
+      setCurrentTime(Math.ceil(curTime));
+      console.log("curTime", curTime);
+    }, 1000);
+    if (!isPlay) {
+      console.log("here");
+      // clearInterval(runningTime);
+    } else {
+      return runningTime;
+    }
+  };
 
   useEffect(() => {
     if (audioPlaying) {
@@ -36,12 +61,18 @@ function FooterMusic({
       } else {
         audio.pause();
       }
-    };
+    }
+    autoNextSong();
   }, [isPlay, active]);
+
+  // useEffect(() => {
+  //   timeProgress();
+  // }, [currentTime]);
 
   const playMusic = () => {
     setIsPlay(true);
     audio.play();
+    timeProgress();
   };
 
   const pauseMusic = () => {
@@ -49,12 +80,45 @@ function FooterMusic({
     audio.pause();
   };
 
+  const prevMusic = () => {
+    if (active > 0) {
+      const newActive = active - 1;
+      setActive(newActive);
+      setAudioPlaying(listMusic[newActive]);
+    } else {
+      console.log("prev not");
+    }
+  };
+  const nextMusic = () => {
+    if (active < listMusic.length - 1) {
+      const newActive = active + 1;
+      setActive(newActive);
+      setAudioPlaying(listMusic[newActive]);
+    } else {
+      console.log("next not");
+    }
+  };
+
+  const shuffleMusic = () => {
+    console.log("shuffle");
+  };
+
+  const repeatMusic = () => {
+    setRepeat(!repeat);
+
+    console.log("repeat");
+  };
+
   return (
     <div className="main_footer">
       <div className="wrapper_footer_left">
         <div className="wrapper_info">
           <div className="wrapper_img_footer">
-            <img src={listMusic[active]?.image} alt="Singer" className="image_singer" />
+            <img
+              src={listMusic[active]?.image}
+              alt="Singer"
+              className="image_singer"
+            />
           </div>
           <div className="wrapper_content_footer">
             <div className="song_content">{listMusic[active]?.song}</div>
@@ -68,21 +132,29 @@ function FooterMusic({
       </div>
       <div className="wrapper_footer_center">
         <div className="wrapper_list_icon">
-          <i className="fa-solid fa-shuffle"></i>
-          <i className="fa-solid fa-arrow-left"></i>
+          <i onClick={shuffleMusic} className="fa-solid fa-shuffle"></i>
+          <i onClick={prevMusic} className="fa-solid fa-arrow-left"></i>
           <div id="toggleMusic" className="wrapper_icon_play">
-            {isPlay ?
-              <i onClick={pauseMusic} className="fa-solid fa-pause"></i> :
-              <i onClick={playMusic} className="fa-solid fa-play"></i>}
+            {isPlay ? (
+              <i onClick={pauseMusic} className="fa-solid fa-pause"></i>
+            ) : (
+              <i onClick={playMusic} className="fa-solid fa-play"></i>
+            )}
           </div>
-          <audio id="audio" src={listMusic[active]?.audio}></audio>
-          <i className="fa-solid fa-arrow-right"></i>
-          <i className="fa-solid fa-repeat"></i>
+          <audio loop={false} id="audio" src={listMusic[active]?.audio}></audio>
+          <i onClick={nextMusic} className="fa-solid fa-arrow-right"></i>
+          <i
+            style={{ color: repeat && "red" }}
+            onClick={repeatMusic}
+            className="fa-solid fa-repeat"
+          ></i>
         </div>
         <div className="wrapper_progress_bar">
-          <div className="content_progress_bar">00:05</div>
+          <div className="content_progress_bar">{formatTime(currentTime)}</div>
           <div className="progress_bar" />
-          <div className="content_progress_bar">{formatTime(listMusic[active]?.time)}</div>
+          <div className="content_progress_bar">
+            {formatTime(listMusic[active]?.time)}
+          </div>
         </div>
       </div>
       <div className="wrapper_footer_right">
@@ -95,16 +167,18 @@ function FooterMusic({
           <i className="fa-solid fa-volume-high"></i>
           <div className="progress_bar_volume" />
         </div>
-        <div onClick={(e) => handleClickShowList(e)}
+        <div
+          onClick={(e) => handleClickShowList(e)}
           style={{
-            backgroundColor: openModalNextSong && "red"
+            backgroundColor: openModalNextSong && "red",
           }}
-          className="show_list_song">
+          className="show_list_song"
+        >
           <i className="fa-solid fa-sliders"></i>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default FooterMusic;

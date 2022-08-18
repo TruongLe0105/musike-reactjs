@@ -53,6 +53,7 @@
 .wrapper_info .wrapper_content_footer {
     color: var(--blur_color);
     font-size: var(--fontSize_secondary);
+    text-transform: capitalize;
 }
 
 .wrapper_info .wrapper_content_footer .song_content {
