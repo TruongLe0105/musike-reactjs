@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from '../components/Menu.js';
 import { Icon, Title } from "../components/styled/MainHeaderStyled.js";
 import '../components/css/mainHeader.css';
