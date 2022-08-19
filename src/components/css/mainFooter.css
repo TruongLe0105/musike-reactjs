@@ -142,18 +142,45 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
 }
 
 .wrapper_footer_center .wrapper_progress_bar .progress_bar {
     width: 80%;
-    height: 0.5rem;
+    min-width: 80%;
+    height: 0.4rem;
     background-color: #333;
+    border-radius: 3px;
+    position: relative;
+}
+
+.wrapper_footer_center .wrapper_progress_bar .running_progress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* right: 0; */
+    /* width: 100%; */
+    background-color: #fff;
+    border-radius: 3px;
+    animation: dragWidth linear;
+}
+
+@keyframes dragWidth {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
 }
 
 .wrapper_footer_center .wrapper_progress_bar .content_progress_bar {
     font-size: 1.2rem;
     color: white;
+    width: 10%;
+    text-align: center;
 }
 
 .wrapper_footer_right {

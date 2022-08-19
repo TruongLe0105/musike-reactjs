@@ -15,6 +15,7 @@ function FooterMusic({
   isPlay,
 }) {
   const [repeat, setRepeat] = useState(false);
+  const [shuffle, setShuffle] = useState(false);
   const [currentTime, setCurrentTime] = useState("0");
   const dispatch = useDispatch();
   const { openModalNextSong } = useSelector((state) => state.modal);
@@ -27,47 +28,41 @@ function FooterMusic({
   const audio = document.getElementById("audio");
 
   const autoNextSong = () => {
-    if (repeat) {
-      audio &&
-        audio.addEventListener("ended", () => {
-          audio.loop = true;
-        });
-    } else {
-      audio &&
-        audio.addEventListener("ended", () => {
-          nextMusic();
-        });
-    }
-  };
+    audio?.addEventListener("ended", () => {
+      if (!repeat) {
+        nextMusic();
+        audio.loop = false;
+      } else {
+        audio.loop = true;
+      }
+    })
+  }
 
   const timeProgress = () => {
-    const runningTime = setInterval(() => {
-      let curTime = audio?.currentTime || 0;
-      setCurrentTime(Math.ceil(curTime));
-      console.log("curTime", curTime);
-    }, 1000);
-    if (!isPlay) {
-      console.log("here");
-      // clearInterval(runningTime);
-    } else {
-      return runningTime;
-    }
+    audio?.addEventListener("timeupdate", () => {
+      let timeRunning = Math.floor(audio?.currentTime);
+      setCurrentTime(timeRunning);
+    })
   };
 
-  useEffect(() => {
+
+  const playingMusic = () => {
+    const progress = document.getElementById("progress");
     if (audioPlaying) {
       if (isPlay) {
         audio.play();
+        progress.style.animationDuration = audio?.duration;
       } else {
         audio.pause();
       }
     }
-    autoNextSong();
-  }, [isPlay, active]);
+  }
 
-  // useEffect(() => {
-  //   timeProgress();
-  // }, [currentTime]);
+  useEffect(() => {
+    playingMusic();
+    timeProgress();
+    autoNextSong();
+  }, [isPlay, active, repeat]);
 
   const playMusic = () => {
     setIsPlay(true);
@@ -94,19 +89,28 @@ function FooterMusic({
       const newActive = active + 1;
       setActive(newActive);
       setAudioPlaying(listMusic[newActive]);
+      console.log("here")
     } else {
       console.log("next not");
     }
   };
 
   const shuffleMusic = () => {
-    console.log("shuffle");
-  };
-
+    setShuffle(!shuffle);
+    if (shuffle) {
+      const random = Math.floor(Math.random() * listMusic.length);
+      setActive(random);
+      setAudioPlaying(listMusic[random]);
+    };
+  }
   const repeatMusic = () => {
     setRepeat(!repeat);
-
-    console.log("repeat");
+    if (repeat) {
+      audio.loop = true;
+    } else {
+      console.log("first")
+      audio.loop = false;
+    }
   };
 
   return (
@@ -132,7 +136,7 @@ function FooterMusic({
       </div>
       <div className="wrapper_footer_center">
         <div className="wrapper_list_icon">
-          <i onClick={shuffleMusic} className="fa-solid fa-shuffle"></i>
+          <i style={{ color: shuffle && "red" }} onClick={shuffleMusic} className="fa-solid fa-shuffle"></i>
           <i onClick={prevMusic} className="fa-solid fa-arrow-left"></i>
           <div id="toggleMusic" className="wrapper_icon_play">
             {isPlay ? (
@@ -151,7 +155,9 @@ function FooterMusic({
         </div>
         <div className="wrapper_progress_bar">
           <div className="content_progress_bar">{formatTime(currentTime)}</div>
-          <div className="progress_bar" />
+          <div className="progress_bar">
+            <div id="progress" className="running_progress" />
+          </div>
           <div className="content_progress_bar">
             {formatTime(listMusic[active]?.time)}
           </div>
