@@ -1,0 +1,108 @@
+
+.first-chart {
+    background-color: #fff;
+    width: 3px;
+    animation: firstAction 1s linear;
+     animation-direction: alternate-reverse;
+    animation-iteration-count:infinite;
+    margin-right: 2px;
+}
+
+@keyframes firstAction {
+    20% {
+      height: 20%;
+    }
+    40% {
+      height: 60%;
+    }
+    60% {
+      height: 100%;
+    }
+    80% {
+      height: 60%;
+    }
+    100% {
+      height: 20%;
+    }
+  }
+
+  .second-chart {
+    background-color: #fff;
+    width: 3px;
+    animation: secondAction 1s ease;
+     animation-direction: alternate-reverse;
+    animation-iteration-count:infinite;
+    margin-right: 2px;
+}
+
+  @keyframes secondAction {
+    20% {
+      height: 30%;
+    }
+    40% {
+      height: 60%;
+    }
+    60% {
+      height: 95%;
+    }
+    80% {
+      height: 20%;
+    }
+    100% {
+      height: 30%;
+    }
+  }
+
+  .third-chart {
+    background-color: #fff;
+    width: 3px;
+    animation: thirdAction 1s linear;
+     animation-direction: alternate-reverse;
+    animation-iteration-count:infinite;
+    margin-right: 2px;
+}
+
+  @keyframes thirdAction {
+    20% {
+      height: 40%;
+    }
+    40% {
+      height: 90%;
+    }
+    60% {
+      height: 70%;
+    }
+    80% {
+      height: 20%;
+    }
+    100% {
+      height: 40%;
+    }
+  }
+
+  .four-chart {
+    background-color: #fff;
+    width: 3px;
+    animation: fourAction 1s linear;
+     animation-direction: alternate-reverse;
+    animation-iteration-count:infinite;
+}
+
+  @keyframes fourAction {
+    20% {
+      height: 25%;
+    }
+    40% {
+      height: 65%;
+    }
+    60% {
+      height: 100%;
+    }
+    80% {
+      height: 20%;
+    }
+    100% {
+      height: 25%;
+    }
+    
+  }

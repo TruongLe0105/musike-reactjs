@@ -156,17 +156,23 @@
     height: 6rem;
     position: relative;
     border-radius: 0.5rem;
+    /* opacity: 0.6; */
 }
 
 .wrapperItemNextSong:hover {
     background-color: rgba(213, 184, 236, 0.1);
     z-index: 100;
-    /* border-radius: 0.5rem; */
 }
 
 .wrapperItemNextSong:hover .play-icon {
     display: block;
 }
+
+/* .wrapperItemNextSong:hover .wrapper_animation_nextsong {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
 
 .wrapperItemNextSong:hover .itemRight {
     display: flex;
@@ -200,6 +206,17 @@
 
 .wrapperImageSinger .play-icon {
     display: none;
+    position: absolute;
+    font-size: 1.8rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2000;
+    color: white;
+}
+
+.wrapperImageSinger .wrapper_animation_nextsong {
+    align-items: center;
+    justify-content: center;
     position: absolute;
     font-size: 1.8rem;
     left: 50%;
@@ -359,12 +376,3 @@
         border-right: 1.2rem solid transparent;
     }
 }
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .container {}
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
