@@ -1,11 +1,14 @@
-function PublicComponent({ title, width, menu }) {
+function PublicComponent({ title, width, menu, under }) {
   return (
     <div
       className="wrapper-component-hover"
       style={{ width, right: menu && 0 }}
     >
       <div>{title}</div>
-      <div className={menu ? "arrow-sliders" : "arrow-component"} />
+      {under ?
+        <div className="arrow-under-component" /> :
+        <div className={menu ? "arrow-sliders" : "arrow-component"} />
+      }
     </div>
   );
 }

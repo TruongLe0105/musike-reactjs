@@ -276,11 +276,11 @@ function NextSong() {
                       {isPlay
                         ? active === index && <ChartAudio />
                         : active === index && (
-                            <i
-                              onClick={(e) => handleToggleMusic(e, index, item)}
-                              className="fa-solid fa-play"
-                            ></i>
-                          )}
+                          <i
+                            onClick={(e) => handleToggleMusic(e, index, item)}
+                            className="fa-solid fa-play"
+                          ></i>
+                        )}
                     </div>
                     <img
                       style={{

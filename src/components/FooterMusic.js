@@ -18,7 +18,9 @@ function FooterMusic({
   const [shuffle, setShuffle] = useState(false);
   const [muted, setMuted] = useState(false);
   const [isLike, setIsLike] = useState(false);
-  const [currentTime, setCurrentTime] = useState("0");
+  const [value, setValue] = useState(0);
+  const [volume, setVolume] = useState(100);
+  const [currentTime, setCurrentTime] = useState(0);
   const dispatch = useDispatch();
   const { openModalNextSong } = useSelector((state) => state.modal);
 
@@ -28,54 +30,101 @@ function FooterMusic({
   };
 
   const audio = document.getElementById("audio");
+  const sliders = document.getElementById("progress_bar");
+  const volumeProgress = document.getElementById("volume");
 
+  //Bắt time thay đổi khi play music
   const timeProgress = () => {
     audio?.addEventListener("timeupdate", () => {
-      let timeRunning = Math.floor(audio?.currentTime);
+      let timeRunning = Math.round(audio?.currentTime);
       setCurrentTime(timeRunning);
     });
   };
 
   //Function
+
+  //Auto cập nhật chiều dài time bar
   const playingMusic = () => {
-    const progress = document.getElementById("progress");
-    audio?.addEventListener("loadedmetadata", () => {
+    if (audioPlaying) {
       if (isPlay) {
-        const timeSong = listMusic[active]?.time;
         audio?.play();
-        progress.style.width = (currentTime * 100) / timeSong + "%";
+        const timeSong = listMusic[active]?.time;
+        let newValue = Math.round((currentTime * 100) / timeSong);
+        console.log("currentTime", currentTime)
+        console.log("newValue", newValue)
+        sliders.style.background = `linear-gradient(to right, #fff ${newValue}%,  #333 ${newValue}%)`;
+        setValue(newValue);
       } else {
         audio.pause();
       }
-    });
+    }
   };
 
+  //Tự động chuyển bài
   const autoNextSong = () => {
     audio?.addEventListener("ended", () => {
       if (shuffle) {
         const random = Math.floor(Math.random() * listMusic?.length);
-        console.log("shuffle", shuffle);
-        console.log("random", random);
         setActive(random);
         setAudioPlaying(listMusic[random]);
       } else {
-        console.log("no k nhan");
         nextMusic();
       }
     });
   };
 
+  //Change time và chiều dài time bar
+  const handleChangeValue = (e) => {
+    let newValue = e.target.value;
+    let newTime = newValue * listMusic[active]?.time / 100;
+    newTime = Math.round(newTime);
+    sliders.style.background = `linear-gradient(to right, #fff ${newValue}%,  #333 ${newValue}%)`;
+    setCurrentTime(newTime);
+    setValue(newValue);
+    audio.currentTime = newTime;
+  };
+
+  //Bắt event change volume
+  const handleVolume = () => {
+    if (audio) {
+      if (muted) {
+        audio.muted = true;
+        setVolume(0);
+        volumeProgress.style.background = `linear-gradient(to right, #fff ${0}%,  #333 ${0}%)`;
+      } else {
+        audio.muted = false;
+        setVolume(100);
+        volumeProgress.style.background = `linear-gradient(to right, #fff ${100}%,  #333 ${100}%)`;
+      }
+    }
+  }
+
+  //Change volume
+  const handleChangeVolume = (e) => {
+    console.log("volume", e.target.value);
+    const newVolume = e.target.value;
+    audio.volume = newVolume / 100;
+    audio.volume === 0 ? setMuted(true) : setMuted(false);
+    setVolume(newVolume);
+    volumeProgress.style.background = `linear-gradient(to right, #fff ${newVolume}%,  #333 ${newVolume}%)`;
+  };
+
   useEffect(() => {
-    playingMusic();
     timeProgress();
     autoNextSong();
-  }, [isPlay, active, shuffle, currentTime]);
+    playingMusic();
+    // volumeProgress && handleChangeVolume();
+  }, [isPlay, active, shuffle, currentTime, volume]);
+
+  useEffect(() => {
+    handleVolume();
+  }, [audio, muted])
 
   //Action
   const playMusic = () => {
+    setAudioPlaying(listMusic[active])
     setIsPlay(true);
     audio.play();
-    timeProgress();
   };
 
   const pauseMusic = () => {
@@ -99,9 +148,8 @@ function FooterMusic({
       setActive(newActive);
       setAudioPlaying(listMusic[newActive]);
       setIsPlay(true);
-      console.log("here");
     } else {
-      console.log("next not");
+      setIsPlay(false);
     }
   };
 
@@ -116,6 +164,16 @@ function FooterMusic({
   const repeatMusic = () => {
     setRepeat(!repeat);
   };
+
+  const handleClickVolume = () => {
+    if (muted) {
+      setMuted(false);
+      audio.volume = 1;
+    } else {
+      setMuted(true);
+      audio.volume = 0;
+    }
+  }
 
   //Components
   function ShuffleComponent() {
@@ -229,7 +287,7 @@ function FooterMusic({
           </i>
           <i
             style={{
-              cursor: active === 0 && "no-drop",
+              cursor: active === 0 && "not-allowed",
               opacity: active === 0 && 0.5,
             }}
             onClick={prevMusic}
@@ -267,11 +325,15 @@ function FooterMusic({
         </div>
         <div className="wrapper_progress_bar">
           <div className="content_progress_bar">{formatTime(currentTime)}</div>
-          <div className="progress_bar">
-            <div id="progress">
-              <div className="circle_bar" />
-            </div>
-          </div>
+          <input
+            type="range"
+            id="progress_bar"
+            className="progress_bar"
+            value={value}
+            min="0"
+            max="100"
+            onChange={handleChangeValue}
+          />
           <div className="content_progress_bar">
             {formatTime(listMusic[active]?.time)}
           </div>
@@ -298,16 +360,19 @@ function FooterMusic({
           ></i>
           <i
             style={{ display: !muted && "none" }}
-            onClick={() => setMuted(false)}
+            onClick={handleClickVolume}
             className="fa-solid fa-volume-xmark"
           ></i>
           <div className="progress_bar_volume">
-            <div
-              style={{ display: muted && "none" }}
+            <input
+              id="volume"
               className="progress_volume_isMuted"
-            >
-              <div className="circle_bar" />
-            </div>
+              type="range"
+              min="0"
+              max="100"
+              value={volume}
+              onChange={handleChangeVolume}
+            />
           </div>
         </div>
         <div style={{ width: "1px", height: "50%", backgroundColor: "gray" }} />

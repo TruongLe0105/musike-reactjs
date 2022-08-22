@@ -199,7 +199,9 @@ const Menu = () => {
         )
           : (
             <div className="title_logo_musike">
-              <img src={logo} alt="" className="img_logo_musike" />
+              <img
+                src={logo}
+                alt="" className="img_logo_musike" />
             </div>
           )
         }

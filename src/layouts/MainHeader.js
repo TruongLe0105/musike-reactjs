@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Menu from '../components/Menu.js';
 import { Icon, Title } from "../components/styled/MainHeaderStyled.js";
 import '../components/css/mainHeader.css';
 import avatar from '../assets/Images/logo.png';
 import NextSong from "../components/NextSong.js";
 import NextPrevPage from "../components/NextPrevPage.js";
+import PublicComponent from "../components/PublicComponent.js";
 
 function MainHeader() {
 
@@ -27,7 +27,6 @@ function MainHeader() {
               <i className="fa-solid fa-arrow-right"></i>
             </div>
           </div>
-          {/* <NextPrevPage /> */}
           <div className="wrapperInput">
             <input
               className="input"
@@ -49,15 +48,20 @@ function MainHeader() {
               <div>Info</div>
             </div>
             <div className="iconArrow">
-              <i className="fa-solid fa-angle-down"></i>
+              <i className="fa-solid fa-angle-down">
+              </i>
             </div>
           </div>
           <div className="wrapper_icon_right_menu">
             <Icon>
-              <i className="fa-solid fa-comment-dots"></i>
+              <i className="fa-solid fa-comment-dots">
+                <PublicComponent under={true} title="Tin nhắn" width="10rem" />
+              </i>
             </Icon>
             <Icon>
-              <i className="fa-solid fa-gear"></i>
+              <i className="fa-solid fa-gear">
+                <PublicComponent under={true} title="Cài đặt" width="10rem" />
+              </i>
             </Icon>
           </div>
         </div>

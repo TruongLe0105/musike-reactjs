@@ -6,7 +6,7 @@ function ChartAudio() {
   return (
     <div
       style={{
-        height: "1.6rem",
+        height: "1.5rem",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "flex-end",

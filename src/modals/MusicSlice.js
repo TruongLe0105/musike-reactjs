@@ -41,7 +41,6 @@ export const getListMusic = () => async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
         const response = await apiService.get(`/products`);
-        console.log("res", response)
         dispatch(slice.actions.getListMusicSuccess(response.data));
     } catch (error) {
         dispatch(slice.actions.hasError(error.message));
