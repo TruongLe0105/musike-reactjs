@@ -10,6 +10,7 @@ import ChartAudio from "./ChartAudio";
 import FooterMusic from "./FooterMusic";
 import HeaderNextSong from "./HeaderNextSong";
 import { clickOutSideMenu } from "./help/ClickOutside";
+import PublicComponent from "./PublicComponent";
 
 const { bieber, rising, davis, madness, mode, moonlight, adele } = SingerList;
 
@@ -276,11 +277,11 @@ function NextSong() {
                       {isPlay
                         ? active === index && <ChartAudio />
                         : active === index && (
-                          <i
-                            onClick={(e) => handleToggleMusic(e, index, item)}
-                            className="fa-solid fa-play"
-                          ></i>
-                        )}
+                            <i
+                              onClick={(e) => handleToggleMusic(e, index, item)}
+                              className="fa-solid fa-play"
+                            ></i>
+                          )}
                     </div>
                     <img
                       style={{
@@ -302,7 +303,13 @@ function NextSong() {
                 </div>
                 <div className="itemRight">
                   <div className="timeSong">{formatTime(item.time)}</div>
-                  <i className="fa-solid fa-ellipsis"></i>
+                  <i className="fa-solid fa-ellipsis">
+                    <PublicComponent
+                      title="Xem thêm"
+                      width="10rem"
+                      // under={true}
+                    />
+                  </i>
                 </div>
               </div>
             ))}
@@ -317,6 +324,8 @@ function NextSong() {
           audioPlaying={audioPlaying}
           setDuration={setDuration}
           duration={duration}
+          isAutoPlay={isAutoPlay}
+          setIsAutoPlay={setIsAutoPlay}
         />
       </div>
     </>

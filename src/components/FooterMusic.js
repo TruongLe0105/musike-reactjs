@@ -8,8 +8,10 @@ import PublicComponent from "./PublicComponent";
 function FooterMusic({
   setActive,
   setIsPlay,
-  audioPlaying,
   setAudioPlaying,
+  setIsAutoPlay,
+  isAutoPlay,
+  audioPlaying,
   active,
   listMusic,
   isPlay,
@@ -50,8 +52,8 @@ function FooterMusic({
         audio?.play();
         const timeSong = listMusic[active]?.time;
         let newValue = Math.round((currentTime * 100) / timeSong);
-        console.log("currentTime", currentTime)
-        console.log("newValue", newValue)
+        console.log("currentTime", currentTime);
+        console.log("newValue", newValue);
         sliders.style.background = `linear-gradient(to right, #fff ${newValue}%,  #333 ${newValue}%)`;
         setValue(newValue);
       } else {
@@ -76,7 +78,7 @@ function FooterMusic({
   //Change time và chiều dài time bar
   const handleChangeValue = (e) => {
     let newValue = e.target.value;
-    let newTime = newValue * listMusic[active]?.time / 100;
+    let newTime = (newValue * listMusic[active]?.time) / 100;
     newTime = Math.round(newTime);
     sliders.style.background = `linear-gradient(to right, #fff ${newValue}%,  #333 ${newValue}%)`;
     setCurrentTime(newTime);
@@ -97,7 +99,7 @@ function FooterMusic({
         volumeProgress.style.background = `linear-gradient(to right, #fff ${100}%,  #333 ${100}%)`;
       }
     }
-  }
+  };
 
   //Change volume
   const handleChangeVolume = (e) => {
@@ -118,11 +120,15 @@ function FooterMusic({
 
   useEffect(() => {
     handleVolume();
-  }, [audio, muted])
+  }, [audio, muted]);
+
+  useEffect(() => {
+    autoNextSong();
+  }, [isAutoPlay]);
 
   //Action
   const playMusic = () => {
-    setAudioPlaying(listMusic[active])
+    setAudioPlaying(listMusic[active]);
     setIsPlay(true);
     audio.play();
   };
@@ -143,12 +149,15 @@ function FooterMusic({
     }
   };
   const nextMusic = () => {
-    if (active < listMusic.length - 1) {
+    console.log("acxtive", active);
+    if (active < listMusic.length - 1 && isAutoPlay) {
       const newActive = active + 1;
       setActive(newActive);
       setAudioPlaying(listMusic[newActive]);
       setIsPlay(true);
     } else {
+      console.log("here", isAutoPlay);
+      setActive(active);
       setIsPlay(false);
     }
   };
@@ -173,7 +182,7 @@ function FooterMusic({
       setMuted(true);
       audio.volume = 0;
     }
-  }
+  };
 
   //Components
   function ShuffleComponent() {
@@ -232,7 +241,13 @@ function FooterMusic({
             />
           </div>
           <div className="wrapper-text-component-next-song">
-            <div style={{ color: "white", marginBottom: "0.5rem" }}>
+            <div
+              style={{
+                alignSelf: "flex-start",
+                color: "white",
+                marginBottom: "0.5rem",
+              }}
+            >
               {listMusic[active + 1]?.song}
             </div>
             <div style={{ alignSelf: "flex-start" }}>

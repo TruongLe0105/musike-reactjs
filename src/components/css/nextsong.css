@@ -270,6 +270,10 @@
     justify-content: center;
 }
 
+.itemRight .fa-ellipsis {
+    position: relative;
+}
+
 .itemRight i:hover {
     background-color: var(--blur_bg);
 }

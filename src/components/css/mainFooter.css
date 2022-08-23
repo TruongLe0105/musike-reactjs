@@ -314,11 +314,15 @@
 .fa-repeat:hover .wrapper-component-hover,
 .fa-ellipsis:hover .wrapper-component-hover,
 .fa-heart:hover .wrapper-component-hover,
+.fa-gear:hover .wrapper-component-hover,
+.fa-comment-dots:hover .wrapper-component-hover,
 .fa-shuffle:hover .wrapper-component-hover {
     background-color: rgb(88, 25, 170);
     color: white;
     bottom: 130%;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    font-family: 'Courier New', Courier, monospace;
     width: 16rem;
     height: 2.5rem;
     position: absolute;
@@ -366,6 +370,7 @@
     display: none;
     color: var(--blur_color);
     background-color: rgb(88, 25, 170);
+    font-family: 'Courier New', Courier, monospace;
     font-size: 1.2rem;
     position: absolute;
     bottom: 130%;
