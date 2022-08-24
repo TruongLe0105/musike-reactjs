@@ -4,8 +4,8 @@ import '../components/css/nextsong.css';
 
 import SingerList from '../middleware/NextSongListImage';
 import { getInfoModalNextSong } from '../modals/ModalSlice';
-import { getListMusic, playMusic } from '../modals/MusicSlice';
-import { formatTime, sliceText } from '../utils/Format';
+import { getListMusic, playMusic } from "../modals/music/MusicSlice";
+import { formatTime, sliceText } from "../utils/Format";
 import ChartAudio from "./ChartAudio";
 import FooterMusic from "./FooterMusic";
 import HeaderNextSong from "./HeaderNextSong";
@@ -305,8 +305,8 @@ function NextSong() {
                   <div className="timeSong">{formatTime(item.time)}</div>
                   <i className="fa-solid fa-ellipsis">
                     <PublicComponent
-                      title="Xem thêm"
-                      width="10rem"
+                      title="Khác"
+                      width="5rem"
                       // under={true}
                     />
                   </i>

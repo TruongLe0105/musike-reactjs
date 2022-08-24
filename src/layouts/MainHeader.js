@@ -2,31 +2,23 @@ import React, { useState } from "react";
 import Menu from '../components/Menu.js';
 import { Icon, Title } from "../components/styled/MainHeaderStyled.js";
 import '../components/css/mainHeader.css';
-import avatar from '../assets/Images/logo.png';
+
 import NextSong from "../components/NextSong.js";
-import NextPrevPage from "../components/NextPrevPage.js";
+
 import PublicComponent from "../components/PublicComponent.js";
+import NextPrevPage from "../components/NextPrevPage.js";
 
 function MainHeader() {
-
   const handleChangeInput = (e) => {
     console.log("Input", e.target.value);
-  }
+  };
 
   return (
     <>
-      <Menu
-      />
+      <Menu />
       <div className="containerStyle">
         <div className="wrapperHeaderLeft">
-          <div className="wrapperTitle">
-            <div style={{ marginRight: "2rem", cursor: "pointer" }}>
-              <i className="fa-solid fa-arrow-left"></i>
-            </div>
-            <div style={{ cursor: "pointer" }}>
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          </div>
+          <NextPrevPage />
           <div className="wrapperInput">
             <input
               className="input"
@@ -48,8 +40,7 @@ function MainHeader() {
               <div>Info</div>
             </div>
             <div className="iconArrow">
-              <i className="fa-solid fa-angle-down">
-              </i>
+              <i className="fa-solid fa-angle-down"></i>
             </div>
           </div>
           <div className="wrapper_icon_right_menu">

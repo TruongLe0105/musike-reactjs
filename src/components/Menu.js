@@ -4,51 +4,61 @@ import newLogo from "../assets/Images/logoNew.png";
 import group from "../assets/Images/group.png";
 import { ItemFooter, ItemMenu, Title, TitleFooter } from "./styled/MenuStyled";
 import '../components/css/menu.css';
+import { useNavigate } from "react-router-dom";
 
 const ButtonList = [
   {
     title: "Explore NFT Music",
-    icon: <i className="fa-solid fa-music"></i>
+    icon: <i className="fa-solid fa-music"></i>,
+    route: "/",
   },
   {
     title: "My NFT collection",
-    icon: <i className="fa-solid fa-list"></i>
+    icon: <i className="fa-solid fa-list"></i>,
+    route: "nft-collection",
   },
   {
     title: "HOT collection",
-    icon: < i className="fa-solid fa-fire" ></i >
+    icon: <i className="fa-solid fa-fire"></i>,
+    route: "hot-collection",
   },
   {
     title: "Albums",
-    icon: <i className="fa-solid fa-compact-disc"></i>
+    icon: <i className="fa-solid fa-compact-disc"></i>,
+    route: "albums",
   },
   {
     title: "Genres",
-    icon: <i className="fa-solid fa-bars-progress"></i>
+    icon: <i className="fa-solid fa-bars-progress"></i>,
+    route: "genres",
   },
   {
     title: "Play list",
-    icon: <i className="fa-solid fa-list-ol"></i>
+    icon: <i className="fa-solid fa-list-ol"></i>,
+    route: "playlist",
   },
   {
     title: "Favourite",
-    icon: <i className="fa-solid fa-heart"></i>
+    icon: <i className="fa-solid fa-heart"></i>,
+    route: "like-list",
   },
   {
     title: "Upload",
-    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>
+    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
+    route: "upload",
   },
   {
     title: "Artists",
-    icon: <i className="fa-solid fa-microphone"></i>
+    icon: <i className="fa-solid fa-microphone"></i>,
+    route: "artists",
   },
 ];
-
 
 const Menu = () => {
   const [zoomInScreen, setZoomInScreen] = useState(false);
   const [clicked, setClicked] = useState(0);
   const [clickFooter, setclickFooter] = useState(false);
+  const navigate = useNavigate();
 
   const clickOutSideMenu = () => {
     const idMenuContainerNew = document.getElementById("menu");
@@ -59,85 +69,59 @@ const Menu = () => {
         setZoomInScreen(false);
       }
     });
-  }
+  };
 
   const eventBlurHideScroll = () => {
     const item = document.getElementById("scroll_view_menu");
     item.addEventListener("mouseover", () => {
       item.classList.add("menu_scroll_view");
       item.classList.remove("scroll_bar_y");
-    })
+    });
     item.addEventListener("mouseleave", () => {
       setTimeout(() => {
         item.classList.remove("menu_scroll_view");
         item.classList.add("scroll_bar_y");
-      }, 1000)
-    })
-  }
+      }, 1000);
+    });
+  };
 
   useEffect(() => {
     clickOutSideMenu();
     eventBlurHideScroll();
-  }, [])
+  }, []);
 
   const handleZoomIn = () => {
     setZoomInScreen(true);
 
     const idMenuContainer = document.getElementById("menu");
     idMenuContainer.classList.add("wrapper_menu_clicked_zoom_in");
-  }
+  };
 
   const handleZoomOut = () => {
     setZoomInScreen(false);
 
     const idMenuContainer = document.getElementById("menu");
     idMenuContainer.classList.remove("wrapper_menu_clicked_zoom_in");
-  }
+  };
 
-  const handleClick = (index) => {
+  const handleClick = (index, item) => {
     setClicked(index);
     setclickFooter(false);
+    item.route && navigate(item.route);
   };
 
   const handleClickFooterBtn = () => {
     setClicked(null);
     setclickFooter(true);
-  }
+  };
 
   const RenderListItem = () => {
     const ListMenuTop = () => {
-      return (
-        ButtonList.map((item, index) => (
-          index < 5 && <ItemMenu
-            key={index}
-            style={{
-              backgroundColor:
-                index === clicked
-                  ? "rgba(255, 255, 255, 0.2)"
-                  : "transparent",
-              height: "4.3rem",
-              opacity: index === clicked && 1,
-            }}
-            onClick={() => handleClick(index)}
-          >
-            <div className="wrapper_icon_menu">
-              {item.icon}
-            </div>
-            <Title>{item.title}</Title>
-            {index === clicked && (
-              <div className="line" />
-            )}
-          </ItemMenu>
-        ))
-      )
-    };
-
-    const ListCanScroll = () => {
-      return (
-        ButtonList.map((item, index) => (
-          index >= 5 &&
-          <div key={index}>
+      return ButtonList.map(
+        (item, index) =>
+          index < 5 && (
             <ItemMenu
+              key={index}
               style={{
                 backgroundColor:
                   index === clicked
@@ -146,26 +130,44 @@ const Menu = () => {
                 height: "4.3rem",
                 opacity: index === clicked && 1,
               }}
-              onClick={() => handleClick(index)}
+              onClick={() => handleClick(index, item)}
             >
-              <div className="wrapper_icon_menu">
-                {item.icon}
-              </div>
+              <div className="wrapper_icon_menu">{item.icon}</div>
               <Title>{item.title}</Title>
-              {index === clicked && (
-                <div className="line" />
-              )}
+              {index === clicked && <div className="line" />}
             </ItemMenu>
-          </div>
-        ))
-      )
+          )
+      );
+    };
+
+    const ListCanScroll = () => {
+      return ButtonList.map(
+        (item, index) =>
+          index >= 5 && (
+            <div key={index}>
+              <ItemMenu
+                style={{
+                  backgroundColor:
+                    index === clicked
+                      ? "rgba(255, 255, 255, 0.2)"
+                      : "transparent",
+                  height: "4.3rem",
+                  opacity: index === clicked && 1,
+                }}
+                onClick={() => handleClick(index, item)}
+              >
+                <div className="wrapper_icon_menu">{item.icon}</div>
+                <Title>{item.title}</Title>
+                {index === clicked && <div className="line" />}
+              </ItemMenu>
+            </div>
+          )
+      );
     };
 
     return (
       <>
-        <div>
-          {ListMenuTop()}
-        </div>
+        <div>{ListMenuTop()}</div>
         <div id="scroll_view_menu" className="scroll_bar_y">
           <div className="footer">
             <div className="line_center" />
@@ -177,17 +179,21 @@ const Menu = () => {
             </div>
             <ItemFooter>
               <TitleFooter>Mining time</TitleFooter>
-              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>24:00:00</div>
+              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>
+                24:00:00
+              </div>
             </ItemFooter>
             <ItemFooter>
               <TitleFooter>Earn today</TitleFooter>
-              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>0.000</div>
+              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>
+                0.000
+              </div>
             </ItemFooter>
           </div>
         </div>
       </>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -196,51 +202,39 @@ const Menu = () => {
           <div className="new_logo">
             <img src={newLogo} alt="Musike" className="new_logo_img" />
           </div>
-        )
-          : (
-            <div className="title_logo_musike">
-              <img
-                src={logo}
-                alt="" className="img_logo_musike" />
-            </div>
-          )
-        }
+        ) : (
+          <div className="title_logo_musike">
+            <img src={logo} alt="" className="img_logo_musike" />
+          </div>
+        )}
         {ButtonList.map((item, index) => (
           <div
             key={index}
             className="item_clicked"
             style={{
               backgroundColor:
-                index === clicked
-                  ? "rgba(255, 255, 255, 0.2)"
-                  : "transparent",
+                index === clicked ? "rgba(255, 255, 255, 0.2)" : "transparent",
               opacity: index === clicked && 1,
             }}
-            onClick={() => handleClick(index)}
+            onClick={() => handleClick(index, item)}
           >
             {item.icon}
-            <div id="title_menu_zoom_in">{item.title}
+            <div id="title_menu_zoom_in">
+              {item.title}
 
-              {index === clicked && (
-                <div className="line_menu_small" />
-              )}
+              {index === clicked && <div className="line_menu_small" />}
             </div>
-
           </div>
-
         ))}
-        {zoomInScreen ?
-          (
-            <div onClick={handleZoomOut} className="icon_arrow_new">
-              <i className="fa-solid fa-arrow-left"></i>
-            </div>
-          ) :
-          (
-            <div onClick={handleZoomIn} className="icon_arrow">
-              <i className="fa-solid fa-arrow-right"></i>
-            </div>
-          )
-        }
+        {zoomInScreen ? (
+          <div onClick={handleZoomOut} className="icon_arrow_new">
+            <i className="fa-solid fa-arrow-left"></i>
+          </div>
+        ) : (
+          <div onClick={handleZoomIn} className="icon_arrow">
+            <i className="fa-solid fa-arrow-right"></i>
+          </div>
+        )}
       </div>
       <div className="wrapperMenu" id="menu_large">
         <div className="image_logo">
@@ -252,20 +246,25 @@ const Menu = () => {
             onClick={handleClickFooterBtn}
             className="button_footer_menu"
             style={{
-              backgroundColor: clickFooter ? "rgba(255, 255, 255, 0.2)"
+              backgroundColor: clickFooter
+                ? "rgba(255, 255, 255, 0.2)"
                 : "black",
             }}
           >
-            <i style={{ fontSize: "2rem" }} className="fa-regular fa-square-plus"></i>
+            <i
+              style={{ fontSize: "2rem" }}
+              className="fa-regular fa-square-plus"
+            ></i>
             <Title>Create NFT Music</Title>
             <div
               style={{ backgroundColor: clickFooter ? "red" : "transparent" }}
-              className="line" />
+              className="line"
+            />
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Menu;

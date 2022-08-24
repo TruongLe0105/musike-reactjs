@@ -52,8 +52,6 @@ function FooterMusic({
         audio?.play();
         const timeSong = listMusic[active]?.time;
         let newValue = Math.round((currentTime * 100) / timeSong);
-        console.log("currentTime", currentTime);
-        console.log("newValue", newValue);
         sliders.style.background = `linear-gradient(to right, #fff ${newValue}%,  #333 ${newValue}%)`;
         setValue(newValue);
       } else {
@@ -103,7 +101,6 @@ function FooterMusic({
 
   //Change volume
   const handleChangeVolume = (e) => {
-    console.log("volume", e.target.value);
     const newVolume = e.target.value;
     audio.volume = newVolume / 100;
     audio.volume === 0 ? setMuted(true) : setMuted(false);
@@ -149,14 +146,12 @@ function FooterMusic({
     }
   };
   const nextMusic = () => {
-    console.log("acxtive", active);
     if (active < listMusic.length - 1 && isAutoPlay) {
       const newActive = active + 1;
       setActive(newActive);
       setAudioPlaying(listMusic[newActive]);
       setIsPlay(true);
     } else {
-      console.log("here", isAutoPlay);
       setActive(active);
       setIsPlay(false);
     }
@@ -285,7 +280,7 @@ function FooterMusic({
             <HeartComponent />
           </i>
           <i className="fa-solid fa-ellipsis">
-            <PublicComponent title="Xem thêm" width="10rem" />
+            <PublicComponent title="Khác" width="5rem" />
           </i>
         </div>
       </div>

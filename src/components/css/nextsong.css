@@ -168,12 +168,6 @@
     display: block;
 }
 
-/* .wrapperItemNextSong:hover .wrapper_animation_nextsong {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 .wrapperItemNextSong:hover .itemRight {
     display: flex;
 }
