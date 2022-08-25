@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "../../components/css/explore.css";
 
-function ModalSong(item) {
+function ModalSong({ item, setOpenModal, openModal }) {
+  const handleClickClose = () => {
+    setOpenModal(false);
+  };
+
   return (
     <div className="wrapper-modal-song">
       <div className="modal-song">
+        <i onClick={handleClickClose} className="fa-solid fa-xmark"></i>
         <div>
           <div>
             Bạn có muốn phát bài hát này? Danh sách phát hiện tại sẽ bị thay
@@ -15,7 +21,7 @@ function ModalSong(item) {
         </div>
         <div>
           <div>
-            <icon />
+            <i className="fa-solid fa-play"></i>
             <div>phat bai hat</div>
           </div>
           <div>them vao danh sach phat</div>

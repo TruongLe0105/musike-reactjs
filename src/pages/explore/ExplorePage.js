@@ -1,11 +1,13 @@
 import React from "react";
 import "../../components/css/explore.css";
-import BannerModal from "../../components/explore/BannerModal";
+import BannerExplore from "../../components/explore/BannerExplore";
+import RecentlyExplore from "../../components/explore/RecentlyExplore";
 
 function ExplorePage() {
   return (
     <div className="wrapper-explore">
-      <BannerModal />
+      <BannerExplore />
+      <RecentlyExplore />
     </div>
   );
 }

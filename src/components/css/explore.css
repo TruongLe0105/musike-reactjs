@@ -2,23 +2,21 @@
     margin-left: 18%;
     width: 82%;
     padding-top: 8.5rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
 }
 
 .wrapper-banner-modal {
     display:flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: relative;
 }
 
 .wrapper-banner-modal .chevron{
     display: none;
-    font-size:2rem;
-    width: 4rem;
-    height:4rem;
+    font-size:2.5rem;
+    width: 6rem;
+    height:6rem;
     color:white;
     border-radius: 50%;
     align-items: center;
@@ -47,21 +45,90 @@
 
 .wrapper-banner-modal .banner-item {
     margin: 0 1rem;
-    width: 30%;
+    width: 32%;
     height: 100%;
-    cursor: pointer;
 }
 
 .wrapper-banner-modal .banner-img {
     width:100%;
     height:100%;
+    cursor: pointer;
+}
+.wrapper-banner-modal .banner-img img {
+    border-radius: 8px;
 }
 
 .banner-item .wrapper-modal-song {
     position:fixed;
     top:0;
     bottom:0;
-    width:100%;
-    background-color: rgba(0, 0, 0, 0.1);
+    left:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.banner-item .wrapper-modal-song .modal-song {
+    position:absolute;
+    width:40%;
+    height:30%;
+    background-color: #fff;
+}
+
+.modal-song .fa-xmark {
+    font-size: 2rem;
+    position: absolute;
+    right:1rem;
+    top:1rem;
+    cursor: pointer;
+}
+
+.wrapper-explore .wrapper-recently-explore {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding-top: 3rem;
+}
+
+.wrapper-explore .wrapper-content-recently {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.wrapper-explore .wrapper-item-recently {
+    display: flex;
+    flex-direction: column;
+}
+.wrapper-explore .wrapper-item-recently .image {
+    width: 13rem;
+    height:14rem;
+    position:relative;
+    background-color: #fff;
+}
+
+.wrapper-explore .wrapper-item-recently .image img {
+    position: absolute;
+    /* top:0;
+    left: 0;
+    right:0;
+    bottom:0; */
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.wrapper-explore .title-recently {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.wrapper-explore .title-song:hover {
+    color:#c662ef;
+    cursor: pointer;
+}

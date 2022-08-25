@@ -3,32 +3,32 @@ import ModalSong from "../../modals/explore/ModalSong";
 
 const list = [
   {
-    img: "/static/media/pop.ac740dad02c9c16cd80f.png",
+    img: "https://photo-zmp3.zmdcdn.me/banner/6/5/7/3/6573c97764d2474df1eae0a4efe802dd.jpg",
     isModal: false,
   },
   {
-    img: "/static/media/hiphop.f827ba8f545bdfa25528.png",
+    img: "https://photo-zmp3.zmdcdn.me/banner/6/4/e/9/64e943b8f6adadd7c4ccf697d213a978.jpg",
     isModal: false,
   },
   {
-    img: "/static/media/blues.f81e1088940f56cc6e16.png",
+    img: "https://photo-zmp3.zmdcdn.me/banner/4/2/1/1/4211c700bbc7b4cf1095a084afa15d6b.jpg",
     song: "Ahihi do ngok",
     singer: "Khang Viet",
     isModal: true,
   },
   {
-    img: "/static/media/pop.ac740dad02c9c16cd80f.png",
+    img: "https://photo-zmp3.zmdcdn.me/banner/3/e/b/e/3ebe83e18621265ce1a9bf42ca4e3a21.jpg",
     isModal: false,
   },
   {
-    img: "/static/media/r&b.424b3b1653f5a512198b.png",
+    img: "https://photo-zmp3.zmdcdn.me/banner/7/7/a/3/77a39b28ffafab2b0a02a5c9c6deecb7.jpg",
     song: "Ahihi do ngok",
     singer: "Khang Viet",
     isModal: true,
   },
 ];
 
-function BannerModal() {
+function BannerExplore() {
   const [openModal, setOpenModal] = useState(false);
   const [banners, setBanners] = useState(list.slice(0, 3));
   const [firstIndex, setFirstIndex] = useState(1);
@@ -38,13 +38,12 @@ function BannerModal() {
   const myAnimation = () => {
     bannerIdRef.current = setInterval(() => {
       let secondIndex = firstIndex + 3;
-      console.log("firstIndex:", firstIndex);
-      console.log("secondIndex:", secondIndex);
       let newBanners = list.slice(firstIndex, secondIndex);
       let newIndex = secondIndex < totalBanner ? firstIndex + 1 : 0;
+
       setFirstIndex(newIndex);
       setBanners(newBanners);
-    }, 3000);
+    }, 4000);
   };
 
   const handlePrevBanner = () => {
@@ -68,10 +67,18 @@ function BannerModal() {
     setBanners(newBanners);
   };
 
+  const handleOpenModal = (item) => {
+    setOpenModal(true);
+  };
+
+  const handleNavigate = (item) => {
+    console.log("navigate");
+  };
+
   useEffect(() => {
-    myAnimation();
+    !openModal && myAnimation();
     return () => clearInterval(bannerIdRef.current);
-  }, [firstIndex]);
+  }, [firstIndex, openModal]);
 
   return (
     <div className="wrapper-banner-modal">
@@ -82,13 +89,19 @@ function BannerModal() {
         <div className="banner-item" key={index}>
           {item.isModal ? (
             <div>
-              <div className="banner-img">
+              <div onClick={() => handleOpenModal(item)} className="banner-img">
                 <img src={item.img} alt="img" width="100%" height="100%" />
               </div>
-              {openModal && <ModalSong item={item} />}
+              {openModal && (
+                <ModalSong
+                  item={item}
+                  setOpenModal={setOpenModal}
+                  openModal={openModal}
+                />
+              )}
             </div>
           ) : (
-            <div className="banner-img">
+            <div onClick={handleNavigate} className="banner-img">
               <img src={item.img} alt="img" width="100%" height="100%" />
             </div>
           )}
@@ -101,4 +114,4 @@ function BannerModal() {
   );
 }
 
-export default BannerModal;
+export default BannerExplore;

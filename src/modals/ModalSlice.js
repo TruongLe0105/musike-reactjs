@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    openModalNextSong: true,
+  openModalNextSong: false,
 };
 
 
