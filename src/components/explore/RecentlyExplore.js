@@ -1,22 +1,6 @@
-import React from "react";
-import listGenres from "../../middleware/GenresListImage";
-
-const {
-  pop,
-  asiaop,
-  blues,
-  country,
-  eastern,
-  soul,
-  folk,
-  hiphop,
-  jazz,
-  latin,
-  popular,
-  rb,
-  rock,
-  traditional,
-} = listGenres;
+import React, { useState } from "react";
+import { HeartButton, OptionButton } from "../Button";
+import ChartAudio from "../ChartAudio";
 
 const LIST = [
   {
@@ -57,7 +41,17 @@ function RecentlyExplore() {
         {LIST.map((item, index) => (
           <div key={index} className="wrapper-item-recently">
             <div className="image">
-              <img src={item.img} alt={item.title} />
+              <div className="animation">
+                <img src={item.img} alt={item.title} />
+              </div>
+              <div className="wrapper_icon wrapper-card-recently-explore">
+                <HeartButton index={index} />
+                <div className="wrapper-chart-explore">
+                  {/* <ChartAudio /> */}
+                  <i className="fa-solid fa-play"></i>
+                </div>
+                <OptionButton />
+              </div>
             </div>
             <div className="title-song">{item.title}</div>
           </div>

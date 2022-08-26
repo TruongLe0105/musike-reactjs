@@ -15,3 +15,12 @@ export const sliceText = (text, index, hover) => {
         return text;
     }
 }
+
+export const sliceTextExplore = (text) => {
+  if (text.length > 30) {
+    const newText = text.slice(0, 20) + "...";
+    return newText;
+  } else {
+    return text;
+  }
+};

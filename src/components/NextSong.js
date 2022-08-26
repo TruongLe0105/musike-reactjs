@@ -6,6 +6,7 @@ import SingerList from '../middleware/NextSongListImage';
 import { getInfoModalNextSong } from '../modals/ModalSlice';
 import { getListMusic, playMusic } from "../modals/music/MusicSlice";
 import { formatTime, sliceText } from "../utils/Format";
+import { OptionButton } from "./Button";
 import ChartAudio from "./ChartAudio";
 import FooterMusic from "./FooterMusic";
 import HeaderNextSong from "./HeaderNextSong";
@@ -303,13 +304,7 @@ function NextSong() {
                 </div>
                 <div className="itemRight">
                   <div className="timeSong">{formatTime(item.time)}</div>
-                  <i className="fa-solid fa-ellipsis">
-                    <PublicComponent
-                      title="Khác"
-                      width="5rem"
-                      // under={true}
-                    />
-                  </i>
+                  <OptionButton />
                 </div>
               </div>
             ))}

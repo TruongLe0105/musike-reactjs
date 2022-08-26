@@ -14,6 +14,10 @@
     --fontSize_secondary: 1.1rem;
     --blur_color: rgba(255, 255, 255, 0.6);
     --blur_bg: rgba(255, 255, 255, 0.2);
+    --size_title: 2rem;
+    --weight_title: 700;
+    --padding_explore: 2rem;
+    --margin_title: 1rem;
 }
 
 html {

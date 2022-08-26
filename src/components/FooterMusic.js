@@ -4,6 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getInfoModalNextSong } from "../modals/ModalSlice";
 import { formatTime } from "../utils/Format";
 import PublicComponent from "./PublicComponent";
+import {
+  HeartButton,
+  LyricsButton,
+  OptionButton,
+  RepeatButton,
+  ShuffleButton,
+  UploadButton,
+} from "./Button";
 
 function FooterMusic({
   setActive,
@@ -19,7 +27,6 @@ function FooterMusic({
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [muted, setMuted] = useState(false);
-  const [isLike, setIsLike] = useState(false);
   const [value, setValue] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
@@ -157,18 +164,6 @@ function FooterMusic({
     }
   };
 
-  const likeMusic = () => {
-    setIsLike(!isLike);
-  };
-
-  const shuffleMusic = () => {
-    setShuffle(!shuffle);
-  };
-
-  const repeatMusic = () => {
-    setRepeat(!repeat);
-  };
-
   const handleClickVolume = () => {
     if (muted) {
       setMuted(false);
@@ -180,41 +175,6 @@ function FooterMusic({
   };
 
   //Components
-  function ShuffleComponent() {
-    return (
-      <div className="wrapper-component-hover">
-        {!shuffle ? (
-          <div>Bật phát ngẫu nhiên</div>
-        ) : (
-          <div>Tắt phát ngẫu nhiên</div>
-        )}
-        <div className="arrow-component" />
-      </div>
-    );
-  }
-
-  function RepeatComponent() {
-    return (
-      <div className="wrapper-component-hover">
-        {!repeat ? (
-          <div>Bật phát lại một bài</div>
-        ) : (
-          <div>Tắt phát lại một bài</div>
-        )}
-        <div className="arrow-component" />
-      </div>
-    );
-  }
-
-  function HeartComponent() {
-    return (
-      <div className="wrapper-component-hover">
-        {!isLike ? <div>Thêm vào thư viện</div> : <div>Xóa khỏi thư viện</div>}
-        <div className="arrow-component" />
-      </div>
-    );
-  }
-
   function NextSongComponent() {
     return (
       <div className="wrapper-component-next-song">
@@ -272,29 +232,13 @@ function FooterMusic({
           </div>
         </div>
         <div className="wrapper_icon">
-          <i
-            onClick={likeMusic}
-            className="fa-solid fa-heart"
-            style={{ color: isLike && "red" }}
-          >
-            <HeartComponent />
-          </i>
-          <i className="fa-solid fa-ellipsis">
-            <PublicComponent title="Khác" width="5rem" />
-          </i>
+          <HeartButton />
+          <OptionButton />
         </div>
       </div>
       <div className="wrapper_footer_center">
         <div className="wrapper_list_icon">
-          <i
-            style={{
-              color: shuffle && "red",
-            }}
-            onClick={shuffleMusic}
-            className="fa-solid fa-shuffle"
-          >
-            <ShuffleComponent />
-          </i>
+          <ShuffleButton shuffle={shuffle} setShuffle={setShuffle} />
           <i
             style={{
               cursor: active === 0 && "not-allowed",
@@ -325,13 +269,7 @@ function FooterMusic({
           >
             {active !== listMusic?.length - 1 && <NextSongComponent />}
           </i>
-          <i
-            style={{ color: repeat && "red", position: "relative" }}
-            onClick={repeatMusic}
-            className="fa-solid fa-repeat"
-          >
-            <RepeatComponent />
-          </i>
+          <RepeatButton repeat={repeat} setRepeat={setRepeat} />
         </div>
         <div className="wrapper_progress_bar">
           <div className="content_progress_bar">{formatTime(currentTime)}</div>
@@ -356,12 +294,8 @@ function FooterMusic({
             <PublicComponent title="MV" width="3.5rem" />
           </div>
         </div>
-        <i className="fa-solid fa-microphone">
-          <PublicComponent title="Xem lời bài hát" width="12rem" />
-        </i>
-        <i className="fa-solid fa-cloud-arrow-down">
-          <PublicComponent title="Tải xuống" width="10rem" />
-        </i>
+        <LyricsButton />
+        <UploadButton />
         <div className="wrapper_bar_volume">
           <i
             style={{ display: muted && "none" }}

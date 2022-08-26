@@ -1,6 +1,7 @@
 import React from "react";
 import "../../components/css/explore.css";
 import BannerExplore from "../../components/explore/BannerExplore";
+import NewRelease from "../../components/explore/NewRelease";
 import RecentlyExplore from "../../components/explore/RecentlyExplore";
 
 function ExplorePage() {
@@ -8,6 +9,7 @@ function ExplorePage() {
     <div className="wrapper-explore">
       <BannerExplore />
       <RecentlyExplore />
+      <NewRelease />
     </div>
   );
 }

@@ -70,7 +70,7 @@
     flex-direction: row;
 }
 
-.wrapper_footer_left .wrapper_icon i {
+.wrapper_icon i {
     width: 3.4rem;
     height: 3.4rem;
     border-radius: 50%;
@@ -80,7 +80,7 @@
     justify-content: center;
 }
 
-.wrapper_footer_left .wrapper_icon i:hover {
+ .wrapper_icon i:hover {
     background-color: var(--blur_bg);
 }
 
