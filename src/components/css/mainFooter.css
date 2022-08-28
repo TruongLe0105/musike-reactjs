@@ -80,7 +80,7 @@
     justify-content: center;
 }
 
- .wrapper_icon i:hover {
+.wrapper_icon i:hover {
     background-color: var(--blur_bg);
 }
 

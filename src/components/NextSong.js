@@ -236,7 +236,7 @@ function NextSong() {
     setHover(index);
   };
 
-  const onMouseDownItem = (index) => {
+  const onMouseDownItem = () => {
     setHover(null);
   };
 
@@ -256,7 +256,7 @@ function NextSong() {
               <div
                 onDoubleClick={(e) => handleDoubleClickActive(e, index, item)}
                 onMouseOver={() => onMouseOverItem(index)}
-                onMouseDown={() => onMouseDownItem(index)}
+                onMouseLeave={onMouseDownItem}
                 className="wrapperItemNextSong"
                 key={index}
                 style={{
@@ -278,11 +278,11 @@ function NextSong() {
                       {isPlay
                         ? active === index && <ChartAudio />
                         : active === index && (
-                            <i
-                              onClick={(e) => handleToggleMusic(e, index, item)}
-                              className="fa-solid fa-play"
-                            ></i>
-                          )}
+                          <i
+                            onClick={(e) => handleToggleMusic(e, index, item)}
+                            className="fa-solid fa-play"
+                          ></i>
+                        )}
                     </div>
                     <img
                       style={{
@@ -295,10 +295,10 @@ function NextSong() {
                   </div>
                   <div className="contentItem">
                     <div className="nameOfSong">
-                      {sliceText(item?.song, index, hover)}
+                      {sliceText(item?.song, index, hover, 15)}
                     </div>
                     <div className="nameOfSinger">
-                      {sliceText(item?.singer, index, hover)}
+                      {sliceText(item?.singer, index, hover, 15)}
                     </div>
                   </div>
                 </div>

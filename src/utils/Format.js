@@ -1,26 +1,27 @@
 export const formatTime = (time) => {
-    let second = time % 60;
-    let minute = Math.floor(time / 60);
-    if (second < 10) second = "0" + second;
-    if (minute < 10) minute = "0" + minute;
-    const timeSong = minute + ":" + second;
-    return timeSong;
+  let second = time % 60;
+  let minute = Math.floor(time / 60);
+  if (second < 10) second = "0" + second;
+  if (minute < 10) minute = "0" + minute;
+  const timeSong = minute + ":" + second;
+  return timeSong;
 };
 
-export const sliceText = (text, index, hover) => {
-    if (text.length > 15 && index === hover) {
-        const newText = text.slice(0, 15) + "...";
-        return newText;
-    } else {
-        return text;
-    }
-}
-
-export const sliceTextExplore = (text) => {
-  if (text.length > 30) {
-    const newText = text.slice(0, 20) + "...";
+export const sliceText = (text, index, hover, num) => {
+  if (text.length > num && index === hover) {
+    const newText = text.slice(0, num) + "...";
     return newText;
   } else {
-    return text;
+    const newText = text.length > 20 ? text.slice(0, 20) + "..." : text;
+    return newText;
   }
-};
+}
+
+// export const sliceTextExplore = (text) => {
+//   if (text.length > 30) {
+//     const newText = text.slice(0, 20) + "...";
+//     return newText;
+//   } else {
+//     return text;
+//   }
+// };

@@ -36,7 +36,13 @@ const LIST = [
 function RecentlyExplore() {
   return (
     <div className="wrapper-recently-explore">
-      <div className="title-recently">Gan day</div>
+      <div className="title-explore">
+        Gần Đây
+      </div>
+      <div className="title-all">
+        Tất cả
+        <i className="fa-solid fa-chevron-right"></i>
+      </div>
       <div className="wrapper-content-recently">
         {LIST.map((item, index) => (
           <div key={index} className="wrapper-item-recently">

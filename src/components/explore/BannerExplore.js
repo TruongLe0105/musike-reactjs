@@ -12,8 +12,8 @@ const list = [
   },
   {
     img: "https://photo-zmp3.zmdcdn.me/banner/4/2/1/1/4211c700bbc7b4cf1095a084afa15d6b.jpg",
-    song: "Ahihi do ngok",
-    singer: "Khang Viet",
+    song: "mọi chuyện đều là lỗi do anh",
+    singer: "Khang Ziet",
     isModal: true,
   },
   {
@@ -21,7 +21,7 @@ const list = [
     isModal: false,
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/7/7/a/3/77a39b28ffafab2b0a02a5c9c6deecb7.jpg",
+    img: "http://cdn101.picsart.com/208783124002202.jpg",
     song: "Ahihi do ngok",
     singer: "Khang Viet",
     isModal: true,
@@ -90,7 +90,7 @@ function BannerExplore() {
           {item.isModal ? (
             <div>
               <div onClick={() => handleOpenModal(item)} className="banner-img">
-                <img src={item.img} alt="img" width="100%" height="100%" />
+                <img src={item.img} alt="img" className="img" />
               </div>
               {openModal && (
                 <ModalSong
@@ -102,7 +102,7 @@ function BannerExplore() {
             </div>
           ) : (
             <div onClick={handleNavigate} className="banner-img">
-              <img src={item.img} alt="img" width="100%" height="100%" />
+              <img src={item.img} alt="img" className="img" />
             </div>
           )}
         </div>
