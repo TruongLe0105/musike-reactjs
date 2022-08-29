@@ -182,7 +182,7 @@ function NewRelease() {
           </div>
         ))}
       </div>
-    )
+    );
   };
 
   const Albums = () => {

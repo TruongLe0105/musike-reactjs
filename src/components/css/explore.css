@@ -513,18 +513,27 @@
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
+    position: relative;
 }
 
 .wrapper-want-listen .item-card {
     position: relative;
     width: 24rem;
+    height: 24rem;
     max-height: 24rem;
     max-width: 24rem;
+}
+
+.wrapper-want-listen .item-favourite {
+    height: 26rem;
+    max-height: 26rem;
 }
 
 .wrapper-want-listen .item-card .wrapper-img {
     overflow: hidden;
     border-radius: 5px;
+    width: 100%;
+    height: 100%;
 }
 
 .wrapper-want-listen .item-card .img {
@@ -576,6 +585,7 @@
     font-weight: 700;
     font-size: 1.4rem;
     margin: 1rem 0;
+    max-width: 24rem;
 }
 
 .wrapper-want-listen .singer {
@@ -583,6 +593,7 @@
     font-weight: 500;
     font-size: 1.3rem;
     opacity: 0.7;
+    max-width: 24rem;
 }
 
 .wrapper-suggesstion {
@@ -620,6 +631,26 @@
     font-size: 1.6rem;
     font-weight: 800;
     margin-top: 1rem;
+}
+
+/* Favourite Artist */
+
+.wrapper-item-card .img-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    bottom: 1rem;
+    width: 5rem;
+    height:5rem;
+}
+.wrapper-item-card .img-group .img{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    margin: 0 1rem;
 }
 
 @keyframes scaleImage {

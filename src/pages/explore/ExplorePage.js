@@ -8,6 +8,7 @@ import RecentlyExplore from "../../components/explore/RecentlyExplore";
 import TopHundred from "../../components/explore/TopHundred";
 import Suggestion from "../../components/explore/Suggestion";
 import TrendingCorner from "../../components/explore/TrendingCorner";
+import FavouriteArtist from "../../components/explore/FavouriteArtist";
 
 function ExplorePage() {
   return (
@@ -20,6 +21,7 @@ function ExplorePage() {
       <TopHundred />
       <Suggestion />
       <TrendingCorner />
+      <FavouriteArtist />
     </div>
   );
 }
