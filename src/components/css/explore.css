@@ -601,6 +601,7 @@
     flex-direction: row;
     align-items: center;
     margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .wrapper-suggesstion .img-suggesstion {
@@ -652,6 +653,100 @@
     height: 100%;
     margin: 0 1rem;
 }
+
+/* Zing chart */
+.wrapper-zing-chart {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 0 1rem;
+    margin-top: 3rem;
+    border-radius: 8px;
+}
+
+.zing-chart {
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(180deg,#740091,#2d1a4c);
+    opacity: 0.9;
+}
+
+.zing-chart .item-zing-img{
+    display: flex;
+    flex-direction: column;
+}
+
+.zing-chart .header-zing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.zing-chart .title-zing {
+    font-size: var(--size_title);
+    margin-right: 1rem;
+}
+
+.zing-chart .wrapper-img-zing {
+    display: flex;
+    flex-direction: column;
+}
+
+.zing-chart .img-item-zing {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 35rem;
+    height: 8rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.zing-chart .img-zing {
+    width: 6rem;
+    height: 6rem;
+}
+.zing-chart .content-zing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zing-chart .img-zing .img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.wrapper-zing-chart .wrapper-zing-banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.wrapper-zing-chart .img-banner-zing {
+    width: 32%;
+    height: 8rem;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.wrapper-zing-chart .img-banner-zing .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.wrapper-zing-chart .img-banner-zing:hover .img {
+    animation: scaleImage 0.3s linear;
+    transform: scale(1.1);
+}
+
 
 @keyframes scaleImage {
     from {

@@ -9,6 +9,7 @@ import TopHundred from "../../components/explore/TopHundred";
 import Suggestion from "../../components/explore/Suggestion";
 import TrendingCorner from "../../components/explore/TrendingCorner";
 import FavouriteArtist from "../../components/explore/FavouriteArtist";
+import ZingChart from "../../components/explore/ZingChart";
 
 function ExplorePage() {
   return (
@@ -22,6 +23,7 @@ function ExplorePage() {
       <Suggestion />
       <TrendingCorner />
       <FavouriteArtist />
+      <ZingChart />
     </div>
   );
 }
