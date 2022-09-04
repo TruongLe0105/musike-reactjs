@@ -8,38 +8,38 @@ import { useNavigate } from "react-router-dom";
 
 const ButtonList = [
   {
-    title: "Explore NFT Music",
-    icon: <i className="fa-solid fa-music"></i>,
+    title: "Cá Nhân",
+    icon: <i className="fa-solid fa-list"></i>,
+    route: "library",
+  },
+  {
+    title: "Khám Phá",
+    icon: <i className="fa-sharp fa-solid fa-bomb"></i>,
     route: "/",
   },
   {
-    title: "My NFT collection",
-    icon: <i className="fa-solid fa-list"></i>,
-    route: "nft-collection",
+    title: "#zingchart",
+    icon: <i className="fa-solid fa-layer-group"></i>,
+    route: "zing-chart",
   },
   {
-    title: "HOT collection",
-    icon: <i className="fa-solid fa-fire"></i>,
-    route: "hot-collection",
+    title: "Radio",
+    icon: <i className="fa-solid fa-radiation"></i>,
+    route: "radio",
   },
   {
-    title: "Albums",
-    icon: <i className="fa-solid fa-compact-disc"></i>,
-    route: "albums",
+    title: "Theo Dõi",
+    icon: <i className="fa-brands fa-medium"></i>,
+    route: "follow",
   },
   {
-    title: "Genres",
+    title: "Thể Loại",
     icon: <i className="fa-solid fa-bars-progress"></i>,
     route: "genres",
   },
   {
-    title: "Play list",
-    icon: <i className="fa-solid fa-list-ol"></i>,
-    route: "playlist",
-  },
-  {
-    title: "Favourite",
-    icon: <i className="fa-solid fa-heart"></i>,
+    title: "Top 100",
+    icon: <i className="fa-sharp fa-solid fa-star"></i>,
     route: "like-list",
   },
   {
@@ -56,7 +56,7 @@ const ButtonList = [
 
 const Menu = () => {
   const [zoomInScreen, setZoomInScreen] = useState(false);
-  const [clicked, setClicked] = useState(0);
+  const [clicked, setClicked] = useState(1);
   const [clickFooter, setclickFooter] = useState(false);
   const navigate = useNavigate();
 
@@ -127,7 +127,7 @@ const Menu = () => {
                   index === clicked
                     ? "rgba(255, 255, 255, 0.2)"
                     : "transparent",
-                height: "4.3rem",
+                height: "4.1rem",
                 opacity: index === clicked && 1,
               }}
               onClick={() => handleClick(index, item)}
@@ -151,7 +151,7 @@ const Menu = () => {
                     index === clicked
                       ? "rgba(255, 255, 255, 0.2)"
                       : "transparent",
-                  height: "4.3rem",
+                  height: "4.1rem",
                   opacity: index === clicked && 1,
                 }}
                 onClick={() => handleClick(index, item)}
@@ -174,7 +174,7 @@ const Menu = () => {
           </div>
           <div style={{ minHeight: "36rem", marginTop: "1rem" }}>
             {ListCanScroll()}
-            <div className="wrapperImg">
+            {/* <div className="wrapperImg">
               <img src={group} alt="group" className="imageGroup" />
             </div>
             <ItemFooter>
@@ -188,7 +188,7 @@ const Menu = () => {
               <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>
                 0.000
               </div>
-            </ItemFooter>
+            </ItemFooter> */}
           </div>
         </div>
       </>
@@ -252,7 +252,7 @@ const Menu = () => {
             }}
           >
             <i
-              style={{ fontSize: "2rem" }}
+              style={{ fontSize: "2rem", marginRight: "1rem" }}
               className="fa-regular fa-square-plus"
             ></i>
             <Title>Create NFT Music</Title>

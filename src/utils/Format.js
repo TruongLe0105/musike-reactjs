@@ -17,11 +17,11 @@ export const sliceText = (text, index, hover, num) => {
   }
 }
 
-// export const sliceTextExplore = (text) => {
-//   if (text.length > 30) {
-//     const newText = text.slice(0, 20) + "...";
-//     return newText;
-//   } else {
-//     return text;
-//   }
-// };
+export const sliceTextRankWeek = (text) => {
+  if (text.length > 8) {
+    const newText = text.slice(0, 8) + "...";
+    return newText;
+  } else {
+    return text;
+  }
+};

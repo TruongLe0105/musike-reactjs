@@ -30,9 +30,9 @@ export const ItemFooter = styled.div`
 `;
 
 export const Title = styled.div`
-margin-left: 1rem;
+margin-left: 0;
 font-size: 1.4rem;
-font-weight:600;
+font-weight:900;
 `;
 
 export const TitleFooter = styled.div`

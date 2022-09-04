@@ -27,10 +27,10 @@ const LIST = [
     title: "Folk music",
     img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/7/2/b/4/72b446de1eabf96117d4a5894083a4a2.jpg",
   },
-  {
-    title: "Jazz",
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/8/0/f/980fe220bd14602b466aeca6c0f8ba97.jpg",
-  },
+  // {
+  //   title: "Jazz",
+  //   img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/8/0/f/980fe220bd14602b466aeca6c0f8ba97.jpg",
+  // },
 ];
 
 function RecentlyExplore() {
