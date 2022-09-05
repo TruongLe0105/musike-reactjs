@@ -1,8 +1,10 @@
 .wrapper_genres {
     margin-left: 18%;
     width: 82%;
-    height: 30rem;
-    padding-top: 5.5rem;
+    min-height: 100vh;
+    margin-bottom: 1rem;
+    padding: 0 4rem;
+    margin-top: 8rem;
     position: relative;
 }
 
@@ -20,6 +22,7 @@
     border-radius: 1.5rem;
     z-index: 200;
     border: 0.5px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 .item:hover .image {

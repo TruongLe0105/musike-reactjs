@@ -1,9 +1,10 @@
 .wrapper-explore {
     margin-left: 18%;
     width: 82%;
-    padding-top: 8.5rem;
+    padding: 0 4rem;
+    padding-top: 7rem;
     margin-bottom: 16%;
-    /* overflow-y: scroll; */
+    overflow: hidden;
 }
 
 /*Banner explore*/
@@ -26,21 +27,21 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.15)
+    background-color: rgba(255, 255, 255, 0.3)
 }
 
 .wrapper-banner-modal .chevron-left {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 2.7rem;
+    left: 1rem;
 }
 
 .wrapper-banner-modal .chevron-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 2.6rem;
+    right: 1rem;
 }
 
 .wrapper-banner-modal:hover .chevron {
@@ -49,7 +50,7 @@
 
 .wrapper-banner-modal .banner-item {
     margin: 0 1rem;
-    width: 32%;
+    width: 31%;
     height: 100%;
 }
 
@@ -229,7 +230,7 @@
 }
 
 .wrapper-explore .wrapper-item-recently .image {
-    width: 13rem;
+    width: 14rem;
     height: 14rem;
     position: relative;
     margin-bottom: 0.7rem;
@@ -518,10 +519,10 @@
 
 .wrapper-want-listen .item-card {
     position: relative;
-    width: 24rem;
+    width: 22rem;
     height: 24rem;
     max-height: 24rem;
-    max-width: 24rem;
+    max-width: 22rem;
 }
 
 .wrapper-want-listen .item-favourite {
@@ -585,7 +586,7 @@
     font-weight: 700;
     font-size: 1.4rem;
     margin: 1rem 0;
-    max-width: 24rem;
+    max-width: 22rem;
 }
 
 .wrapper-want-listen .singer {
@@ -593,7 +594,7 @@
     font-weight: 500;
     font-size: 1.3rem;
     opacity: 0.7;
-    max-width: 24rem;
+    max-width: 22rem;
 }
 
 .wrapper-suggesstion {
@@ -645,9 +646,10 @@
     position: absolute;
     bottom: 1rem;
     width: 5rem;
-    height:5rem;
+    height: 5rem;
 }
-.wrapper-item-card .img-group .img{
+
+.wrapper-item-card .img-group .img {
     border-radius: 5px;
     width: 100%;
     height: 100%;
@@ -663,7 +665,6 @@
     margin-top: 3rem;
     border-radius: 8px;
     position: relative;
-    background-color: #333;
 }
 
 .wrapper-zing-chart .img-bg { 
@@ -683,13 +684,13 @@
 .zing-chart {
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(180deg,#740091,#2d1a4c);
+    background-image: linear-gradient(180deg, #740091, #2d1a4c);
     opacity: 0.9;
     padding: 2rem;
     border-radius: 8px;
 }
 
-.zing-chart .item-zing-img{
+.zing-chart .item-zing-img {
     display: flex;
     flex-direction: column;
 }
@@ -823,7 +824,8 @@
     overflow: hidden;
     border-radius: 5px;
 }
-.wrapper-zing-chart .img-banner-zing .img{
+
+.wrapper-zing-chart .img-banner-zing .img {
     width: 100%;
     height: 100%;
     border-radius: 5px;
@@ -871,6 +873,128 @@
 
 .zing-chart .btn-zing:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/*Singer Banner */
+.container-banner-singer {
+    position: relative;
+    font-size: 1.4rem;
+    padding: var(--padding_explore) 0;
+    margin-top: 13rem;
+}
+
+.container-banner-singer .chevron-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.container-banner-singer .disable-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    z-index: 10;
+}
+
+.container-banner-singer .chevron-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.container-banner-singer .disable-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    z-index: 10;
+}
+
+.wrapper-banner-singer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.wrapper-banner-singer .item-img-banner {
+    width: 14%;
+    height: 16rem;
+    cursor: pointer;
+}
+
+.wrapper-banner-singer .item-img-banner:hover {
+    opacity: 0.7;
+}
+
+.wrapper-banner-singer .item-img-banner .img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Advertisement */
+.container-ads {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 1rem;
+}
+
+.container-ads .img-ads {
+    width: 9rem;
+    height: 5rem;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+    margin-bottom: 2rem;
+}
+
+.container-ads .img-ads .img {
+    width: 75%;
+    height: 75%;
 }
 
 @keyframes scaleImage {

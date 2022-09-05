@@ -5,24 +5,24 @@ import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import GenresPage from "../pages/categories/GenresPage";
 import ExplorePage from "../pages/explore/ExplorePage";
-import AlbumsPage from "../pages/albums/AlbumsPage";
+import RadioPage from "../pages/radio/RadioPage";
 import FavouritePage from "../pages/favourite/FavouritePage";
 import ArtistsPage from "../pages/ArtistsPage";
 import UploadPage from "../pages/UploadPage";
-import HotCollectionPage from "../pages/collections/HotCollectionPage";
-import MyNFTCollectionPage from "../pages/collections/MyNFTCollectionPage";
+import LibraryPage from "../pages/auth/LibraryPage";
 import PlayListPage from "../pages/playlist/PlayListPage";
+import ZingChartPage from "../pages/zingChart/ZingChartPage";
 
 function Router() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<ExplorePage />} />
-        <Route path="/nft-collection" element={<MyNFTCollectionPage />} />
-        <Route path="/hot-collection" element={<HotCollectionPage />} />
-        <Route path="/albums" element={<AlbumsPage />} />
+        <Route path="/library" element={<LibraryPage />} />
+        <Route path="/zing-chart" element={<ZingChartPage />} />
+        <Route path="/radio" element={<RadioPage />} />
         <Route path="/genres" element={<GenresPage />} />
-        <Route path="/playlist" element={<PlayListPage />} />
+        <Route path="/follow" element={<PlayListPage />} />
         <Route path="/like-list" element={<FavouritePage />} />
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/artists" element={<ArtistsPage />} />

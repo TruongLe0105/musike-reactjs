@@ -26,7 +26,7 @@ const listBanner = [
 
 function ZingChart() {
   return (
-    <div className=" wrapper-zing-chart">
+    <div className="wrapper-zing-chart">
       <div className="img-bg">
         <img
           src="https://thumbs.dreamstime.com/b/listen-to-music-clipping-path-xxl-1899245.jpg"
