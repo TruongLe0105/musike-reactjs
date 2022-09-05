@@ -27,24 +27,36 @@ const listBanner = [
 function ZingChart() {
   return (
     <div className=" wrapper-zing-chart">
+      <div className="img-bg">
+        <img
+          src="https://thumbs.dreamstime.com/b/listen-to-music-clipping-path-xxl-1899245.jpg"
+          alt="img"
+        />
+      </div>
       <div className="zing-chart">
         <div className="item-zing-img">
           <div className="header-zing">
             <div className="title-zing">#zingchart</div>
-            <i className="fa-solid fa-play" />
+            <div className="icon-zing">
+              <i className="fa-solid fa-play" />
+            </div>
           </div>
           <div className="wrapper-img-zing">
             {listSong.map((item, index) => (
               <div className="img-item-zing" key={index}>
-                <div>{index}</div>
-                <div className="img-zing">
-                  <img src={item.img} alt="img" className="img" />
+                <div className="index">{index}</div>
+                <div className="wrapper-item-left">
+                  <div className="img-zing">
+                    <div className="bg-top" />
+                    <img src={item.img} alt="img" className="img" />
+                    <i className="fa-solid fa-play" />
+                  </div>
+                  <div className="content-zing">
+                    <div className="song">{item.song}</div>
+                    <div className="singer">{item.singer}</div>
+                  </div>
                 </div>
-                <div className="content-zing">
-                  <div className="song">{item.song}</div>
-                  <div className="singer">{item.singer}</div>
-                </div>
-                <div>100%</div>
+                <div className="percent">100%</div>
               </div>
             ))}
             <div className="btn-zing">Xem them</div>
