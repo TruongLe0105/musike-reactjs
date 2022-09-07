@@ -897,6 +897,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 10;
+    color: black;
 }
 
 .container-banner-singer .disable-left {
@@ -913,6 +914,7 @@
     justify-content: center;
     cursor: default;
     z-index: 10;
+    color: white;
 }
 
 .container-banner-singer .chevron-right {
@@ -929,6 +931,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 10;
+    color: black;
 }
 
 .container-banner-singer .disable-right {
@@ -945,6 +948,7 @@
     justify-content: center;
     cursor: default;
     z-index: 10;
+    color: white;
 }
 
 .wrapper-banner-singer {

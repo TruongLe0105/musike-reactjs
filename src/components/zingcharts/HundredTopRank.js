@@ -67,36 +67,36 @@ const topRank = [
 
 function HundredTopRank() {
     return (
-        <div className="wrapper-rank-hundred">
-            {topRank.map((item, index) => (
-                <div className="rank-hundred" >
-                    <div className="wrapper-content-left">
-                        <div className="index">{index + 1}</div>
-                        <div className="strikethrough">_</div>
-                        <div className="content-left">
-                            <div className="wrapper-img">
-                                <img src={item.img} alt="zing-chart" className="img" />
-                                <div className="bg-black" />
-                                <i className="fa-solid fa-play" />
-                            </div>
-                            <div>
-                                <div className="title-content">{item.title}</div>
-                                <div>{item.singer}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="wrapper-content-center">{item.title} (Single)</div>
-                    <div className="wrapper-content-right">{item.time}</div>
-                    <div className="wrapper_icon icon-group">
-                        <LyricsButton />
-                        <HeartButton />
-                        <OptionButton />
-                    </div>
+      <div className="wrapper-rank-hundred">
+        {topRank.map((item, index) => (
+          <div key={index} className="rank-hundred">
+            <div className="wrapper-content-left">
+              <div className="index">{index + 1}</div>
+              <div className="strikethrough">_</div>
+              <div className="content-left">
+                <div className="wrapper-img">
+                  <img src={item.img} alt="zing-chart" className="img" />
+                  <div className="bg-black" />
+                  <i className="fa-solid fa-play" />
                 </div>
-            ))}
-            <div className="btn-top-hundred">Xem top 100</div>
-        </div>
-    )
+                <div>
+                  <div className="title-content">{item.title}</div>
+                  <div>{item.singer}</div>
+                </div>
+              </div>
+            </div>
+            <div className="wrapper-content-center">{item.title} (Single)</div>
+            <div className="wrapper-content-right">{item.time}</div>
+            <div className="wrapper_icon icon-group">
+              <LyricsButton />
+              <HeartButton />
+              <OptionButton />
+            </div>
+          </div>
+        ))}
+        <div className="btn-top-hundred">Xem top 100</div>
+      </div>
+    );
 }
 
 export default HundredTopRank
