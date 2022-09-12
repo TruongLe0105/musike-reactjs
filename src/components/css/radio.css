@@ -124,6 +124,11 @@
     font-size: 1.6rem;
 }
 
+/* Podcast explore */
+.wrapper-podcast {
+    padding: 4rem;
+}
+
 @keyframes scaleImage {
     from {
         transform: scale(1);
