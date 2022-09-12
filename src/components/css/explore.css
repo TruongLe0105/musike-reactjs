@@ -262,7 +262,7 @@
     opacity: 0.6;
 }
 
-.wrapper-explore .title-explore {
+ .title-explore {
     font-size: var(--size_title);
     margin: var(--margin_title);
     text-transform: capitalize;

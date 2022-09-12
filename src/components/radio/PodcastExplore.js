@@ -22,13 +22,18 @@ const data = [
 function PodcastExplore() {
   return (
     <div className="wrapper-want-listen wrapper-podcast">
-      <div className="title-explore">có thể bạn muốn nghe</div>
+      <div className="title-explore">Có Thể Bạn Muốn Nghe</div>
       <div className="wrapper-four-card">
         {data.map((item, index) => (
           <div className="wrapper-item-card" key={index}>
             <div className="item-card">
               <div className="wrapper-img">
-                <img src={item.img} alt={item.title} className="img" />
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="img"
+                  style={{ opacity: 1 }}
+                />
               </div>
             </div>
             <a href="#" className="title-card" title={item.title}>
