@@ -46,6 +46,7 @@ function FavouriteArtist() {
       <div className="wrapper-four-card">
         {list.map((item, index) => (
           <div key={index} className="wrapper-item-card">
+            {/* <div className="bg-full-img" /> */}
             <div className="item-card item-favourite">
               <div className="wrapper-img">
                 <img src={item.img} alt={item.singer} className="img" />
@@ -53,11 +54,11 @@ function FavouriteArtist() {
               <div className="wrapper_icon wrapper-icon">
                 <i className="fa-solid fa-play"></i>
               </div>
-            </div>
-            <div className="img-group">
-              <img src={item.listImg[0]} alt="img" className="img" />
-              <img src={item.listImg[1]} alt="img" className="img" />
-              <img src={item.listImg[2]} alt="img" className="img" />
+              <div className="img-group">
+                <img src={item.listImg[0]} alt="img" className="img-inside" />
+                <img src={item.listImg[1]} alt="img" className="img-inside" />
+                <img src={item.listImg[2]} alt="img" className="img-inside" />
+              </div>
             </div>
           </div>
         ))}

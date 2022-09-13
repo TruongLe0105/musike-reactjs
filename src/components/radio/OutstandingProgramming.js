@@ -44,7 +44,9 @@ function Outstanding() {
   return (
     <div className="wrapper-want-listen wrapper-programming">
       <div className="icon-group">
-        <div className="title-explore">Chương Trình Nổi Bật</div>
+        <div className="title-explore" style={{ margin: 0 }}>
+          Chương Trình Nổi Bật
+        </div>
         <div>
           <i
             onClick={handlePrev}

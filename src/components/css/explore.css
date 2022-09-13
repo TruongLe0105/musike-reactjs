@@ -506,8 +506,10 @@
 .wrapper-want-listen .wrapper-four-card {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between;
     margin-top: 2rem;
+    overflow: hidden;
 }
 
 .wrapper-want-listen .wrapper-item-card {
@@ -515,19 +517,18 @@
     flex-direction: column;
     padding: 0 1rem;
     position: relative;
+    width:25%;
 }
 
 .wrapper-want-listen .item-card {
     position: relative;
-    width: 22rem;
-    height: 24rem;
-    max-height: 24rem;
-    max-width: 22rem;
+    width: 100%;
+    height: 20rem;
 }
 
 .wrapper-want-listen .item-favourite {
-    height: 26rem;
-    max-height: 26rem;
+    height: 23rem;
+    max-height: 23rem;
 }
 
 .wrapper-want-listen .item-card .wrapper-img {
@@ -649,11 +650,28 @@
     height: 5rem;
 }
 
-.wrapper-item-card .img-group .img {
+.bg-full-img {
+    position: absolute;
+    left: 1rem;
+    right:1rem;
+    top:0;
+    height:100%;
+    /* background-color: #333; */
+    padding: 0 1rem;
+    z-index: 10;
+}
+
+.bg-full-img:hover .img {
+    animation: scaleImage 0.3s linear;
+    transform: scale(1.1);
+    opacity: 0.6;
+}
+
+.wrapper-item-card .img-group .img-inside {
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    margin: 0 1rem;
+    margin: 0 .6rem;
 }
 
 /* Zing chart */

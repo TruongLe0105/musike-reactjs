@@ -131,7 +131,7 @@
 
 /* Podcast Genres */
 .wrapper-podcast-genres {
-    padding: 4rem;
+    padding: 0 5rem;
 }
 
 .img-podcast-genres {
@@ -155,7 +155,7 @@
 .wrapper-programming {
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    padding: 5rem;
 }
 
 .icon-group {
@@ -175,6 +175,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
 .outstanding-programming {
@@ -216,6 +217,63 @@
     font-weight: 700;
     color: white;
     font-size: 1.5rem;
+}
+
+/* XoneRadio */
+.wrapper-xone-radio {
+    padding: 0 4rem;
+    margin-top: 1rem;
+}
+
+.wrapper-header-xone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.img-xone-radio {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.img-xone-radio .img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-img-xone {
+    font-size: 1.4rem;
+    color:var(--blur_color);
+    font-weight: 100;
+    margin-left: 1rem;
+}
+
+.title-xone {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+}
+
+/* Podcast ZingNew */
+.wrapper-podcast-zingnew {
+    padding: 0 4rem;
+    margin-top: 5rem;
+}
+
+/* Vietcetera */
+.wrapper-vietcetera {
+    padding: 0 4rem;
+    margin-top: 5rem;
+}
+
+/* On Air */
+.wrapper-oneair {
+    padding: 0 4rem;
+    margin-top: 5rem;
 }
 
 @keyframes scaleImage {

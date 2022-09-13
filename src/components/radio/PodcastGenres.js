@@ -18,7 +18,9 @@ const data = [
 function PodcastGenres() {
   return (
     <div className="wrapper-want-listen wrapper-podcast-genres">
-      <div className="title-explore">Thể Loại Podcast</div>
+      <div className="title-explore" style={{ margin: 0 }}>
+        Thể Loại Podcast
+      </div>
       <div className="wrapper-four-card">
         {data.map((item, index) => (
           <div key={index} className="img-podcast-genres">

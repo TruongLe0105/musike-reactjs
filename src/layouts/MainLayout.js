@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import MainHeader from "./MainHeader";
 import { Box } from "@mui/material";
+import FooterMusic from "../components/FooterMusic";
 
 function MainLayout() {
   return (
