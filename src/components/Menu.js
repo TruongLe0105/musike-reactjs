@@ -33,6 +33,11 @@ const ButtonList = [
     route: "follow",
   },
   {
+    title: "Nhạc Mới",
+    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
+    route: "new-music",
+  },
+  {
     title: "Thể Loại",
     icon: <i className="fa-solid fa-bars-progress"></i>,
     route: "genres",
@@ -41,11 +46,6 @@ const ButtonList = [
     title: "Top 100",
     icon: <i className="fa-sharp fa-solid fa-star"></i>,
     route: "like-list",
-  },
-  {
-    title: "Upload",
-    icon: <i className="fa-solid fa-arrow-up-from-bracket"></i>,
-    route: "upload",
   },
   {
     title: "Artists",
