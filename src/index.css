@@ -33,9 +33,9 @@ body {
     overflow-y: scroll;
 }
 
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
     width: 0
-} */
+}
 
 a {
     text-decoration: none;

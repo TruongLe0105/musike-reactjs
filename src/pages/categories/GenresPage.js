@@ -1,85 +1,17 @@
-import { CircularProgress, List } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Countries from "../../components/categories/Countries";
+import Edm from "../../components/categories/Edm";
+import Guitar from "../../components/categories/Guitar";
+import Hiphop from "../../components/categories/Hiphop";
+import Indie from "../../components/categories/Indie";
+import MoodAndAction from "../../components/categories/MoodAndAction";
+import MusicFilm from "../../components/categories/MusicFilm";
+import RAndB from "../../components/categories/RAndB";
+import Remix from "../../components/categories/Remix";
+import RomanticAndBolero from "../../components/categories/RomanticAndBolero";
 import "../../components/css/genres.css";
-import listGenres from "../../middleware/GenresListImage";
 import { getListCategories } from "../../modals/genres/GenresSlice";
-
-const {
-  pop,
-  asiaop,
-  blues,
-  country,
-  eastern,
-  soul,
-  folk,
-  hiphop,
-  jazz,
-  latin,
-  popular,
-  rb,
-  rock,
-  traditional,
-} = listGenres;
-
-const LIST = [
-  {
-    title: "Pop",
-    img: pop,
-  },
-  {
-    title: "Music of Asiaop",
-    img: asiaop,
-  },
-  {
-    title: "Blues",
-    img: blues,
-  },
-  {
-    title: "Country",
-    img: country,
-  },
-  {
-    title: "Soul music",
-    img: soul,
-  },
-  {
-    title: "Folk music",
-    img: folk,
-  },
-  {
-    title: "Hiphop",
-    img: hiphop,
-  },
-  {
-    title: "Jazz",
-    img: jazz,
-  },
-  {
-    title: "Latin American",
-    img: latin,
-  },
-  {
-    title: "Popular music",
-    img: popular,
-  },
-  {
-    title: "R&B",
-    img: rb,
-  },
-  {
-    title: "Rock music",
-    img: rock,
-  },
-  {
-    title: "Traditional",
-    img: traditional,
-  },
-  {
-    title: "Middle Eastern",
-    img: eastern,
-  },
-];
 
 function Genres() {
   const [loading, setLoading] = useState(true);
@@ -90,17 +22,24 @@ function Genres() {
   }, []);
 
   return (
-    <div className="wrapper_genres">
-      {/* {loading && <CircularProgress />} */}
-      <div className="wrapperItem">
-        {categories.length > 0 &&
-          categories.map((item, index) => (
-            <div className="item" key={index}>
-              <img className="image" src={item.image} alt={item.title} />
-              <div className="title">{item.title}</div>
-            </div>
-          ))}
+    <div className="wrapper-genres">
+      <div className="img-banner-genres">
+        <img
+          src="https://photo-zmp3.zmdcdn.me/cover/d/2/2/3/d223524cfa359d16b2c0d6e4497c126f.jpg"
+          alt="img"
+          className="img"
+        />
       </div>
+      <MoodAndAction />
+      <Countries />
+      <RomanticAndBolero />
+      <Edm />
+      <Remix />
+      <Hiphop />
+      <RAndB />
+      <MusicFilm />
+      <Indie />
+      <Guitar />
     </div>
   );
 }

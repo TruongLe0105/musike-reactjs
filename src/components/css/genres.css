@@ -1,57 +1,163 @@
-.wrapper_genres {
+.wrapper-genres {
     margin-left: 18%;
     width: 82%;
     min-height: 100vh;
-    margin-bottom: 1rem;
-    padding: 0 4rem;
+    margin-bottom: 9rem;
+    padding: 0 5rem;
     margin-top: 8rem;
-    position: relative;
+    color:white;
+    /* position: relative; */
 }
 
-.wrapperItem {
+.img-banner-genres {
+    width: 100%;
+    height: 30rem;
     display: flex;
-    flex-wrap: wrap;
-    margin: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    padding-top: 1rem;
 }
 
-.item {
-    width: 24%;
-    margin: 0.5%;
-    position: relative;
-    overflow: hidden;
-    border-radius: 1.5rem;
-    z-index: 200;
-    border: 0.5px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-}
-
-.item:hover .image {
-    box-shadow: rgba(255, 255, 255, 0.3) 0px 1px 2px 0px, rgba(255, 255, 255, 0.15) 0px 1px 3px 1px;
-    animation: scaleImage 0.3s linear;
-    transform: scale(1.1);
-}
-
-.item:hover .title {
-    font-size: 1.7rem;
-    animation: scaleTitle 0.3s linear;
-}
-
-.image {
+.img-banner-genres .img {
     width: 100%;
     height: 100%;
+    border-radius: 5px;
 }
 
-.title {
+/* Mood and Action */
+.wrapper-mood-action {
+    padding: 0 1rem;
+    padding-top: 4rem;
+}
+
+.wrapper-card-mood {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.wrapper-item-mood {
+    width: 31%;
+    height: 15rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+
+.wrapper-item-mood .img-bigest {
     position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 100;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: white;
+    top:0;
+    left:0;
     width: 100%;
-    text-align: center;
+    height:100%;
+    border-radius: 5px;
+}
+
+.wrapper-item-mood .title-mood {
+    font-size: 1.6rem;
+    font-weight: bold;
+    position: absolute;
+    left: 1rem;
+    top: 30%;
+    z-index: 10;
+}
+
+.wrapper-item-mood:hover .img-bigest {
+    transform: scale(1.1);
+    animation: scaleImage 0.3s linear;
+}
+
+.wrapper-img-smaller {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
+    position: absolute;
+    bottom:10%;
+    height: 5.5rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.wrapper-img-smaller .img {
+    width: 29%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+/* Countries */
+.wrapper-country {
+    margin-top: 2rem;
+}
+
+.wapper-card-country {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 0 1rem;
+    margin-top: 2rem;
+}
+
+.card-country {
+    width: 31%;
+    height: 19rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.card-country:hover .img {
+    transform: scale(1.1);
+    animation: scaleImage 0.3s linear;
+}
+
+.card-country .img {
+    width: 100%;
+    height:100%;
+    border-radius: 8px;
+}
+
+.title-card-country {
+    position: absolute;
+    bottom:20%;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+/* Romantic And Bolero */
+.parent-four-card {
+    margin-top: 4rem;
+    position: relative;
+}
+
+.parent-four-card .all-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    font-size: 1.4rem;
+    position: absolute;
+    right: 1rem;
+    top:5px;
+}
+
+.parent-four-card .all-in:hover {
+    color: var(--secondary);
+}
+
+.title-parent-four-card {
+    margin-right: 4px;
 }
 
 @keyframes scaleImage {
@@ -81,13 +187,6 @@
         margin-left: var(--width_menu_bar);
         margin-top: 10rem;
     }
-
-    .new_wrapper_genres {
-        width: calc(99% - var(--width_menu_bar) - var(--width_nextsong));
-        margin-left: var(--width_menu_bar);
-        margin-top: 10rem;
-    }
-
 }
 
 @media only screen and (min-width: 992px) {}
