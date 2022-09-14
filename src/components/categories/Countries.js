@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const list = [
   {
@@ -20,16 +20,49 @@ const list = [
 ];
 
 function Countries() {
+  const [isSlice, setIsSlice] = useState(true);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    if (isSlice) {
+      const newList = list.slice(0, 3);
+      setData(newList);
+      console.log("newList", newList);
+    } else {
+      setData(list);
+    }
+  }, [isSlice]);
+
   return (
     <div className="wrapper-country">
       <div className="title-explore">Quốc Gia</div>
       <div className="wapper-card-country">
-        {list.map((item, index) => (
+        {data?.map((item, index) => (
           <div key={index} className="card-country">
             <div className="title-card-country">{item.title}</div>
             <img src={item.img} alt="img" className="img" />
           </div>
         ))}
+      </div>
+      <div
+        style={{
+          fontSize: "2rem",
+          width: "100%",
+          textAlign: "center",
+          marginBottom: "4rem",
+        }}
+      >
+        <span
+          style={{
+            border: "1px solid white",
+            borderRadius: "20px",
+            padding: "5px 1.5rem",
+            cursor: "pointer",
+          }}
+          onClick={() => setIsSlice(false)}
+        >
+          Tất Cả
+        </span>
       </div>
     </div>
   );
