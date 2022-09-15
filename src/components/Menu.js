@@ -45,7 +45,7 @@ const ButtonList = [
   {
     title: "Top 100",
     icon: <i className="fa-sharp fa-solid fa-star"></i>,
-    route: "like-list",
+    route: "hundred-top",
   },
   {
     title: "Artists",

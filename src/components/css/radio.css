@@ -4,23 +4,25 @@
     margin-bottom: 16%;
     font-weight: 800;
     overflow: hidden;
-    color:white;
+    color: white;
 }
 
 .wrapper-banner-audio {
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-top: 7rem;
+    margin-top: 7rem;
+    height: 25rem;
 }
 
 .wrapper-banner-audio .img-bg {
     position: absolute;
     left: 0;
     right: 0;
-    top: 5.5rem;
+    top: 0;
     height: 100%;
     z-index: 0;
+    overflow: hidden;
 }
 
 .wrapper-banner-audio .img-bg .img {
@@ -32,6 +34,7 @@
     padding: var(--padding_explore) 4rem;
     z-index: 100;
     background-color: rgba(23, 23, 23, 0.8);
+    height: 100%;
 }
 
 .banner-audio-music .wrapper-item-audio {
@@ -62,7 +65,7 @@
     background-color: rgba(0, 0, 0, 0.39);
     border-radius: 50%;
     width: 100%;
-    height:100%;
+    height: 100%;
     z-index: 0;
     font-size: 2.5rem;
 }
@@ -84,7 +87,7 @@
 .banner-audio .wrapper-img-icon {
     position: relative;
     width: 13rem;
-    height:13rem;
+    height: 13rem;
     cursor: pointer;
 }
 
@@ -95,7 +98,7 @@
     overflow: hidden;
     z-index: 10;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .banner-audio .wrapper-img-icon .img {
@@ -103,7 +106,7 @@
     height: 100%;
 }
 
-.banner-audio .wrapper-img-icon:hover .img{
+.banner-audio .wrapper-img-icon:hover .img {
     animation: scaleImage 0.3s linear;
     transform: scale(1.1);
 }
@@ -192,15 +195,15 @@
 .img-oustanding {
     min-width: 12rem;
     width: 12rem;
-    height:12rem;
+    height: 12rem;
     border-radius: 5px;
     overflow: hidden;
     margin-right: 1rem;
 }
 
-.img-oustanding .img{
+.img-oustanding .img {
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 
 .content-outstanding {
@@ -208,7 +211,7 @@
     flex-direction: column;
     justify-content: space-around;
     font-size: 1.4rem;
-    color:rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 100;
     height: 90%;
 }
@@ -246,7 +249,7 @@
 
 .content-img-xone {
     font-size: 1.4rem;
-    color:var(--blur_color);
+    color: var(--blur_color);
     font-weight: 100;
     margin-left: 1rem;
 }

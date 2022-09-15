@@ -6,7 +6,7 @@ import RegisterPage from "../pages/auth/RegisterPage";
 import GenresPage from "../pages/categories/GenresPage";
 import ExplorePage from "../pages/explore/ExplorePage";
 import RadioPage from "../pages/radio/RadioPage";
-import FavouritePage from "../pages/favourite/FavouritePage";
+import HundredTopPage from "../pages/hundredTop/HundredTopPage";
 import ArtistsPage from "../pages/ArtistsPage";
 import NewMusic from "../pages/NewMusic";
 import LibraryPage from "../pages/auth/LibraryPage";
@@ -23,7 +23,7 @@ function Router() {
         <Route path="/radio" element={<RadioPage />} />
         <Route path="/genres" element={<GenresPage />} />
         <Route path="/follow" element={<PlayListPage />} />
-        <Route path="/like-list" element={<FavouritePage />} />
+        <Route path="/hundred-top" element={<HundredTopPage />} />
         <Route path="/new-music" element={<NewMusic />} />
         <Route path="/artists" element={<ArtistsPage />} />
         <Route path="/login" element={<LoginPage />} />

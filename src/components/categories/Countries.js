@@ -52,17 +52,19 @@ function Countries() {
           marginBottom: "4rem",
         }}
       >
-        <span
-          style={{
-            border: "1px solid white",
-            borderRadius: "20px",
-            padding: "5px 1.5rem",
-            cursor: "pointer",
-          }}
-          onClick={() => setIsSlice(false)}
-        >
-          Tất Cả
-        </span>
+        {isSlice && (
+          <span
+            style={{
+              border: "1px solid white",
+              borderRadius: "20px",
+              padding: "5px 1.5rem",
+              cursor: "pointer",
+            }}
+            onClick={() => setIsSlice(false)}
+          >
+            Tất Cả
+          </span>
+        )}
       </div>
     </div>
   );

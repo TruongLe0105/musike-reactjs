@@ -41,7 +41,7 @@ const list = [
 
 function NewMusic() {
   return (
-    <div className="zing-chart-container">
+    <div className="zing-chart-container" style={{ backgroundColor: "rgba(23, 23, 23, 0.91)" }}>
       <div className="bg-music-under">
         <img
           src="https://thumbs.dreamstime.com/b/listen-to-music-clipping-path-xxl-1899245.jpg"
