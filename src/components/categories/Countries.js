@@ -49,7 +49,7 @@ function Countries() {
           fontSize: "2rem",
           width: "100%",
           textAlign: "center",
-          marginBottom: "4rem",
+          marginBottom: isSlice ? "3rem" : "2rem",
         }}
       >
         {isSlice && (

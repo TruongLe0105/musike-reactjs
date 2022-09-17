@@ -35,7 +35,7 @@ function HundredTopRank({ data, collapse, title }) {
               </div>
               <div>
                 <div className="title-content">{item.title}</div>
-                <div>{item.singer}</div>
+                <a className="link" href="/#">{item.singer}</a>
               </div>
             </div>
           </div>

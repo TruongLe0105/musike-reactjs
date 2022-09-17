@@ -48,9 +48,9 @@ const ButtonList = [
     route: "hundred-top",
   },
   {
-    title: "Artists",
+    title: "MV",
     icon: <i className="fa-solid fa-microphone"></i>,
-    route: "artists",
+    route: "mv",
   },
 ];
 
@@ -174,21 +174,6 @@ const Menu = () => {
           </div>
           <div style={{ minHeight: "36rem", marginTop: "1rem" }}>
             {ListCanScroll()}
-            {/* <div className="wrapperImg">
-              <img src={group} alt="group" className="imageGroup" />
-            </div>
-            <ItemFooter>
-              <TitleFooter>Mining time</TitleFooter>
-              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>
-                24:00:00
-              </div>
-            </ItemFooter>
-            <ItemFooter>
-              <TitleFooter>Earn today</TitleFooter>
-              <div style={{ fontSize: "1.3rem", paddingLeft: "3rem" }}>
-                0.000
-              </div>
-            </ItemFooter> */}
           </div>
         </div>
       </>

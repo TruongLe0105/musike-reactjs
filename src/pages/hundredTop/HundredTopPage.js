@@ -1,6 +1,10 @@
 import React from "react";
 import "../../components/css/hundredTop.css";
-import FormingShare from "../../components/hundredTop/FormingShare";
+import VietNamMusic from "../../components/hundredTop/VietNamMusic";
+import OutstandingHundred from "../../components/hundredTop/OutstandingHundred";
+import AsiaMusic from "../../components/hundredTop/AsiaMusic";
+import UsUkMusic from "../../components/hundredTop/UsUkMusic";
+import ConCertMusic from "../../components/hundredTop/ConCertMusic";
 
 function HundredTopPage() {
   return (
@@ -12,8 +16,13 @@ function HundredTopPage() {
           className="img"
         />
       </div>
-      <div className="bg-top" />
-      <FormingShare />
+      <div className="wrapper-components-hundred">
+        <OutstandingHundred />
+        <VietNamMusic />
+        <AsiaMusic />
+        <UsUkMusic />
+        <ConCertMusic />
+      </div>
     </div>
   );
 }

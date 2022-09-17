@@ -2,19 +2,22 @@ import React from "react";
 
 const listSong = [
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/b/9/4/fb94844bebd26a78cdcb9d4d72b1381b.jpg",
-    singer: "Dinh Dung, ...",
-    song: "Nhin ve phia em",
+    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/7/5/2275dda526935755fc51b587e08e1d7e.jpg",
+    singer: "Đình Dũng, ...",
+    song: "Nhìn Về Phía Em",
+    percent: "42%",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/0/5/9/c0593c7f74b47c91ad95ed2311ab2614.jpg",
-    singer: "Khang Viet",
-    song: "Em nen dung lai",
+    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/0/c/8/b0c8399ab4bf53e7eb1285ee1e8aaa32.jpg",
+    singer: "Khang việt",
+    song: "Em Nên Dừng Lại",
+    percent: "31%",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/e/5/5/ae5508b3140865732fad562ac7d4153b.jpg",
+    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/e/4/c/1e4cbb712a766f626e10bfebf5383591.jpg",
     singer: "Nal, CT",
-    song: "Dang Do",
+    song: "Dang Dở",
+    percent: "27%",
   },
 ];
 
@@ -44,7 +47,7 @@ function ZingChart() {
           <div className="wrapper-img-zing">
             {listSong.map((item, index) => (
               <div className="img-item-zing" key={index}>
-                <div className="index">{index}</div>
+                <div className="index">{index + 1}</div>
                 <div className="wrapper-item-left">
                   <div className="img-zing">
                     <div className="bg-top" />
@@ -53,13 +56,19 @@ function ZingChart() {
                   </div>
                   <div className="content-zing">
                     <div className="song">{item.song}</div>
-                    <div className="singer">{item.singer}</div>
+                    <a
+                      href="/#"
+                      className="singer link"
+                      title={item.singer}
+                    >
+                      {item.singer}
+                    </a>
                   </div>
                 </div>
-                <div className="percent">100%</div>
+                <div className="percent">{item.percent}</div>
               </div>
             ))}
-            <div className="btn-zing">Xem them</div>
+            <div className="btn-zing">Xem thêm</div>
           </div>
         </div>
         <div></div>

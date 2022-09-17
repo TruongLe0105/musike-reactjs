@@ -262,10 +262,11 @@
     opacity: 0.6;
 }
 
- .title-explore {
+.title-explore {
     font-size: var(--size_title);
     margin: var(--margin_title);
     text-transform: capitalize;
+    font-weight: 900;
 }
 
 .wrapper-explore .title-song:hover {
@@ -508,6 +509,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-top: 2rem;
     overflow: hidden;
 }
@@ -517,7 +519,7 @@
     flex-direction: column;
     padding: 0 1rem;
     position: relative;
-    width:24%;
+    width: 24%;
 }
 
 .wrapper-want-listen .item-card {
@@ -653,9 +655,9 @@
 .bg-full-img {
     position: absolute;
     left: 1rem;
-    right:1rem;
-    top:0;
-    height:100%;
+    right: 1rem;
+    top: 0;
+    height: 100%;
     /* background-color: #333; */
     padding: 0 1rem;
     z-index: 10;
@@ -685,10 +687,10 @@
     position: relative;
 }
 
-.wrapper-zing-chart .img-bg { 
+.wrapper-zing-chart .img-bg {
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     right: 0;
     bottom: 0;
 }
@@ -703,6 +705,7 @@
     display: flex;
     flex-direction: row;
     background-image: linear-gradient(180deg, #740091, #2d1a4c);
+    ;
     opacity: 0.9;
     padding: 2rem;
     border-radius: 8px;
@@ -725,8 +728,12 @@
 
 .zing-chart .title-zing {
     margin-right: 1rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 900;
+}
+
+.zing-chart .title-zing:hover {
+    color: red;
 }
 
 .zing-chart .icon-zing {
@@ -741,6 +748,12 @@
 
 .zing-chart .icon-zing i {
     color: #740091;
+    font-size: 1.5rem;
+}
+
+.zing-chart .icon-zing:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
 }
 
 .zing-chart .wrapper-img-zing {
@@ -761,7 +774,7 @@
     align-items: center;
 }
 
-.zing-chart .img-item-zing:hover { 
+.zing-chart .img-item-zing:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -769,25 +782,26 @@
     display: none;
     position: absolute;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.zing-chart .img-item-zing:hover .fa-play{ 
-   display: block;
-   z-index: 100;
+.zing-chart .img-item-zing:hover .fa-play {
+    display: block;
+    z-index: 100;
+    cursor: pointer;
 }
 
 .zing-chart .img-zing {
     width: 6rem;
     height: 6rem;
     max-width: 6rem;
-    background-color: #fff;
     margin-right: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     position: relative;
+    cursor: pointer;
 }
 
 .zing-chart .img-item-zing:hover .bg-top {
@@ -796,31 +810,47 @@
 
 .zing-chart .img-zing .bg-top {
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
-    left:0;
-    right:0;
-    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 4px;
 }
 
 .zing-chart .content-zing {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 
 .zing-chart .content-zing .song {
     color: #fff;
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+.zing-chart .content-zing .singer {
+    color: rgba(255, 255, 255, 0.6);
+    width: max-content;
+}
+
+.zing-chart .content-zing .singer:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+.link:hover {
+    text-decoration: underline;
+    color: red;
 }
 
 .zing-chart .img-zing .img {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     z-index: 10;
 }
 
@@ -831,8 +861,8 @@
     justify-content: space-between;
     margin-top: 2rem;
     position: absolute;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     bottom: -10rem;
 }
 
@@ -857,6 +887,7 @@
 .wrapper-img-zing .index {
     width: 20%;
     text-align: center;
+    font-size: 3rem;
 }
 
 .wrapper-img-zing .wrapper-item-left {
@@ -866,17 +897,16 @@
     width: 80%;
 }
 
-.wrapper-img-zing .index {
-    width: 20%;
-}
-
 .wrapper-img-zing .percent {
     width: 20%;
     text-align: center;
+    font-size: 1.8rem;
+    font-weight: 900;
 }
 
 .zing-chart .btn-zing {
     margin-right: 1rem;
+    margin-top: 1rem;
     width: 11rem;
     height: 3.2rem;
     border-radius: 18px;
@@ -998,7 +1028,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: 4rem;
+    /* margin-top: 4rem; */
     padding: 1rem;
 }
 

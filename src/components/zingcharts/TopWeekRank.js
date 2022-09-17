@@ -122,7 +122,7 @@ function TopWeekRank() {
                   <div className="title-content">
                     {sliceTextRankWeek(item.title)}
                   </div>
-                  <div>{sliceTextRankWeek(item.singer)}</div>
+                  <a href="/#" className="link">{sliceTextRankWeek(item.singer)}</a>
                 </div>
               </div>
               <div className="time">{item.time}</div>

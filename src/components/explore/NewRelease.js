@@ -171,9 +171,12 @@ function NewRelease() {
               <div className="title-song-release">
                 {sliceText(item.song, index, hover, 15)}
               </div>
-              <div className="title-singer-release">
+              <a
+                href="/#"
+                className="title-singer-release link"
+              >
                 {sliceText(item.singer, index, hover, 15)}
-              </div>
+              </a>
               <div className="title-update-release">{item.update}</div>
             </div>
             <div className="wrapper_icon icon-release">

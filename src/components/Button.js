@@ -16,7 +16,7 @@ export const HeartButton = ({ index }) => {
       className="fa-solid fa-heart"
       style={{ color: (active === index) & isLike ? "red" : "white" }}
     >
-      <div className="wrapper-component-hover">
+      <div className="wrapper-component-hover" style={{ width: "13rem" }}>
         {!isLike ? <div>Thêm vào thư viện</div> : <div>Xóa khỏi thư viện</div>}
         <div className="arrow-component" />
       </div>
