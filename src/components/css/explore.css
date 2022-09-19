@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: var(--padding_explore) 0;
+    margin: var(--padding_explore) 0;
 }
 
 .wrapper-banner-modal .chevron {
@@ -50,7 +50,7 @@
 
 .wrapper-banner-modal .banner-item {
     margin: 0 1rem;
-    width: 31%;
+    min-width: 31%;
     height: 100%;
 }
 
@@ -73,7 +73,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     z-index: 10;
@@ -83,11 +83,11 @@
 .banner-item .wrapper-modal-song .modal-song {
     position: absolute;
     width: 26%;
-    height: 84%;
+    height: 82%;
     top: 8%;
     bottom: 5%;
     background-color: #432275;
-    padding: 2rem;
+    padding: 0.7rem 2rem;
     color: white;
     font-weight: 500;
     font-size: 1.4rem;
@@ -103,6 +103,7 @@
     padding-bottom: 1rem;
     text-align: center;
     text-transform: none;
+    line-height: 2rem;
 }
 
 .wrapper-header-modal-song {
@@ -112,7 +113,7 @@
     justify-content: center;
     font-weight: 500;
     padding-top: 1rem;
-    padding-bottom: 1.5rem
+    padding-bottom: 1.5rem;
 }
 
 .wrapper-content-modal-song {
@@ -123,19 +124,21 @@
 
 .wrapper-header-modal-song .song {
     font-weight: 700;
-    margin: 0.5rem 0;
+    margin-top: 1rem;
     text-align: center;
 }
 
 .wrapper-header-modal-song .singer {
     opacity: 0.7;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-align: center;
+    margin-top: 0.3rem;
+    margin-bottom: 0.7rem;
 }
 
 .wrapper-header-modal-song .img-modal-song {
-    width: 18rem;
-    height: 18rem;
+    width: 17rem;
+    height: 19rem;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -159,8 +162,9 @@
     width: 99%;
     border-radius: 2rem;
     background-color: #7200a1;
-    height: 4rem;
+    height: 3.7rem;
     cursor: pointer;
+    font-size: 1.4rem;
 }
 
 .wrapper-modal-song .wrapper-play i {
@@ -173,14 +177,17 @@
     align-items: center;
     width: 99%;
     border-radius: 2rem;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.807);
     color: black;
-    height: 4rem;
+    height: 3.6rem;
     cursor: pointer;
+    font-size: 1.4rem;
 }
 
 .wrapper-modal-song .close-modal {
     cursor: pointer;
+    margin: 1rem 0;
+    font-size: 1.4rem;
 }
 
 /* Recently explore */
@@ -197,8 +204,8 @@
     position: absolute;
     top: 3rem;
     right: 1rem;
-    font-size: var(--size_title);
-    font-weight: 500;
+    font-size: 1.4rem;
+    font-weight: 900;
     text-transform: capitalize;
     cursor: pointer;
     display: flex;

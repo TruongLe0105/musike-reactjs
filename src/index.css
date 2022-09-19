@@ -37,9 +37,255 @@ body::-webkit-scrollbar {
     width: 0
 }
 
+.wrapper-detail-card {
+    margin-left: 18%;
+    width: 82%;
+    padding: 0 5rem;
+    padding-top: 10rem;
+    margin-bottom: 15rem;
+    color: white;
+}
+
+.component-detail-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 800;
+    max-height: 53rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.component-detail-page .footer-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 97%;
+    left: 12rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 100;
+    font-size: 1.3rem;
+}
+
+.header-detail-page {
+    display: flex;
+    flex-direction: column;
+    max-width: 31%;
+    overflow: hidden;
+}
+
+.wrapper-banner-detail {
+    width: 100%;
+    height: 28rem;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-banner-detail .fa-play {
+    position: absolute;
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: none;
+}
+
+.wrapper-banner-detail:hover .fa-play {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-banner-detail .banner-detail {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.wrapper-banner-detail:hover .banner-detail {
+    transform: scale(1.1);
+    animation: scaleImage 0.3s linear;
+    opacity: 0.5;
+}
+
+.wrapper-content-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.6);
+    height: max-content;
+    padding: 1rem 0;
+    font-size: 1.2rem;
+}
+
+.wrapper-content-detail .title-detail {
+    font-size: 2rem;
+    margin: 0.7rem;
+    font-weight: 900;
+    color: white;
+}
+
+.link-detail {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.link-detail:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+.button-group-detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    width: auto;
+    height: 3.6rem;
+    padding: 0 1.5rem;
+    background-color: var(--secondary);
+    color: white;
+    font-size: 1.4rem;
+    margin: 1.2rem 0;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.button-group-detail:hover {
+    opacity: 0.9;
+}
+
+.button-group-detail .fa-play {
+    margin-right: 5px;
+}
+
+.icon-group-detail {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.4rem;
+    justify-content: center;
+}
+
+.border-icon {
+    background-color: var(--blur_bg);
+    border-radius: 50%;
+    margin: 0 1rem;
+    color: white;
+}
+
+.right-component {
+    max-width: 66%;
+    width: 66%;
+    overflow-y: scroll;
+}
+
+.right-component::-webkit-scrollbar {
+    width: 0;
+}
+
+.title-header-detail {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 1rem;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: 0.8px solid rgba(255, 255, 255, 0.1)
+}
+
+.item-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem;
+    padding-right: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: 0.8px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.wrapper-icon-hover {
+    width: 20%;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.first-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+    max-width: 50%;
+}
+
+.first-content .song {
+    color: white;
+    font-size: 1.3rem;
+    margin: 5px 0;
+}
+
+.wrapper-img-row {
+    width: 4rem;
+    height: 4rem;
+    margin: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-img-row .img-item-row {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.item-row .fa-play {
+    color: white;
+    display: none;
+}
+
+.item-row:hover .img-item-row {
+    opacity: 0.7;
+}
+
+.item-row:hover .fa-play {
+    display: block;
+    position: absolute;
+    font-size: 1.5rem
+}
+
 a {
     text-decoration: none;
     color: #fff;
+}
+
+@keyframes scaleImage {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
 }
 
 

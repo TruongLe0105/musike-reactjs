@@ -1,29 +1,34 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ModalSong from "../../modals/explore/ModalSong";
 
 const list = [
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/6/5/7/3/6573c97764d2474df1eae0a4efe802dd.jpg",
+    img: "https://photo-zmp3.zmdcdn.me/banner/6/9/c/c/69cc57b2dd854ce2db7020197073cf51.jpg",
     isModal: false,
+    route: "Chi-Co-The-La-BLACKPINK-BLACKPINK",
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/6/4/e/9/64e943b8f6adadd7c4ccf697d213a978.jpg",
-    isModal: false,
-  },
-  {
-    img: "https://photo-zmp3.zmdcdn.me/banner/4/2/1/1/4211c700bbc7b4cf1095a084afa15d6b.jpg",
-    song: "mọi chuyện đều là lỗi do anh",
-    singer: "Khang Ziet",
+    img: "https://photo-zmp3.zmdcdn.me/banner/f/8/3/b/f83b9292bf41a3533d9e1793670f8829.jpg",
+    song: "Thế Giới Trong Em",
+    singer: "Hương Ly",
     isModal: true,
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/3/e/b/e/3ebe83e18621265ce1a9bf42ca4e3a21.jpg",
-    isModal: false,
+    img: "https://photo-zmp3.zmdcdn.me/banner/9/e/f/e/9efe7dea13aa3ac9e95e968513169f0d.jpg",
+    song: "Giáng Thế",
+    singer: "Phát Huy T4",
+    isModal: true,
   },
   {
-    img: "http://cdn101.picsart.com/208783124002202.jpg",
-    song: "Ahihi do ngok",
-    singer: "Khang Viet",
+    img: "https://photo-zmp3.zmdcdn.me/banner/a/6/4/8/a6480aa703cff5161709dff3353104b3.jpg",
+    isModal: false,
+    route: "EDM-now",
+  },
+  {
+    img: "https://photo-resize-zmp3.zmdcdn.me/w600_r300x169_webp/thumb_video/1/5/0/c/150c5e9c3780177b3f5f34d24d3903e4.jpg",
+    song: "Đánh Mất Em",
+    singer: "Quang Đăng Trần",
     isModal: true,
   },
 ];
@@ -32,6 +37,9 @@ function BannerExplore() {
   const [openModal, setOpenModal] = useState(false);
   const [banners, setBanners] = useState(list.slice(0, 3));
   const [firstIndex, setFirstIndex] = useState(1);
+
+  const navigate = useNavigate();
+
   const bannerIdRef = useRef(null);
   const totalBanner = list?.length;
 
@@ -72,7 +80,8 @@ function BannerExplore() {
   };
 
   const handleNavigate = (item) => {
-    console.log("navigate");
+    console.log("navigate", item.route);
+    navigate(`/album/${item.route}`);
   };
 
   useEffect(() => {
@@ -101,7 +110,7 @@ function BannerExplore() {
               )}
             </div>
           ) : (
-            <div onClick={handleNavigate} className="banner-img">
+            <div onClick={() => handleNavigate(item)} className="banner-img">
               <img src={item.img} alt="img" className="img" />
             </div>
           )}

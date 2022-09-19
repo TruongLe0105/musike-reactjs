@@ -12,6 +12,8 @@ import NewMusic from "../pages/NewMusic";
 import LibraryPage from "../pages/auth/LibraryPage";
 import PlayListPage from "../pages/playlist/PlayListPage";
 import ZingChartPage from "../pages/zingChart/ZingChartPage";
+import AlbumPage from "../pages/albums/AlbumPage";
+import PlaylistPage from "../pages/PlaylistPage";
 
 function Router() {
   return (
@@ -28,6 +30,8 @@ function Router() {
         <Route path="/mv" element={<MVPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/album/:genre" element={<AlbumPage />} />
+        <Route path="/playlist/:genre" element={<PlaylistPage />} />
       </Route>
     </Routes>
   );
