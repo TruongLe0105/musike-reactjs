@@ -33,7 +33,7 @@ function FormCardMV({
                             <a
                                 href='/#'
                                 title={item.singer}
-                                className="link"
+                                className="link-detail"
                             >
                                 {item.singer}
                             </a>

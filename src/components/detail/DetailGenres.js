@@ -1,26 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeartButton, LyricsButton, OptionButton } from '../Button';
 
 function DetailGenres({ data }) {
     const [active, setActive] = useState();
-    const [hover, setHover] = useState(false);
     const [tickSquare, setTickSquare] = useState(false);
-    const [tickedIndex, setTickedIndex] = useState();
+    const [listPlay, setListPlay] = useState([]);
+    const [empty, setEmpty] = useState(false);
+
+    // useEffect(() => {
+    //     if (listPlay.length > 0) {
+    //         setEmpty(false);
+    //     } else {
+    //         setEmpty(true);
+    //     }
+    // }, [listPlay?.length]);
 
     //functions
-    const HoverCard = (index) => {
-        !tickSquare && setHover(true);
+
+    const tickSquareSelect = (item, index) => {
         setActive(index);
-    };
-
-    const HoverLeave = (index) => {
-        !tickSquare && setHover(false);
-    };
-
-    const tickSquareSelect = (index) => {
-        setTickSquare(!tickSquare);
-        setTickedIndex(index);
-        setHover(true);
+        setListPlay([...listPlay, item]);
+        console.log('listPlay', listPlay);
+        active === index && setTickSquare(!tickSquare);
     }
 
     //Components
@@ -110,37 +111,9 @@ function DetailGenres({ data }) {
                     {data?.list.map((item, index) => (
                         <div
                             key={index}
-                            onMouseOver={() => HoverCard(index)}
-                            onMouseLeave={() => HoverLeave(index)}
                             className="item-row"
                         >
                             <div className="first-content">
-                                <div
-                                    style={{
-                                        width: "2rem"
-                                    }}
-                                >
-                                    {
-                                        index === active && hover ?
-                                            (
-                                                tickedIndex === index && tickSquare ?
-                                                    <i
-                                                        onClick={() => tickSquareSelect(index)}
-                                                        style={{
-                                                            cursor: "pointer",
-                                                            fontSize: "1.6rem"
-                                                        }}
-                                                        class="fa-solid fa-square-check"></i> : (
-                                                        <i
-                                                            onClick={() => tickSquareSelect(index)}
-                                                            style={{
-                                                                cursor: "pointer",
-                                                                fontSize: "1.6rem"
-                                                            }} className="fa-solid fa-square"></i>
-                                                    )) :
-                                            <i className="fa-solid fa-music" />
-                                    }
-                                </div>
                                 <div className="wrapper-img-row">
                                     <img
                                         src={item.img}
@@ -161,22 +134,26 @@ function DetailGenres({ data }) {
                                     textAlign: "left",
                                 }}
                             >{item.album}</div>
-                            {
-                                index === active && hover ?
-                                    (
-                                        <div className="wrapper_icon wrapper-icon-hover">
-                                            <LyricsButton />
-                                            <HeartButton />
-                                            <OptionButton />
-                                        </div>
-                                    ) :
-                                    <div
-                                        style={{
-                                            width: "20%",
-                                            textAlign: "right",
-                                        }}
-                                    >{item.time}</div>
-                            }
+                            <div
+                                className="icons-visible-condition">
+                                {
+                                    tickSquare ? <i
+                                        onClick={() => tickSquareSelect(item, index)}
+                                        class="fa-solid fa-square-check"></i> :
+                                        <i
+                                            onClick={() => tickSquareSelect(item, index)}
+                                            className="fa-solid fa-square"></i>
+                                }
+                                <div className="wrapper_icon wrapper-icon-hover">
+                                    <LyricsButton />
+                                    <HeartButton />
+                                    <OptionButton />
+                                </div>
+                            </div>                                    <div className="icons-hide-condition">
+                                <i className="fa-solid fa-music" />
+                                <div
+                                >{item.time}</div>
+                            </div>
                         </div>
                     ))}
                 </div>

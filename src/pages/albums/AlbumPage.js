@@ -162,15 +162,17 @@ function AlbumPage() {
     return (
         <div className="wrapper-detail-card">
             <DetailGenres data={data} />
-            <div className="wrapper-want-listen" style={{
-                marginTop: "4rem"
-            }}>
+            <div className="wrapper-want-listen"
+                style={{
+                    marginTop: "4rem",
+                }}>
                 <div className="title-explore">Có Thể Bạn Quan Tâm</div>
                 <FormFourCard data={data?.can_you_like} />
             </div>
-            <div className="wrapper-want-listen" style={{
-                marginTop: "4rem"
-            }}>
+            <div className="wrapper-want-listen"
+                style={{
+                    marginTop: "4rem",
+                }}>
                 <div className="title-explore">{data.relate_to.header}</div>
                 <FormFourCard data={data?.relate_to.list} />
             </div>
