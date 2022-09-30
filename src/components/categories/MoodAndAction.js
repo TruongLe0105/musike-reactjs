@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const list = [
   {
@@ -57,7 +58,8 @@ const list = [
   },
 ];
 
-function MoodAndAction() {
+
+function MoodAndAction({ data }) {
   return (
     <div className="wrapper-mood-action">
       <div
@@ -67,14 +69,14 @@ function MoodAndAction() {
         Tâm Trạng Và Hoạt Động
       </div>
       <div className="wrapper-card-mood">
-        {list.map((item, index) => (
+        {data?.map((item, index) => (
           <div key={index} className="wrapper-item-mood">
-            <img src={item.img} alt="img" className="img-bigest" />
-            <div className="title-mood">{item.title}</div>
+            <img src={item?.image} alt="img" className="img-bigest" />
+            <div className="title-mood">{item?.title}</div>
             <div className="wrapper-img-smaller">
-              <img src={item.banners[0]} alt="img" className="img" />
-              <img src={item.banners[1]} alt="img" className="img" />
-              <img src={item.banners[2]} alt="img" className="img" />
+              <img src={item?.banner_first} alt="img" className="img" />
+              <img src={item?.banner_second} alt="img" className="img" />
+              <img src={item?.banner_third} alt="img" className="img" />
             </div>
           </div>
         ))}

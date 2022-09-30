@@ -4,7 +4,7 @@ import { HeartButton, OptionButton } from "./Button";
 function FormFourCard({ data, none_icon, more_card }) {
   return (
     <div className="wrapper-four-card">
-      {data.map(({ img, title, singer }, index) => (
+      {data.map(({ image, title, singer }, index) => (
         <div
           className="wrapper-item-card"
           key={index}
@@ -12,10 +12,10 @@ function FormFourCard({ data, none_icon, more_card }) {
             marginBottom: more_card && "3rem"
           }}
         >
-          {img && <div className="item-card">
+          {image && <div className="item-card">
             <div className="wrapper-img">
               <img
-                src={img}
+                src={image}
                 alt={title}
                 className="img"
                 style={{ opacity: none_icon && 1 }}

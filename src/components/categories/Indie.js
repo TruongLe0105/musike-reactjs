@@ -24,7 +24,7 @@ const list = [
   },
 ];
 
-function Indie() {
+function Indie({ data }) {
   return (
     <div className="wrapper-want-listen parent-four-card">
       <div className="title-explore">Indie</div>
@@ -32,7 +32,7 @@ function Indie() {
         <div className="title-parent-four-card">Tất Cả</div>
         <i className="fa-solid fa-chevron-right"></i>
       </div>
-      <FormFourCard data={list} />
+      <FormFourCard data={data} />
     </div>
   );
 }

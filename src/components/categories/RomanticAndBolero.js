@@ -24,7 +24,7 @@ const list = [
   },
 ];
 
-function RomanticAndBolero() {
+function RomanticAndBolero({ data }) {
   return (
     <div
       className="wrapper-want-listen parent-four-card"
@@ -35,7 +35,7 @@ function RomanticAndBolero() {
         <div className="title-parent-four-card">Tất Cả</div>
         <i className="fa-solid fa-chevron-right"></i>
       </div>
-      <FormFourCard data={list} />
+      <FormFourCard data={data} />
     </div>
   );
 }

@@ -402,7 +402,8 @@
 
 .title-song-release {
     color: white;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    font-weight: 800;
 }
 
 .image-card-release {
@@ -443,8 +444,16 @@
     height: 100%;
 }
 
-.wrapper-content-card-release div {
+.wrapper-content-card-release {
     margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.title-singer-release {
+    display: block;
+    margin: 4px 0;
 }
 
 .icon-release {

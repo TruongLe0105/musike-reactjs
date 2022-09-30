@@ -7,6 +7,7 @@ const initialState = {
   error: null,
   isAddCategory: false,
   categories: [],
+  hasCategories: false,
 };
 
 const slice = createSlice({
@@ -24,6 +25,7 @@ const slice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.categories = action.payload.categories;
+      state.hasCategories = true;
     },
   },
 });

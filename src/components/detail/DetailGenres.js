@@ -6,6 +6,7 @@ function DetailGenres({ data }) {
     const [tickSquare, setTickSquare] = useState(false);
     const [listPlay, setListPlay] = useState([]);
     const [empty, setEmpty] = useState(false);
+    const [list, setList] = useState([]);
 
     // useEffect(() => {
     //     if (listPlay.length > 0) {
@@ -19,10 +20,14 @@ function DetailGenres({ data }) {
 
     const tickSquareSelect = (item, index) => {
         setActive(index);
-        setListPlay([...listPlay, item]);
-        console.log('listPlay', listPlay);
-        active === index && setTickSquare(!tickSquare);
-    }
+        list.push(item?.song);
+        // setList(newList);
+        // setListPlay([...listPlay, item]);
+        // console.log('listPlay', listPlay);
+        setTickSquare(!tickSquare);
+    };
+
+    console.log("list", list);
 
     //Components
     const HeaderDetail = () => {
@@ -137,9 +142,10 @@ function DetailGenres({ data }) {
                             <div
                                 className="icons-visible-condition">
                                 {
-                                    tickSquare ? <i
-                                        onClick={() => tickSquareSelect(item, index)}
-                                        class="fa-solid fa-square-check"></i> :
+                                    tickSquare ?
+                                        <i
+                                            onClick={() => tickSquareSelect(item, index)}
+                                            className="fa-solid fa-square-check"></i> :
                                         <i
                                             onClick={() => tickSquareSelect(item, index)}
                                             className="fa-solid fa-square"></i>
@@ -149,7 +155,8 @@ function DetailGenres({ data }) {
                                     <HeartButton />
                                     <OptionButton />
                                 </div>
-                            </div>                                    <div className="icons-hide-condition">
+                            </div>
+                            <div className="icons-hide-condition">
                                 <i className="fa-solid fa-music" />
                                 <div
                                 >{item.time}</div>
