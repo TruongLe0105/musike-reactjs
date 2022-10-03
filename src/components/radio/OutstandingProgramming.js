@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 
 const data = [
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/7/8/4/678408238d07e2012027a96bff12d196.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/7/8/4/678408238d07e2012027a96bff12d196.jpg",
     programming: "XONE Radio",
     title: "XONE With Stars",
     content:
       "Talkshow 1 tiếng với các ca sĩ, nhạc sĩ, rapper, producer, ... hẹn hò cùng các nghệ sĩ trong nước: Tóc Tiên, Đức Phúc... ",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/avatars/f/8/4/c/f84c36fa27e1243a86d48ec87bab01d0.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/avatars/f/8/4/c/f84c36fa27e1243a86d48ec87bab01d0.jpg",
     programming: "Tun cảm ơn",
     title: "Đắp chăn mền nằm nghe Tun kể",
     content:
       "Là series podcast đầu tiên của Tun, nơi Tun và các bạn có thể trải lòng với nhau về những điều mệt mỏi trong cuộc sống... ",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/avatars/0/a/b/3/0ab3af1e5c01362ff2f8740de8643fe1.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/avatars/0/a/b/3/0ab3af1e5c01362ff2f8740de8643fe1.jpg",
     programming: "Vietcetera",
     title: "Have a Sip",
     content: `"Đi cà phê không?", "Tối nay đi uống nhé?" Vietcetera tin rằng gặp nhau và gọi 1 món đồ uống chính là tạo ra không gian để bạn và người khác kết nối...`,
@@ -70,7 +70,7 @@ function Outstanding() {
         {active?.map((item, index) => (
           <div key={index} className="outstanding-programming">
             <div className="img-oustanding">
-              <img src={item?.img} alt="img" className="img" />
+              <img src={item?.image} alt="img" className="img" />
             </div>
             <div className="content-outstanding">
               <div>{item?.programming}</div>

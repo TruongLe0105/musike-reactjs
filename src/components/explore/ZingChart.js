@@ -2,19 +2,19 @@ import React from "react";
 
 const listSong = [
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/7/5/2275dda526935755fc51b587e08e1d7e.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/2/2/7/5/2275dda526935755fc51b587e08e1d7e.jpg",
     singer: "Đình Dũng, ...",
     song: "Nhìn Về Phía Em",
     percent: "42%",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/0/c/8/b0c8399ab4bf53e7eb1285ee1e8aaa32.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/b/0/c/8/b0c8399ab4bf53e7eb1285ee1e8aaa32.jpg",
     singer: "Khang việt",
     song: "Em Nên Dừng Lại",
     percent: "31%",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/e/4/c/1e4cbb712a766f626e10bfebf5383591.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w240_r1x1_webp/cover/1/e/4/c/1e4cbb712a766f626e10bfebf5383591.jpg",
     singer: "Nal, CT",
     song: "Dang Dở",
     percent: "27%",
@@ -51,7 +51,7 @@ function ZingChart() {
                 <div className="wrapper-item-left">
                   <div className="img-zing">
                     <div className="bg-top" />
-                    <img src={item.img} alt="img" className="img" />
+                    <img src={item?.image} alt="img" className="img" />
                     <i className="fa-solid fa-play" />
                   </div>
                   <div className="content-zing">

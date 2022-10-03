@@ -25,11 +25,6 @@ const slice = createSlice({
       state.error = null;
       state.listMusic = action.payload.products;
     },
-    // playMusicSuccess(state, action) {
-    //     state.isLoading = false;
-    //     state.error = null;
-    //     state.musicPlaying = action.payload;
-    // },
   },
 });
 
@@ -46,12 +41,3 @@ export const getListMusic = () => async (dispatch) => {
   }
 };
 
-// export const playMusic = (song) => async (dispatch) => {
-//     dispatch(slice.actions.startLoading());
-//     try {
-//         dispatch(slice.actions.playMusicSuccess(song));
-//     } catch (error) {
-//         dispatch(slice.actions.hasError(error.message));
-//         toast.error(error.message);
-//     }
-// };

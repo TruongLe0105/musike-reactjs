@@ -9,7 +9,7 @@ function FormCardMV({
             {data?.map((item, index) => (
                 <div key={index} className="card-mv">
                     <div className="wrapper-img-mv">
-                        <img src={item.img} alt="img" className="img" />
+                        <img src={item?.image} alt="img" className="img" />
                         <div className="icon-play-mv">
                             <i className="fa-solid fa-play" />
                         </div>

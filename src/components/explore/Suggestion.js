@@ -4,22 +4,22 @@ import FormFourCard from '../FormFourCard';
 function Suggestion() {
     const list = [
         {
-            img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/9/b/3/49b32d749afddbe3fc445cc86f70661a.jpg",
+            image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/4/9/b/3/49b32d749afddbe3fc445cc86f70661a.jpg",
             title: "rap việt kết hợp",
             singer: "Binz, Rhymatic, 16 Typh..."
         },
         {
-            img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/5/9/1/1/5911ca608c3bf3ebe553cdc8452f1973.jpg",
+            image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/5/9/1/1/5911ca608c3bf3ebe553cdc8452f1973.jpg",
             title: "rap việt tạo động lực",
             singer: "Dế Choắt, Magazine, Lil Shady..."
         },
         {
-            img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/e/f/a/cefa523d513f71e0bbdbc5cce6c55c54.jpg",
+            image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/c/e/f/a/cefa523d513f71e0bbdbc5cce6c55c54.jpg",
             title: "RapLuv",
             singer: "HIEUTHUHAI, OSAD, Obito..."
         },
         {
-            img: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/3/d/c/b3dc8485b1bf4243791545a2d3bae4a8.jpg",
+            image: "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/3/d/c/b3dc8485b1bf4243791545a2d3bae4a8.jpg",
             title: "Rap việt thế hệ trẻ",
             singer: "MCK, tling, HIEUTHUHAI..."
         },

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const list = [
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMpqXw5iaGaVzqT9SJT-zTdCGbPLl8npA0TQ&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMpqXw5iaGaVzqT9SJT-zTdCGbPLl8npA0TQ&usqp=CAU",
     title: "CÀ PHÊ",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/2/1/a/3/21a3f531321095bf9ef815bb00a26b27.jpg",
@@ -12,7 +12,7 @@ const list = [
     ],
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBWPUbxxJhagPTPztMYKZ94E-eisIAhbwSg&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlBWPUbxxJhagPTPztMYKZ94E-eisIAhbwSg&usqp=CAU",
     title: "SPA - YOGA",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/6/7/0/f/670f2846fbafcd6cac859fc35debaa98.jpg",
@@ -21,7 +21,7 @@ const list = [
     ],
   },
   {
-    img: "https://res.cloudinary.com/deg3ts6ui/image/upload/v1663128657/sheog9n3gisie55qgynv.jpg",
+    image: "https://res.cloudinary.com/deg3ts6ui/image/upload/v1663128657/sheog9n3gisie55qgynv.jpg",
     title: "DRIVING",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/b/f/9/3/bf93f8be9b1c0eccf8ed4e3302469cf8.jpg",
@@ -30,7 +30,7 @@ const list = [
     ],
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrqF_iw-G-uwrugUogK5DHxo-49OOX8-Rog&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrqF_iw-G-uwrugUogK5DHxo-49OOX8-Rog&usqp=CAU",
     title: "WORKOUT",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/f/1/2/5/f125ea6135af87b56dc10d3125fa68cd.jpg",
@@ -39,7 +39,7 @@ const list = [
     ],
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW4C0yJg3vYMxjz6xx4P3Olb7bxUxQ5fo8YA&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW4C0yJg3vYMxjz6xx4P3Olb7bxUxQ5fo8YA&usqp=CAU",
     title: "TẬP TRUNG",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/3/8/f/a/38fa3aa5236ba7b1a1efb1f446ef0370.jpg",
@@ -48,7 +48,7 @@ const list = [
     ],
   },
   {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS90m87Ou9m5Pkvi-UXjKvMVO1Fs7467lwVkg&usqp=CAU",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS90m87Ou9m5Pkvi-UXjKvMVO1Fs7467lwVkg&usqp=CAU",
     title: "GIAI ĐIỆU BUỒN",
     banners: [
       "https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/a/b/d/6/abd6bf7472c7cd6c9b36f10eda5af0a8.jpg",

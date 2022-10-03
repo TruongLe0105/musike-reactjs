@@ -679,7 +679,7 @@
     z-index: 10;
 }
 
-.bg-full-img:hover .img {
+.bg-full-image:hover .img {
     animation: scaleImage 0.3s linear;
     transform: scale(1.1);
     opacity: 0.6;

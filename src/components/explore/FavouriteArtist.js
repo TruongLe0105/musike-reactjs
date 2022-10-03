@@ -4,7 +4,7 @@ import FormFourCard from "../FormFourCard";
 function FavouriteArtist() {
   const list = [
     {
-      img: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2019/07/22/f/e/a/2/1563758181487_600.jpg",
+      image: "https://avatar-ex-swe.nixcdn.com/singer/avatar/2019/07/22/f/e/a/2/1563758181487_600.jpg",
       singer: "JustaTee",
       listImg: [
         "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/covers/3/4/34b2e5792d3f467216560a317a6ff7f2_1460691568.jpg",
@@ -13,7 +13,7 @@ function FavouriteArtist() {
       ],
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhbKsuEy-j3ZOMwHLW9e9aiBsBZq1R5KVj_g&usqp=CAU",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhbKsuEy-j3ZOMwHLW9e9aiBsBZq1R5KVj_g&usqp=CAU",
       singer: "Trinh thag binh",
       listImg: [
         "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/4/d/b/d/4dbd67a17030e72c036a9f98bd7ca325.jpg",
@@ -22,7 +22,7 @@ function FavouriteArtist() {
       ],
     },
     {
-      img: "https://image.thanhnien.vn/w660/Uploaded/2022/mftum/2021_05_25/anhchupmanhinh2021-05-25luc180229_emcg.png",
+      image: "https://image.thanhnien.vn/w660/Uploaded/2022/mftum/2021_05_25/anhchupmanhinh2021-05-25luc180229_emcg.png",
       singer: "Chi Dan",
       listImg: [
         "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/2/9/1/b/291b5a81f266d588cf4344766676a140.jpg",
@@ -31,7 +31,7 @@ function FavouriteArtist() {
       ],
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4X1nz98pAl7bK-S88_GD9zsvHm_lJ_hVbag&usqp=CAU",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4X1nz98pAl7bK-S88_GD9zsvHm_lJ_hVbag&usqp=CAU",
       singer: "MIN",
       listImg: [
         "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_webp/cover/2/7/d/9/27d9bf0671538484ddc719c125cba369.jpg",
@@ -49,7 +49,7 @@ function FavouriteArtist() {
             {/* <div className="bg-full-img" /> */}
             <div className="item-card item-favourite">
               <div className="wrapper-img">
-                <img src={item.img} alt={item.singer} className="img" />
+                <img src={item?.image} alt={item.singer} className="img" />
               </div>
               <div className="wrapper_icon wrapper-icon">
                 <i className="fa-solid fa-play"></i>

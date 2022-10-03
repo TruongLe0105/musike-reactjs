@@ -29,7 +29,7 @@ function HundredTopRank({ data, collapse, title }) {
             <div className="strikethrough">_</div>
             <div className="content-left">
               <div className="wrapper-img">
-                <img src={item.img} alt="zing-chart" className="img" />
+                <img src={item?.image} alt="zing-chart" className="img" />
                 <div className="bg-black" />
                 <i className="fa-solid fa-play" />
               </div>

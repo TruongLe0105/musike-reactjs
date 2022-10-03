@@ -4,29 +4,29 @@ import ModalSong from "../../modals/explore/ModalSong";
 
 const list = [
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/6/9/c/c/69cc57b2dd854ce2db7020197073cf51.jpg",
+    image: "https://photo-zmp3.zmdcdn.me/banner/6/9/c/c/69cc57b2dd854ce2db7020197073cf51.jpg",
     isModal: false,
     route: "Chi-Co-The-La-BLACKPINK-BLACKPINK",
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/f/8/3/b/f83b9292bf41a3533d9e1793670f8829.jpg",
+    image: "https://photo-zmp3.zmdcdn.me/banner/f/8/3/b/f83b9292bf41a3533d9e1793670f8829.jpg",
     song: "Thế Giới Trong Em",
     singer: "Hương Ly",
     isModal: true,
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/9/e/f/e/9efe7dea13aa3ac9e95e968513169f0d.jpg",
+    image: "https://photo-zmp3.zmdcdn.me/banner/9/e/f/e/9efe7dea13aa3ac9e95e968513169f0d.jpg",
     song: "Giáng Thế",
     singer: "Phát Huy T4",
     isModal: true,
   },
   {
-    img: "https://photo-zmp3.zmdcdn.me/banner/a/6/4/8/a6480aa703cff5161709dff3353104b3.jpg",
+    image: "https://photo-zmp3.zmdcdn.me/banner/a/6/4/8/a6480aa703cff5161709dff3353104b3.jpg",
     isModal: false,
     route: "EDM-now",
   },
   {
-    img: "https://photo-resize-zmp3.zmdcdn.me/w600_r300x169_webp/thumb_video/1/5/0/c/150c5e9c3780177b3f5f34d24d3903e4.jpg",
+    image: "https://photo-resize-zmp3.zmdcdn.me/w600_r300x169_webp/thumb_video/1/5/0/c/150c5e9c3780177b3f5f34d24d3903e4.jpg",
     song: "Đánh Mất Em",
     singer: "Quang Đăng Trần",
     isModal: true,
@@ -99,7 +99,7 @@ function BannerExplore() {
           {item.isModal ? (
             <div>
               <div onClick={() => handleOpenModal(item)} className="banner-img">
-                <img src={item.img} alt="img" className="img" />
+                <img src={item?.image} alt="img" className="img" />
               </div>
               {openModal && (
                 <ModalSong
@@ -111,7 +111,7 @@ function BannerExplore() {
             </div>
           ) : (
             <div onClick={() => handleNavigate(item)} className="banner-img">
-              <img src={item.img} alt="img" className="img" />
+              <img src={item?.image} alt="img" className="img" />
             </div>
           )}
         </div>
