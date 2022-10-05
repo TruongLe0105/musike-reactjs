@@ -1,23 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import InfiniteScroll from 'react-infinite-scroll-component';
 
-import Countries from "../../components/categories/Countries";
-import Edm from "../../components/categories/Edm";
-import Guitar from "../../components/categories/Guitar";
-import Hiphop from "../../components/categories/Hiphop";
-import Indie from "../../components/categories/Indie";
 import MoodAndAction from "../../components/categories/MoodAndAction";
-import MusicFilm from "../../components/categories/MusicFilm";
-import RAndB from "../../components/categories/RAndB";
-import Remix from "../../components/categories/Remix";
-import RomanticAndBolero from "../../components/categories/RomanticAndBolero";
 import "../../components/css/genres.css";
 import { getListCategories } from "../../modals/genres/GenresSlice";
+import GeneralComponent from "../../components/categories/GeneralComponent";
+
+import Countries from "../../components/categories/Countries";
 
 function Genres() {
   const dispatch = useDispatch();
-  const { categories, hasCategories } = useSelector(state => state.categories);
+  const { categories } = useSelector(state => state.categories);
   const [loading, setLoading] = useState(true);
 
   const getData = (category) => {
@@ -35,6 +28,16 @@ function Genres() {
   const musicFilm = getData("music_film");
   const indie = getData("india");
   const guitar = getData("guitar");
+  const none_lyrics = getData("none_lyrics");
+  const acoustic = getData("acoustic");
+  const immortalMusic_VN = getData("immortalmusic_vn");
+  const music_Trinh = getData("music_trinh");
+  const jazz = getData("jazz");
+  const rock = getData("rock");
+  const latin = getData("latin");
+  const piano = getData("piano");
+  const classicMusic = getData("classicmusic");
+  const immortalMusic_US_UK = getData("immortalmusic_us_uk");
 
   useEffect(() => {
     dispatch(getListCategories());
@@ -52,19 +55,27 @@ function Genres() {
         </div>
         <MoodAndAction data={moodsAction} />
         <Countries data={countries} />
-        <RomanticAndBolero data={romanticBolero} />
-        <Edm data={edm} />
-        <Remix data={remix} />
-        <Hiphop data={hiphop} />
-        <RAndB data={rAndb} />
-        <MusicFilm data={musicFilm} />
-        <Indie data={indie} />
-        <Guitar data={guitar} />
+        <GeneralComponent data={romanticBolero} title={"Trữ Tình & Bolero"} />
+        <GeneralComponent data={edm} title="EDM" />
+        <GeneralComponent data={remix} title="Remix" />
+        <GeneralComponent data={hiphop} title="HipHop" />
+        <GeneralComponent data={rAndb} title={"R&B"} />
+        <GeneralComponent data={musicFilm} title="Nhạc Phim" />
+        <GeneralComponent data={indie} title="Indie" />
+        <GeneralComponent data={guitar} title="Guitar" />
+        <GeneralComponent data={none_lyrics} title="Nhạc Không Lời" />
+        <GeneralComponent data={acoustic} title="Acoustic" />
+        <GeneralComponent data={immortalMusic_VN} title="Nhạc Việt Bất Hủ" />
+        <GeneralComponent data={music_Trinh} title="Nhạc Trinh" />
+        <GeneralComponent data={jazz} title="Jazz" />
+        <GeneralComponent data={rock} title="Rock" />
+        <GeneralComponent data={latin} title="Latin" />
+        <GeneralComponent data={piano} title="Piano" />
+        <GeneralComponent data={classicMusic} title="Nhạc Cổ Điển" />
+        <GeneralComponent data={immortalMusic_US_UK} title="Nhạc Âu Mỹ Bất Hủ" />
       </div>
     )
   );
 }
-
-// Scroll khi phần tử xuất hiện ở cuối trang thì sẽ gọi api...
 
 export default Genres;
